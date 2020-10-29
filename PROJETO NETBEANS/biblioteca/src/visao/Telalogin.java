@@ -24,9 +24,9 @@ public class Telalogin extends javax.swing.JFrame {
         lbTitulo = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         LBLogin = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        TFlogin = new javax.swing.JTextField();
         LBSenha = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        pSenha = new javax.swing.JPasswordField();
         btEntrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -43,16 +43,21 @@ public class Telalogin extends javax.swing.JFrame {
 
         LBLogin.setText("LOGIN");
 
-        jTextField3.setText("jTextField1");
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        TFlogin.setText("jTextField1");
+        TFlogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                TFloginActionPerformed(evt);
             }
         });
 
         LBSenha.setText("SENHA");
 
-        jPasswordField1.setText("jPasswordField1");
+        pSenha.setText("jPasswordField1");
+        pSenha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pSenhaActionPerformed(evt);
+            }
+        });
 
         btEntrar.setText("ENTRAR");
         btEntrar.addActionListener(new java.awt.event.ActionListener() {
@@ -71,12 +76,12 @@ public class Telalogin extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(LBLogin)
                         .addGap(18, 18, 18)
-                        .addComponent(jTextField3)
+                        .addComponent(TFlogin)
                         .addGap(135, 135, 135))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(LBSenha)
                         .addGap(18, 18, 18)
-                        .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(pSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btEntrar)
                         .addContainerGap())))
@@ -87,12 +92,12 @@ public class Telalogin extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LBLogin)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TFlogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(LBSenha)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(pSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btEntrar)))
                 .addContainerGap(37, Short.MAX_VALUE))
         );
@@ -103,12 +108,12 @@ public class Telalogin extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lbTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(27, 27, 27))
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                .addComponent(lbTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(37, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(114, 114, 114)
@@ -133,13 +138,17 @@ public class Telalogin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void TFloginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFloginActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_TFloginActionPerformed
 
     private void btEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEntrarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btEntrarActionPerformed
+
+    private void pSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pSenhaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pSenhaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -179,11 +188,11 @@ public class Telalogin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel LBLogin;
     private javax.swing.JLabel LBSenha;
+    private javax.swing.JTextField TFlogin;
     private javax.swing.JButton btEntrar;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JLabel lbTitulo;
+    private javax.swing.JPasswordField pSenha;
     // End of variables declaration//GEN-END:variables
 }
