@@ -27,11 +27,13 @@ public class GerenciadorUsuarios {
 		
 	}
 	
-	public void login () {
-		if (listaUsuarios.get(i).equals) {
-			
+	public Usuario login (String login,String senha) {
+            for (int i = 0; i < listaUsuarios.size(); i++) {
+		if (listaUsuarios.get(i).getLogin().equals(login) && listaUsuarios.get(i).getSenha().equals(senha)) {
+                    return listaUsuarios.get(i);
 		}
-		
+            }
+            return null;
 	}
 	
 	public ArrayList<Usuario> getListaUsuarios() {
