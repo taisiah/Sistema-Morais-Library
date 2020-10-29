@@ -1,6 +1,10 @@
 
 package visao;
 
+import controle.GerenciadorUsuarios;
+import javax.swing.JOptionPane;
+import modelo.Usuario;
+
 
 public class Telalogin extends javax.swing.JFrame {
 
@@ -26,7 +30,7 @@ public class Telalogin extends javax.swing.JFrame {
         LBLogin = new javax.swing.JLabel();
         TFlogin = new javax.swing.JTextField();
         LBSenha = new javax.swing.JLabel();
-        pSenha = new javax.swing.JPasswordField();
+        TFsenha = new javax.swing.JPasswordField();
         btEntrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -41,9 +45,10 @@ public class Telalogin extends javax.swing.JFrame {
         lbTitulo.setMaximumSize(new java.awt.Dimension(200, 25));
         lbTitulo.setPreferredSize(new java.awt.Dimension(200, 50));
 
+        jPanel1.setBackground(new java.awt.Color(255, 0, 0));
+
         LBLogin.setText("LOGIN");
 
-        TFlogin.setText("jTextField1");
         TFlogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TFloginActionPerformed(evt);
@@ -52,10 +57,9 @@ public class Telalogin extends javax.swing.JFrame {
 
         LBSenha.setText("SENHA");
 
-        pSenha.setText("jPasswordField1");
-        pSenha.addActionListener(new java.awt.event.ActionListener() {
+        TFsenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pSenhaActionPerformed(evt);
+                TFsenhaActionPerformed(evt);
             }
         });
 
@@ -76,15 +80,16 @@ public class Telalogin extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(LBLogin)
                         .addGap(18, 18, 18)
-                        .addComponent(TFlogin)
-                        .addGap(135, 135, 135))
+                        .addComponent(TFlogin, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(LBSenha)
                         .addGap(18, 18, 18)
-                        .addComponent(pSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btEntrar)
-                        .addContainerGap())))
+                        .addComponent(TFsenha)))
+                .addGap(135, 135, 135))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btEntrar)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -96,10 +101,10 @@ public class Telalogin extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(LBSenha)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(pSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btEntrar)))
-                .addContainerGap(37, Short.MAX_VALUE))
+                    .addComponent(TFsenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btEntrar)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -109,7 +114,7 @@ public class Telalogin extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addComponent(lbTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -144,11 +149,19 @@ public class Telalogin extends javax.swing.JFrame {
 
     private void btEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEntrarActionPerformed
         // TODO add your handling code here:
+        String email_login = TFlogin.getText();
+        String senha_login = TFsenha.getText();
+        if(grUsuario.login(email_login, senha_login) != null) {
+            JOptionPane.showMessageDialog(null, "Login feito com sucesso");
+        }
+        else {
+            JOptionPane.showMessageDialog(null, "Login ou senha inválido!");
+        }
     }//GEN-LAST:event_btEntrarActionPerformed
 
-    private void pSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pSenhaActionPerformed
+    private void TFsenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFsenhaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_pSenhaActionPerformed
+    }//GEN-LAST:event_TFsenhaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -176,7 +189,9 @@ public class Telalogin extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Telalogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        grUsuario = new GerenciadorUsuarios() ;
+        Usuario u_inicial = new Usuario("taisia@taisia.com", "123", "Taisia", "rua teste", "111111111");
+        grUsuario.addUsuario(u_inicial);
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -184,15 +199,16 @@ public class Telalogin extends javax.swing.JFrame {
             }
         });
     }
-
+    private static GerenciadorUsuarios grUsuario ;
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel LBLogin;
     private javax.swing.JLabel LBSenha;
     private javax.swing.JTextField TFlogin;
+    private javax.swing.JPasswordField TFsenha;
     private javax.swing.JButton btEntrar;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JLabel lbTitulo;
-    private javax.swing.JPasswordField pSenha;
     // End of variables declaration//GEN-END:variables
 }

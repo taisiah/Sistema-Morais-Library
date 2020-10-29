@@ -5,18 +5,15 @@ package modelo;
 public class Usuario {
     
     //atributos
-
-	private String login;
+	private String email;
 	private String senha;
 	private String nome;
 	private String endereco;
-	private String email;
 	private String telefone;
 	
 	
 	//construtor com campos
-	public Usuario(String login,String senha,String nome,String endereco,String email,String telefone) {
-		this.login = login ;
+	public Usuario(String email,String senha,String nome,String endereco,String telefone) {
 		this.senha = senha ;
 		this.nome = nome;
 		this.endereco = endereco;
@@ -25,18 +22,12 @@ public class Usuario {
 		
 	}
 	//construtor sem campos
+
+        @Override
+        public String toString() {
+            return "Usuario{" + "email=" + email + ", senha=" + senha + ", nome=" + nome + ", endereco=" + endereco + ", telefone=" + telefone + '}';
+        }
 	
-	
-	public String toString() {
-		return "Usuario [login=" + login + ", senha=" + senha + ", nome=" + nome + ", endereco=" + endereco + ", email="
-				+ email + ", telefone=" + telefone + "]";
-	}
-	public String getLogin() {
-		return login;
-	}
-	public void setLogin(String login) {
-		this.login = login;
-	}
 	public String getSenha() {
 		return senha;
 	}
