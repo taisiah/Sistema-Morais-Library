@@ -15,11 +15,20 @@ public class GerenciadorUsuarios {
 	public GerenciadorUsuarios() {
 	}
 	
-	public void addUsuario (Usuario u ) {
-		listaUsuarios.add(u);
+	public boolean addUsuario (Usuario u ) {
+            for (int i = 0; i < listaUsuarios.size(); i++) {
+		if (listaUsuarios.get(i).getEmail().equals(u.getEmail())){
+                    return false;
+                }    
+            }
+            listaUsuarios.add(u);
+            return true;
+        }    
+        
+  
 		
-	}
-	public void buscarUsuario () {
+	
+	/*public Usuario buscarUsuario () {
 		
 	}
 	
@@ -35,7 +44,7 @@ public class GerenciadorUsuarios {
             }
             return null;
 	}
-	
+	*/
 	public ArrayList<Usuario> getListaUsuarios() {
 		return listaUsuarios;
 	}
