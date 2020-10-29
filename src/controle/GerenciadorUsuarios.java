@@ -28,6 +28,9 @@ public class GerenciadorUsuarios {
 	}
 	
 	public void login () {
+		if (listaUsuarios.get(i).equals) {
+			
+		}
 		
 	}
 	
