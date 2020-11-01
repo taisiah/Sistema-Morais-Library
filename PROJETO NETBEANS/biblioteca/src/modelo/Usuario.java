@@ -27,7 +27,7 @@ public class Usuario {
     }
     
     public Usuario() {}
-    
+   
     //metodos
     
     public String toString() {
