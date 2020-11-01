@@ -1,6 +1,10 @@
 
 package visao;
 
+import controle.GerenciadorUsuarios;
+import javax.swing.JOptionPane;
+import modelo.Usuario;
+
 
 public class Telalogin extends javax.swing.JFrame {
 
@@ -21,48 +25,59 @@ public class Telalogin extends javax.swing.JFrame {
     private void initComponents() {
 
         jTextField2 = new javax.swing.JTextField();
-        lbTitulo = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         LBLogin = new javax.swing.JLabel();
         TFlogin = new javax.swing.JTextField();
         LBSenha = new javax.swing.JLabel();
-        pSenha = new javax.swing.JPasswordField();
+        TFsenha = new javax.swing.JPasswordField();
         btEntrar = new javax.swing.JButton();
+        lbTitulo = new javax.swing.JLabel();
+        btFechar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jTextField2.setText("jTextField1");
 
-        lbTitulo.setBackground(new java.awt.Color(204, 0, 0));
-        lbTitulo.setFont(new java.awt.Font("Franklin Gothic Heavy", 0, 18)); // NOI18N
-        lbTitulo.setForeground(new java.awt.Color(0, 0, 204));
-        lbTitulo.setText("Bem vindo ao Morais Library");
-        lbTitulo.setToolTipText("");
-        lbTitulo.setMaximumSize(new java.awt.Dimension(200, 25));
-        lbTitulo.setPreferredSize(new java.awt.Dimension(200, 50));
+        jPanel1.setBackground(new java.awt.Color(224, 226, 221));
 
-        LBLogin.setText("LOGIN");
+        LBLogin.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        LBLogin.setText("Login:");
 
-        TFlogin.setText("jTextField1");
         TFlogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TFloginActionPerformed(evt);
             }
         });
 
-        LBSenha.setText("SENHA");
+        LBSenha.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        LBSenha.setText("Senha:");
 
-        pSenha.setText("jPasswordField1");
-        pSenha.addActionListener(new java.awt.event.ActionListener() {
+        TFsenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pSenhaActionPerformed(evt);
+                TFsenhaActionPerformed(evt);
             }
         });
 
-        btEntrar.setText("ENTRAR");
+        btEntrar.setBackground(new java.awt.Color(51, 153, 0));
+        btEntrar.setForeground(new java.awt.Color(255, 255, 255));
+        btEntrar.setText("OK");
         btEntrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btEntrarActionPerformed(evt);
+            }
+        });
+
+        lbTitulo.setBackground(new java.awt.Color(204, 0, 0));
+        lbTitulo.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 22)); // NOI18N
+        lbTitulo.setText(" Morais Library");
+        lbTitulo.setToolTipText("");
+        lbTitulo.setMaximumSize(new java.awt.Dimension(200, 25));
+        lbTitulo.setPreferredSize(new java.awt.Dimension(200, 50));
+
+        btFechar.setText("X");
+        btFechar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btFecharActionPerformed(evt);
             }
         });
 
@@ -71,68 +86,69 @@ public class Telalogin extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(67, 67, 67)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(LBLogin)
+                    .addComponent(LBSenha))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(TFlogin, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
+                            .addComponent(TFsenha))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(LBLogin)
-                        .addGap(18, 18, 18)
-                        .addComponent(TFlogin)
-                        .addGap(135, 135, 135))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(LBSenha)
-                        .addGap(18, 18, 18)
-                        .addComponent(pSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btEntrar)
-                        .addContainerGap())))
+                        .addComponent(btEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(113, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btFechar, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(lbTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(74, 74, 74))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addComponent(btFechar)
+                .addGap(1, 1, 1)
+                .addComponent(lbTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LBLogin)
-                    .addComponent(TFlogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TFlogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LBLogin))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(LBSenha)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(pSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btEntrar)))
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(TFsenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LBSenha))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btEntrar)
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(lbTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(37, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(18, 18, 18))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(114, 114, 114)
                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(237, Short.MAX_VALUE)))
+                    .addContainerGap(212, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addComponent(lbTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(50, 50, 50)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(87, Short.MAX_VALUE))
+                .addContainerGap(70, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(125, 125, 125)
                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(175, Short.MAX_VALUE)))
+                    .addContainerGap(199, Short.MAX_VALUE)))
         );
 
         pack();
@@ -144,11 +160,23 @@ public class Telalogin extends javax.swing.JFrame {
 
     private void btEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEntrarActionPerformed
         // TODO add your handling code here:
+        String email_login = TFlogin.getText();
+        String senha_login = TFsenha.getText();
+        if(grUsuario.login(email_login, senha_login) != null) {
+            JOptionPane.showMessageDialog(null, "Login feito com sucesso");
+        }
+        else {
+            JOptionPane.showMessageDialog(null, "Login ou senha inválido!");
+        }
     }//GEN-LAST:event_btEntrarActionPerformed
 
-    private void pSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pSenhaActionPerformed
+    private void TFsenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFsenhaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_pSenhaActionPerformed
+    }//GEN-LAST:event_TFsenhaActionPerformed
+
+    private void btFecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btFecharActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btFecharActionPerformed
 
     /**
      * @param args the command line arguments
@@ -176,7 +204,9 @@ public class Telalogin extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Telalogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        grUsuario = new GerenciadorUsuarios() ;
+        Usuario u_inicial = new Usuario("taisia@taisia.com", "123", "Taisia", "rua teste", "111111111");
+        grUsuario.addUsuario(u_inicial);
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -184,15 +214,17 @@ public class Telalogin extends javax.swing.JFrame {
             }
         });
     }
-
+    private static GerenciadorUsuarios grUsuario ;
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel LBLogin;
     private javax.swing.JLabel LBSenha;
     private javax.swing.JTextField TFlogin;
+    private javax.swing.JPasswordField TFsenha;
     private javax.swing.JButton btEntrar;
+    private javax.swing.JButton btFechar;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JLabel lbTitulo;
-    private javax.swing.JPasswordField pSenha;
     // End of variables declaration//GEN-END:variables
 }
