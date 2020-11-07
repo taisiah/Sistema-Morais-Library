@@ -13,6 +13,7 @@
     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
       <Color blue="99" green="99" red="99" type="rgb"/>
     </Property>
+    <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -295,7 +296,7 @@
               <Font name="Tahoma" size="12" style="3"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/visao/morais-16.png"/>
+              <Image iconType="3" name="/imagens/morais-16.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value=" Morais Library"/>
           </Properties>
@@ -327,7 +328,7 @@
           <Color blue="0" green="96" red="32" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/visao/save-24.png"/>
+          <Image iconType="3" name="/imagens/save-24.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Salvar"/>
       </Properties>
@@ -338,7 +339,7 @@
           <Color blue="33" green="99" red="ff" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/visao/refresh-24.png"/>
+          <Image iconType="3" name="/imagens/refresh-24.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Limpar"/>
       </Properties>
@@ -349,7 +350,7 @@
           <Color blue="0" green="0" red="ff" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/visao/delete-24.png"/>
+          <Image iconType="3" name="/imagens/delete-24.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Excluir"/>
       </Properties>

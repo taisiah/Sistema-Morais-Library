@@ -40,6 +40,7 @@ public class TelaEventos extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(153, 153, 153));
+        setResizable(false);
 
         tfDescEvt.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
@@ -80,7 +81,7 @@ public class TelaEventos extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         lbTituloPg.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
-        lbTituloPg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/visao/morais-16.png"))); // NOI18N
+        lbTituloPg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/morais-16.png"))); // NOI18N
         lbTituloPg.setText(" Morais Library");
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
@@ -112,15 +113,15 @@ public class TelaEventos extends javax.swing.JFrame {
         lbTituloCadastroEvt.setText("Cadastro de Eventos");
 
         btSalvarEvt.setBackground(new java.awt.Color(50, 150, 0));
-        btSalvarEvt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/visao/save-24.png"))); // NOI18N
+        btSalvarEvt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/save-24.png"))); // NOI18N
         btSalvarEvt.setText("Salvar");
 
         btLimparEvt.setBackground(new java.awt.Color(255, 153, 51));
-        btLimparEvt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/visao/refresh-24.png"))); // NOI18N
+        btLimparEvt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/refresh-24.png"))); // NOI18N
         btLimparEvt.setText("Limpar");
 
         btExcluirEvt.setBackground(new java.awt.Color(255, 0, 0));
-        btExcluirEvt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/visao/delete-24.png"))); // NOI18N
+        btExcluirEvt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/delete-24.png"))); // NOI18N
         btExcluirEvt.setText("Excluir");
 
         btBuscarEvt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/visao/search-12-16.png"))); // NOI18N
