@@ -27,9 +27,6 @@ public class TelaEventos extends javax.swing.JFrame {
         tfFoneEvt = new javax.swing.JTextField();
         lbPublioEvt = new javax.swing.JLabel();
         tfPublicoEvt = new javax.swing.JTextField();
-        jPanel1 = new javax.swing.JPanel();
-        lbTituloPg = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         lbTituloCadastroEvt = new javax.swing.JLabel();
         btSalvarEvt = new javax.swing.JButton();
         btLimparEvt = new javax.swing.JButton();
@@ -78,37 +75,6 @@ public class TelaEventos extends javax.swing.JFrame {
 
         tfPublicoEvt.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-
-        lbTituloPg.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
-        lbTituloPg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/morais-16.png"))); // NOI18N
-        lbTituloPg.setText(" Morais Library");
-
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("X");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lbTituloPg, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(lbTituloPg, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(jButton1))
-        );
-
         lbTituloCadastroEvt.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lbTituloCadastroEvt.setText("Cadastro de Eventos");
 
@@ -136,7 +102,6 @@ public class TelaEventos extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -186,8 +151,7 @@ public class TelaEventos extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(39, 39, 39)
                 .addComponent(lbTituloCadastroEvt)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -215,7 +179,7 @@ public class TelaEventos extends javax.swing.JFrame {
                     .addComponent(lbFoneEvt, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbPublioEvt, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tfPublicoEvt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btSalvarEvt)
                     .addComponent(btLimparEvt)
@@ -224,11 +188,8 @@ public class TelaEventos extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btBuscarEvtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBuscarEvtActionPerformed
         // TODO add your handling code here:
@@ -275,8 +236,6 @@ public class TelaEventos extends javax.swing.JFrame {
     private javax.swing.JButton btLimparEvt;
     private javax.swing.JButton btSalvarEvt;
     private javax.swing.JComboBox<String> cbEspacoEvt;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JLabel lbDataEvt;
     private javax.swing.JLabel lbDescEvt;
@@ -286,7 +245,6 @@ public class TelaEventos extends javax.swing.JFrame {
     private javax.swing.JLabel lbPublioEvt;
     private javax.swing.JLabel lbRespEvt;
     private javax.swing.JLabel lbTituloCadastroEvt;
-    private javax.swing.JLabel lbTituloPg;
     private javax.swing.JTextField tfDataEvt;
     private javax.swing.JTextField tfDescEvt;
     private javax.swing.JTextField tfFoneEvt;

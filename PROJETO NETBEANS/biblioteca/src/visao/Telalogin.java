@@ -32,9 +32,9 @@ public class Telalogin extends javax.swing.JFrame {
         TFsenha = new javax.swing.JPasswordField();
         btEntrar = new javax.swing.JButton();
         lbTitulo = new javax.swing.JLabel();
-        btFechar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Morais Library - Login");
         setResizable(false);
 
         jTextField2.setText("jTextField1");
@@ -116,24 +116,14 @@ public class Telalogin extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        btFechar.setText("X");
-        btFechar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btFecharActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btFechar, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(114, 114, 114)
@@ -143,8 +133,7 @@ public class Telalogin extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(btFechar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(29, 29, 29)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(39, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -155,6 +144,7 @@ public class Telalogin extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void TFloginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFloginActionPerformed
@@ -176,10 +166,6 @@ public class Telalogin extends javax.swing.JFrame {
     private void TFsenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFsenhaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TFsenhaActionPerformed
-
-    private void btFecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btFecharActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btFecharActionPerformed
 
     /**
      * @param args the command line arguments
@@ -225,7 +211,6 @@ public class Telalogin extends javax.swing.JFrame {
     private javax.swing.JTextField TFlogin;
     private javax.swing.JPasswordField TFsenha;
     private javax.swing.JButton btEntrar;
-    private javax.swing.JButton btFechar;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JLabel lbTitulo;
