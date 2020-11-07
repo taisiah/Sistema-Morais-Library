@@ -69,7 +69,7 @@ public class Telalogin extends javax.swing.JFrame {
         lbTitulo.setBackground(new java.awt.Color(255, 255, 255));
         lbTitulo.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 22)); // NOI18N
         lbTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbTitulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/logo_morais.png"))); // NOI18N
+        lbTitulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/logo_morais_1.png"))); // NOI18N
         lbTitulo.setToolTipText("");
         lbTitulo.setMaximumSize(new java.awt.Dimension(200, 25));
         lbTitulo.setPreferredSize(new java.awt.Dimension(200, 50));
