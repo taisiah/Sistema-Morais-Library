@@ -58,6 +58,8 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         jRStatusInaUsu = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Morais Llbrary - Cadastro de Usuário");
+        setResizable(false);
 
         lbTituloCadastroUsu.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lbTituloCadastroUsu.setText("Cadastro de Usuarios");
@@ -123,7 +125,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
 
         btSalvarUsu.setBackground(new java.awt.Color(50, 150, 0));
         btSalvarUsu.setForeground(new java.awt.Color(255, 255, 255));
-        btSalvarUsu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/delete-24_1.png"))); // NOI18N
+        btSalvarUsu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/save-24_1.png"))); // NOI18N
         btSalvarUsu.setText("Salvar");
 
         javax.swing.GroupLayout jPBotoesLayout = new javax.swing.GroupLayout(jPBotoes);
