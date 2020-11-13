@@ -5,9 +5,11 @@
  */
 package visao;
 
+import javax.swing.JOptionPane;
+
 /**
  *
- * @author ruand
+
  */
 public class TelaCadastroUsuario extends javax.swing.JFrame {
 
@@ -77,13 +79,23 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         lbTipoUsu.setText("Tipo:");
 
         lbEnderecoUsu.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        lbEnderecoUsu.setText("Endereço");
+        lbEnderecoUsu.setText("Endereço:");
 
         tfCPFUsu.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         tfNomeUsu.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tfNomeUsu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfNomeUsuActionPerformed(evt);
+            }
+        });
 
         tfEmailUsu.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tfEmailUsu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfEmailUsuActionPerformed(evt);
+            }
+        });
 
         btBuscarUsu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/search-12-16_1.png"))); // NOI18N
         btBuscarUsu.setPreferredSize(new java.awt.Dimension(23, 23));
@@ -122,11 +134,21 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         btLimparUsu.setForeground(new java.awt.Color(255, 255, 255));
         btLimparUsu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/refresh-24_1.png"))); // NOI18N
         btLimparUsu.setText("Limpar");
+        btLimparUsu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btLimparUsuActionPerformed(evt);
+            }
+        });
 
         btSalvarUsu.setBackground(new java.awt.Color(50, 150, 0));
         btSalvarUsu.setForeground(new java.awt.Color(255, 255, 255));
         btSalvarUsu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/save-24_1.png"))); // NOI18N
         btSalvarUsu.setText("Salvar");
+        btSalvarUsu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btSalvarUsuActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPBotoesLayout = new javax.swing.GroupLayout(jPBotoes);
         jPBotoes.setLayout(jPBotoesLayout);
@@ -156,6 +178,11 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         lbFoneUsu.setText("Fone:");
 
         tfSenhaUsu.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tfSenhaUsu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfSenhaUsuActionPerformed(evt);
+            }
+        });
 
         tfBairroUsu.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
@@ -293,6 +320,71 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
     private void jCtipoUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCtipoUsuActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jCtipoUsuActionPerformed
+
+    private void tfNomeUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNomeUsuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfNomeUsuActionPerformed
+
+    private void tfEmailUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfEmailUsuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfEmailUsuActionPerformed
+
+    private void tfSenhaUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfSenhaUsuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfSenhaUsuActionPerformed
+
+    private void btSalvarUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarUsuActionPerformed
+        // TODO add your handling code here:
+        String nome = tfNomeUsu.getText();
+        if(nome.length() == 0) {
+            JOptionPane.showMessageDialog(null,"Esqueceu de digitar o nome");
+            return;
+        }
+        String email = tfEmailUsu.getText();
+        if (email.length()==0){
+            JOptionPane.showMessageDialog(null, "Email em branco");
+            return;
+        }
+        String cpf = tfCPFUsu.getText();
+        if (cpf.length()==0){
+            JOptionPane.showMessageDialog(null,"cpf em branco");
+            return;    
+        }
+        String fone = tfFoneUsu.getText();
+        if(fone.length()==0){
+            JOptionPane.showMessageDialog(null,"telefone em branco");
+            return;    
+        }
+        String endereco = tfEndUsu.getText();
+        if(endereco.length()==0){
+            JOptionPane.showMessageDialog(null,"Endereço vazio");
+            return;
+        }
+        String bairro = tfBairroUsu.getText();
+        if (bairro.length()==0){
+            JOptionPane.showMessageDialog(null,"Campo bairro está vazio");
+            return;
+        }
+        String senha = tfSenhaUsu.getText();
+        if (senha.length()==0){
+            JOptionPane.showMessageDialog(null,"Campo senha vazio");
+            return;
+            
+        }
+        String cidade = tfCidadeUsu.getText();
+        if (cidade.length()==0){
+            JOptionPane.showMessageDialog(null,"Campo cidade vazio");
+            return;
+        }
+        String nascimento = tfDataNascUsu.getText();
+        if (nascimento.length()==0)
+            JOptionPane.showMessageDialog(null,"Campo data de nascimento vazio");
+            return;
+    }//GEN-LAST:event_btSalvarUsuActionPerformed
+
+    private void btLimparUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLimparUsuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btLimparUsuActionPerformed
 
     /**
      * @param args the command line arguments
