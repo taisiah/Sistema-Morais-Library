@@ -48,6 +48,8 @@ public class TelaCadastroEventos extends javax.swing.JInternalFrame {
         btBuscarEvt = new javax.swing.JButton();
         lbRespEvt = new javax.swing.JLabel();
 
+        setClosable(true);
+
         tfRespEvt.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         lbFoneEvt.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N

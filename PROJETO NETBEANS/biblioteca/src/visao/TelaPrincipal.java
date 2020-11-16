@@ -53,12 +53,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
         painelPrincipal.setLayout(painelPrincipalLayout);
         painelPrincipalLayout.setHorizontalGroup(
             painelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 482, Short.MAX_VALUE)
+            .addGap(0, 800, Short.MAX_VALUE)
         );
         painelPrincipalLayout.setVerticalGroup(
             painelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 356, Short.MAX_VALUE)
+            .addGap(0, 578, Short.MAX_VALUE)
         );
+
+        jMenuBar1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/user-16.png"))); // NOI18N
         jMenu1.setText("Usuarios");
