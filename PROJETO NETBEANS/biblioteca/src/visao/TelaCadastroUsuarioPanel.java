@@ -6,17 +6,18 @@
 package visao;
 
 import javax.swing.JOptionPane;
+import modelo.Usuario;
 
 /**
  *
-
+ * @author ruand
  */
-public class TelaCadastroUsuario extends javax.swing.JFrame {
+public class TelaCadastroUsuarioPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form TelaCadastro
+     * Creates new form TelaCadastroUsuarioPanel
      */
-    public TelaCadastroUsuario() {
+    public TelaCadastroUsuarioPanel() {
         initComponents();
     }
 
@@ -29,13 +30,25 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        tfEndUsu = new javax.swing.JTextField();
+        jPBotoes = new javax.swing.JPanel();
+        btExcluirUsu = new javax.swing.JButton();
+        btLimparUsu = new javax.swing.JButton();
+        btSalvarUsu = new javax.swing.JButton();
         lbTituloCadastroUsu = new javax.swing.JLabel();
+        lbFoneUsu = new javax.swing.JLabel();
         lbNomeUsu = new javax.swing.JLabel();
+        tfSenhaUsu = new javax.swing.JTextField();
         lbEmailUsu = new javax.swing.JLabel();
+        tfBairroUsu = new javax.swing.JTextField();
         lbCPFUsu = new javax.swing.JLabel();
+        lbStatusUsu = new javax.swing.JLabel();
         lbTipoUsu = new javax.swing.JLabel();
+        jCtipoUsu = new javax.swing.JComboBox<>();
         lbEnderecoUsu = new javax.swing.JLabel();
+        jRStatusUsu = new javax.swing.JRadioButton();
         tfCPFUsu = new javax.swing.JTextField();
+        jRStatusInaUsu = new javax.swing.JRadioButton();
         tfNomeUsu = new javax.swing.JTextField();
         tfEmailUsu = new javax.swing.JTextField();
         btBuscarUsu = new javax.swing.JButton();
@@ -46,82 +59,6 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         lbBairroUsu = new javax.swing.JLabel();
         tfFoneUsu = new javax.swing.JTextField();
         tfCidadeUsu = new javax.swing.JTextField();
-        tfEndUsu = new javax.swing.JTextField();
-        jPBotoes = new javax.swing.JPanel();
-        btExcluirUsu = new javax.swing.JButton();
-        btLimparUsu = new javax.swing.JButton();
-        btSalvarUsu = new javax.swing.JButton();
-        lbFoneUsu = new javax.swing.JLabel();
-        tfSenhaUsu = new javax.swing.JTextField();
-        tfBairroUsu = new javax.swing.JTextField();
-        lbStatusUsu = new javax.swing.JLabel();
-        jCtipoUsu = new javax.swing.JComboBox<>();
-        jRStatusUsu = new javax.swing.JRadioButton();
-        jRStatusInaUsu = new javax.swing.JRadioButton();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Morais Llbrary - Cadastro de Usuário");
-        setResizable(false);
-
-        lbTituloCadastroUsu.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        lbTituloCadastroUsu.setText("Cadastro de Usuarios");
-
-        lbNomeUsu.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        lbNomeUsu.setText("Nome:");
-
-        lbEmailUsu.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        lbEmailUsu.setText("E-mail:");
-
-        lbCPFUsu.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        lbCPFUsu.setText("CPF:");
-
-        lbTipoUsu.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        lbTipoUsu.setText("Tipo:");
-
-        lbEnderecoUsu.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        lbEnderecoUsu.setText("Endereço:");
-
-        tfCPFUsu.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
-        tfNomeUsu.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        tfNomeUsu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfNomeUsuActionPerformed(evt);
-            }
-        });
-
-        tfEmailUsu.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        tfEmailUsu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfEmailUsuActionPerformed(evt);
-            }
-        });
-
-        btBuscarUsu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/search-12-16_1.png"))); // NOI18N
-        btBuscarUsu.setPreferredSize(new java.awt.Dimension(23, 23));
-        btBuscarUsu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btBuscarUsuActionPerformed(evt);
-            }
-        });
-
-        lbDataNascUsu.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        lbDataNascUsu.setText("Data de nascimento:");
-
-        tfDataNascUsu.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
-        lbSenhaoUsu.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        lbSenhaoUsu.setText("Senha:");
-
-        lbCidadeUsu.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        lbCidadeUsu.setText("Cidade:");
-
-        lbBairroUsu.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        lbBairroUsu.setText("Bairro:");
-
-        tfFoneUsu.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
-        tfCidadeUsu.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         tfEndUsu.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
@@ -174,8 +111,14 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
+        lbTituloCadastroUsu.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lbTituloCadastroUsu.setText("Cadastro de Usuarios");
+
         lbFoneUsu.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         lbFoneUsu.setText("Fone:");
+
+        lbNomeUsu.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lbNomeUsu.setText("Nome:");
 
         tfSenhaUsu.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         tfSenhaUsu.addActionListener(new java.awt.event.ActionListener() {
@@ -184,10 +127,19 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
             }
         });
 
+        lbEmailUsu.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lbEmailUsu.setText("E-mail:");
+
         tfBairroUsu.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        lbCPFUsu.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lbCPFUsu.setText("CPF:");
 
         lbStatusUsu.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         lbStatusUsu.setText("Status:");
+
+        lbTipoUsu.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lbTipoUsu.setText("Tipo:");
 
         jCtipoUsu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Aluno", "Funcionario", "Externo", " " }));
         jCtipoUsu.addActionListener(new java.awt.event.ActionListener() {
@@ -196,12 +148,57 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
             }
         });
 
+        lbEnderecoUsu.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lbEnderecoUsu.setText("Endereço:");
+
         jRStatusUsu.setText("Ativo");
+
+        tfCPFUsu.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         jRStatusInaUsu.setText("Inativo");
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
+        tfNomeUsu.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tfNomeUsu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfNomeUsuActionPerformed(evt);
+            }
+        });
+
+        tfEmailUsu.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tfEmailUsu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfEmailUsuActionPerformed(evt);
+            }
+        });
+
+        btBuscarUsu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/search-12-16_1.png"))); // NOI18N
+        btBuscarUsu.setPreferredSize(new java.awt.Dimension(23, 23));
+        btBuscarUsu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btBuscarUsuActionPerformed(evt);
+            }
+        });
+
+        lbDataNascUsu.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lbDataNascUsu.setText("Data de nascimento:");
+
+        tfDataNascUsu.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        lbSenhaoUsu.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lbSenhaoUsu.setText("Senha:");
+
+        lbCidadeUsu.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lbCidadeUsu.setText("Cidade:");
+
+        lbBairroUsu.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lbBairroUsu.setText("Bairro:");
+
+        tfFoneUsu.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        tfCidadeUsu.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -259,7 +256,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(115, 115, 115)
                         .addComponent(jPBotoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -309,29 +306,11 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
                 .addComponent(jPBotoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btBuscarUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBuscarUsuActionPerformed
+    private void btLimparUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLimparUsuActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btBuscarUsuActionPerformed
-
-    private void jCtipoUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCtipoUsuActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCtipoUsuActionPerformed
-
-    private void tfNomeUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNomeUsuActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfNomeUsuActionPerformed
-
-    private void tfEmailUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfEmailUsuActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfEmailUsuActionPerformed
-
-    private void tfSenhaUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfSenhaUsuActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfSenhaUsuActionPerformed
+    }//GEN-LAST:event_btLimparUsuActionPerformed
 
     private void btSalvarUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarUsuActionPerformed
         // TODO add your handling code here:
@@ -348,12 +327,12 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         String cpf = tfCPFUsu.getText();
         if (cpf.length()==0){
             JOptionPane.showMessageDialog(null,"cpf em branco");
-            return;    
+            return;
         }
         String fone = tfFoneUsu.getText();
         if(fone.length()==0){
             JOptionPane.showMessageDialog(null,"telefone em branco");
-            return;    
+            return;
         }
         String endereco = tfEndUsu.getText();
         if(endereco.length()==0){
@@ -369,7 +348,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         if (senha.length()==0){
             JOptionPane.showMessageDialog(null,"Campo senha vazio");
             return;
-            
+
         }
         String cidade = tfCidadeUsu.getText();
         if (cidade.length()==0){
@@ -377,50 +356,34 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
             return;
         }
         String nascimento = tfDataNascUsu.getText();
-        if (nascimento.length()==0)
+        if (nascimento.length()==0){
             JOptionPane.showMessageDialog(null,"Campo data de nascimento vazio");
             return;
+        }
+        endereco += ", " + bairro + ", " + cidade;
+        Usuario user = new Usuario(senha,nome,endereco,email,fone,nascimento,cpf);
     }//GEN-LAST:event_btSalvarUsuActionPerformed
 
-    private void btLimparUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLimparUsuActionPerformed
+    private void tfSenhaUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfSenhaUsuActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btLimparUsuActionPerformed
+    }//GEN-LAST:event_tfSenhaUsuActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastroUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastroUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastroUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastroUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
+    private void jCtipoUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCtipoUsuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCtipoUsuActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TelaCadastroUsuario().setVisible(true);
-            }
-        });
-    }
+    private void tfNomeUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNomeUsuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfNomeUsuActionPerformed
+
+    private void tfEmailUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfEmailUsuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfEmailUsuActionPerformed
+
+    private void btBuscarUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBuscarUsuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btBuscarUsuActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btBuscarUsu;
