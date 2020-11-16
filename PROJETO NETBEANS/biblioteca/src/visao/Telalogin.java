@@ -194,7 +194,7 @@ public class Telalogin extends javax.swing.JFrame {
         }
         //</editor-fold>
         grUsuario = new GerenciadorUsuarios() ;
-        Usuario u_inicial = new Usuario("taisia@taisia.com", "123", "Taisia", "rua teste","taisia@taisia.com", "111111111");
+        Usuario u_inicial = new Usuario("taisia@taisia.com", "123", "Taisia", "rua teste","taisia@taisia.com", "111111111","03/11/1989","11111111111");
         grUsuario.addUsuario(u_inicial);
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
