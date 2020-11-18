@@ -29,10 +29,6 @@ public class Usuario {
     }
     
     public Usuario() {}
-
-    public Usuario(String taisiataisiacom, String string, String taisia, String rua_teste, String taisiataisiacom0, String string0, String string1, String string2) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
    
     //metodos
     

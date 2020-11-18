@@ -157,6 +157,7 @@ public class Telalogin extends javax.swing.JFrame {
         String senha_login = TFsenha.getText();
         if(grUsuario.login(email_login, senha_login) != null) {
             JOptionPane.showMessageDialog(null, "Login feito com sucesso");
+            telaPrincipal.setVisible(true);
         }
         else {
             JOptionPane.showMessageDialog(null, "Login ou senha inválido!");
@@ -193,8 +194,8 @@ public class Telalogin extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Telalogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        grUsuario = new GerenciadorUsuarios() ;
-        Usuario u_inicial = new Usuario("taisia@taisia.com", "123", "Taisia", "rua teste","taisia@taisia.com", "111111111","03/11/1989","11111111111");
+        grUsuario = GerenciadorUsuarios.getInstance() ;
+        Usuario u_inicial = new Usuario( "123", "Taisia", "rua teste","taisia@taisia.com", "111111111","03/11/1989","11111111111");
         grUsuario.addUsuario(u_inicial);
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -204,6 +205,7 @@ public class Telalogin extends javax.swing.JFrame {
         });
     }
     private static GerenciadorUsuarios grUsuario ;
+    private TelaPrincipal telaPrincipal = new TelaPrincipal();
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel LBLogin;

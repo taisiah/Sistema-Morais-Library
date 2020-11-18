@@ -5,16 +5,23 @@ import modelo.Usuario;
 
 public class GerenciadorUsuarios {
 	
+        private static GerenciadorUsuarios uniqueInstance;
 	private ArrayList<Usuario> listaUsuarios ;
 	
-	public GerenciadorUsuarios(ArrayList listaUsuarios) {
-		this.listaUsuarios = listaUsuarios;
-		
+	private GerenciadorUsuarios(ArrayList listaUsuarios) {
+		this.listaUsuarios = listaUsuarios;	
 	}
 	
-	public GerenciadorUsuarios() {
+	private GerenciadorUsuarios() {
             this.listaUsuarios = new ArrayList<Usuario> ();
 	}
+        
+        public static GerenciadorUsuarios getInstance() {
+            if(uniqueInstance == null) {
+                uniqueInstance = new GerenciadorUsuarios();
+            }
+            return uniqueInstance;
+        }
 	
 	public boolean addUsuario (Usuario u ) {
             for (int i = 0; i < listaUsuarios.size(); i++) {
