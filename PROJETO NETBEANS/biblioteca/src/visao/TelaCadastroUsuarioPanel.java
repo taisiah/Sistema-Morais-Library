@@ -112,7 +112,7 @@ public class TelaCadastroUsuarioPanel extends javax.swing.JPanel {
         );
 
         lbTituloCadastroUsu.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        lbTituloCadastroUsu.setText("Cadastro de Usuarios");
+        lbTituloCadastroUsu.setText("Cadastro de Usuários");
 
         lbEnderecoUsu.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         lbEnderecoUsu.setText("Endereço:");
@@ -192,7 +192,7 @@ public class TelaCadastroUsuarioPanel extends javax.swing.JPanel {
         lbTipoUsu.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         lbTipoUsu.setText("Tipo:");
 
-        jCtipoUsu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Aluno", "Funcionario", "Externo", " " }));
+        jCtipoUsu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Aluno", "Funcionario", "Professor", "Externo", "" }));
         jCtipoUsu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCtipoUsuActionPerformed(evt);
@@ -241,17 +241,19 @@ public class TelaCadastroUsuarioPanel extends javax.swing.JPanel {
                                         .addComponent(jRStatusInaUsu)
                                         .addGap(13, 13, 13))))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(tfCPFUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(lbDataNascUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(tfCPFUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(lbDataNascUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(tfFoneUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(lbTipoUsu)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(tfDataNascUsu))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(tfFoneUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(lbTipoUsu)
-                                .addGap(41, 41, 41)
-                                .addComponent(jCtipoUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jCtipoUsu, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(tfDataNascUsu))))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(

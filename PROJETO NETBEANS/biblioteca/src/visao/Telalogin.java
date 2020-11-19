@@ -155,9 +155,18 @@ public class Telalogin extends javax.swing.JFrame {
         // TODO add your handling code here:
         String email_login = TFlogin.getText();
         String senha_login = TFsenha.getText();
-        if(grUsuario.login(email_login, senha_login) != null) {
+        Usuario user = grUsuario.login(email_login, senha_login);
+        
+        if( user != null) {
             JOptionPane.showMessageDialog(null, "Login feito com sucesso");
-            telaPrincipal.setVisible(true);
+            if (user instanceof Funcionario){
+                telaPrincipal.setVisible(true);
+            }
+            else (){
+            
+        }
+            
+            
         }
         else {
             JOptionPane.showMessageDialog(null, "Login ou senha inválido!");

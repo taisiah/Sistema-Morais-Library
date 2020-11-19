@@ -10,5 +10,20 @@ public class Professor extends Usuario{
         this.departamento = departamento;
         
     }
+    public Professor(){}
+    
+
+    public String getDepartamento() {
+        return departamento;
+    }
+
+    public void setDepartamento(String departamento) {
+        this.departamento = departamento;
+    }
+
+   
+    public String toString() {
+        return "Professor{" + "departamento=" + departamento + '}';
+    }
     
 }
