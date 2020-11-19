@@ -59,7 +59,7 @@ public class TelaUsuario extends javax.swing.JFrame {
         jMenuBar1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/user-16.png"))); // NOI18N
-        jMenu1.setText("Usuarios");
+        jMenu1.setText("Usuário");
 
         jMenuItem1.setText("meus dados");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -122,7 +122,7 @@ public class TelaUsuario extends javax.swing.JFrame {
         });
         jMenu3.add(jMenuItem6);
 
-        jMenuItem7.setText("lista espaço");
+        jMenuItem7.setText("lista espaços");
         jMenu3.add(jMenuItem7);
 
         jMenuBar1.add(jMenu3);

@@ -87,6 +87,7 @@ public class GerenciadorUsuarios {
 	*/
         
 	public Usuario login (String login,String senha) {
+            
             for (int i = 0; i < listaAlunos.size(); i++) {
 		if (listaAlunos.get(i).getEmail().equals(login) && listaAlunos.get(i).getSenha().equals(senha)) {
                     return listaAlunos.get(i);

@@ -3,6 +3,7 @@ package visao;
 
 import controle.GerenciadorUsuarios;
 import javax.swing.JOptionPane;
+import modelo.Funcionario;
 import modelo.Usuario;
 
 
@@ -162,12 +163,12 @@ public class Telalogin extends javax.swing.JFrame {
             if (user instanceof Funcionario){
                 telaPrincipal.setVisible(true);
             }
-            else (){
-            
+            else {
+                telaUsuario.setVisible(true);
+            }
+            this.setVisible(false);
         }
             
-            
-        }
         else {
             JOptionPane.showMessageDialog(null, "Login ou senha inválido!");
         }
@@ -204,7 +205,7 @@ public class Telalogin extends javax.swing.JFrame {
         }
         //</editor-fold>
         grUsuario = GerenciadorUsuarios.getInstance() ;
-        Usuario u_inicial = new Usuario( "123", "Taisia", "rua teste","taisia@taisia.com", "111111111","03/11/1989","11111111111");
+        Funcionario u_inicial = new Funcionario("bibliotecario","123", "Taisia", "rua teste","taisia@taisia.com", "111111111","03/11/1989","11111111111");
         grUsuario.addUsuario(u_inicial);
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -215,6 +216,7 @@ public class Telalogin extends javax.swing.JFrame {
     }
     private static GerenciadorUsuarios grUsuario ;
     private TelaPrincipal telaPrincipal = new TelaPrincipal();
+    private TelaUsuario telaUsuario = new TelaUsuario();
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel LBLogin;
