@@ -30,7 +30,7 @@ public class GerenciadorUsuarios {
             return uniqueInstance;
         }
 	
-	public boolean addUsuario (Usuario u ) {
+	public boolean addUsuario (Usuario u) {
             
             if(u instanceof Aluno){
                 for (int i = 0; i < listaAlunos.size(); i++) {
@@ -77,11 +77,33 @@ public class GerenciadorUsuarios {
   
 		
 	
-	/*public Usuario buscarUsuario () {
-		
+	public Usuario buscarUsuario (String email) {
+            
+            for (int i = 0; i < listaProfessores.size(); i++){
+                if (listaProfessores.get(i).getEmail().equals(email)){
+                    return listaProfessores.get(i);
+                }
+            }
+            for (int i = 0; i < listaAlunos.size(); i++){
+                if (listaAlunos.get(i).getEmail().equals(email)){
+                    return listaAlunos.get(i);
+                }
+            }
+            for (int i = 0; i < listaFuncionarios.size(); i++){
+                if (listaFuncionarios.get(i).getEmail().equals(email)){
+                    return listaFuncionarios.get(i);
+                }
+            }
+            for (int i = 0; i < listaUserExternos.size(); i++){
+                if (listaUserExternos.get(i).getEmail().equals(email)){
+                    return listaUserExternos.get(i);
+                }
+            }
+            
+            return null;
 	}
 	
-	public void removerUsuario () {
+	/*public void removerUsuario () {
 		
 	}
 	*/
