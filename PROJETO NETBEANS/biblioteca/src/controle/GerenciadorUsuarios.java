@@ -110,29 +110,33 @@ public class GerenciadorUsuarios {
             return null;
 	}
 	
-	public void removerUsuario (String email) {
+	public boolean removerUsuario (String email) {
             
             for (int i = 0; i < listaProfessores.size(); i++){
                 if (listaProfessores.get(i).getEmail().equals(email)){
                     listaProfessores.remove(i);
+                    return true;
                 }
             }
             for (int i = 0; i < listaAlunos.size(); i++){
                 if (listaAlunos.get(i).getEmail().equals(email)){
                     listaAlunos.remove(i);
+                    return true;
                 }
             }
             for (int i = 0; i < listaFuncionarios.size(); i++){
                 if (listaFuncionarios.get(i).getEmail().equals(email)){
                     listaFuncionarios.remove(i);
+                    return true;
                 }
             }
             for (int i = 0; i < listaUserExternos.size(); i++){
                 if (listaUserExternos.get(i).getEmail().equals(email)){
                     listaUserExternos.remove(i);
+                    return true;
                 }
             }
-        
+            return false;
             
              
             

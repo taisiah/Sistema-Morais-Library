@@ -312,6 +312,11 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         btExcluirUsu.setForeground(new java.awt.Color(255, 255, 255));
         btExcluirUsu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/delete-24_1.png"))); // NOI18N
         btExcluirUsu.setText("Excluir");
+        btExcluirUsu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btExcluirUsuActionPerformed(evt);
+            }
+        });
 
         btLimparUsu.setBackground(new java.awt.Color(255, 153, 0));
         btLimparUsu.setForeground(new java.awt.Color(255, 255, 255));
@@ -494,6 +499,19 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
 
     private void btLimparUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLimparUsuActionPerformed
         // TODO add your handling code here:
+        tfEmailUsu.setText("");
+        tfNomeUsu.setText("");
+        tfFoneUsu.setText("");
+        tfSenhaUsu.setText("");
+        tfCPFUsu.setText("");
+        tfDataNascUsu.setText("");
+        tfEndUsu.setText("");
+        tfCursoUsu.setText("");
+        tfMatriculaUsu.setText("");
+        tfdepartamentoUsu.setText("");
+        tfpagamentoUsu.setText("");
+        tfCargoUsu.setText("");
+        jCtipoUsu.setSelectedItem("");
     }//GEN-LAST:event_btLimparUsuActionPerformed
 
     private void btSalvarUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarUsuActionPerformed
@@ -774,6 +792,20 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
     private void tfpagamentoUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfpagamentoUsuActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tfpagamentoUsuActionPerformed
+
+    private void btExcluirUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btExcluirUsuActionPerformed
+        // TODO add your handling code here:
+        String email = tfEmailUsu.getText();
+        GerenciadorUsuarios gerenciadorUsu = GerenciadorUsuarios.getInstance();
+        boolean usuarioRemover= gerenciadorUsu.removerUsuario(email);
+        if ( usuarioRemover==false){
+            JOptionPane.showMessageDialog(null,"Não encontrado!");
+        }
+        else{
+            JOptionPane.showMessageDialog(null,"Usuário removido com sucesso!");
+            
+        }
+    }//GEN-LAST:event_btExcluirUsuActionPerformed
 
     /**
      * @param args the command line arguments
