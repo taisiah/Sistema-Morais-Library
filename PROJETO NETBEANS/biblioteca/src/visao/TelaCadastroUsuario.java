@@ -26,6 +26,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
     public TelaCadastroUsuario() {
         initComponents();
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        jCtipoUsu.setSelectedItem("");
         this.tfdepartamentoUsu.setEnabled(false);
         this.tfCargoUsu.setEnabled(false);
         this.tfpagamentoUsu.setEnabled(false);
@@ -174,6 +175,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         lbTipoUsu.setText("Tipo:");
 
         jCtipoUsu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Aluno", "Funcionário", "Professor", "Externo", "" }));
+        jCtipoUsu.setToolTipText("");
         jCtipoUsu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCtipoUsuActionPerformed(evt);
@@ -552,6 +554,8 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
             Aluno aluno1 = new Aluno (curso,matricula,senha,nome,endereco,email,fone,nascimento,cpf);
             GerenciadorUsuarios gerenciadorUsu = GerenciadorUsuarios.getInstance();
             gerenciadorUsu.addUsuario(aluno1);
+            
+            
         }
         else if (tipodeusuario.equals ("Professor")){
             String departamento = tfdepartamentoUsu.getText();
@@ -562,6 +566,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
             Professor prof1 = new Professor (departamento,senha,nome,endereco,email,fone,nascimento,cpf);
             GerenciadorUsuarios gerenciadorUsu = GerenciadorUsuarios.getInstance();
             gerenciadorUsu.addUsuario(prof1);
+            
         }
         else if (tipodeusuario.equals ("Funcionário")){
             String cargo = tfCargoUsu.getText();
@@ -584,12 +589,20 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
             gerenciadorUsu.addUsuario(externo1);
         }
         
-        
-            
-//        jCtipoUsu.getI
-        
-        
-
+        JOptionPane.showMessageDialog(null,"Usuário " + nome + " adicionado com sucesso!");
+        tfEmailUsu.setText("");
+        tfNomeUsu.setText("");
+        tfFoneUsu.setText("");
+        tfSenhaUsu.setText("");
+        tfCPFUsu.setText("");
+        tfDataNascUsu.setText("");
+        tfEndUsu.setText("");
+        tfCursoUsu.setText("");
+        tfMatriculaUsu.setText("");
+        tfdepartamentoUsu.setText("");
+        tfpagamentoUsu.setText("");
+        tfCargoUsu.setText("");
+        jCtipoUsu.setSelectedItem("");
     }//GEN-LAST:event_btSalvarUsuActionPerformed
 
     private void tfNomeUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNomeUsuActionPerformed
