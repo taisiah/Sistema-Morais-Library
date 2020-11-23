@@ -119,6 +119,7 @@ public class Evento {
                 relatorio.println("Responsável.: "+ linha);
                 linha=leiaArq.readLine();
                 relatorio.println("Fone........: "+ linha+"\n");
+                linha=leiaArq.readLine();
                 
             }
             relatorio.println(cont+" EVENTOS CADASTRADOS!");
@@ -127,10 +128,8 @@ public class Evento {
             agenda.close();
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Evento.class.getName()).log(Level.SEVERE, null, ex);
-
-            
-            
-            
+            return "Não existe evento cadastrado!";
+                       
         }
         return "Relatório gerado com sucesso!";
        
