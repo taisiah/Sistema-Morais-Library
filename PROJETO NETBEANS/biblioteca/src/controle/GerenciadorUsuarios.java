@@ -21,6 +21,9 @@ public class GerenciadorUsuarios {
             this.listaProfessores = new ArrayList<Professor> ();
             this.listaFuncionarios = new ArrayList<Funcionario> ();
             this.listaUserExternos = new ArrayList<UserExterno> ();
+            //abrir arquivo
+            //ler todos os dados do arquivo e adicionar os objetos nos arraylists
+            //fechar arquivo
 	}
         
         public static GerenciadorUsuarios getInstance() {
@@ -30,8 +33,8 @@ public class GerenciadorUsuarios {
             return uniqueInstance;
         }
 	
-	public boolean addUsuario (Usuario u ) {
-            
+	public boolean addUsuario (Usuario u) {
+            //abrir arquivo usuarios.txt
             if(u instanceof Aluno){
                 for (int i = 0; i < listaAlunos.size(); i++) {
                     if (listaAlunos.get(i).getEmail().equals(u.getEmail())){
@@ -39,6 +42,9 @@ public class GerenciadorUsuarios {
                     }
                 }
                 listaAlunos.add((Aluno) u);
+                //escrever no arquivo usuarios.txt
+                //Aluno curso matricula senha nome endereco email telefone nascimento cpf
+                //fecha arquivo
                 return true;
             }
                 
@@ -70,22 +76,73 @@ public class GerenciadorUsuarios {
                 }
                 listaFuncionarios.add((Funcionario) u);
                 return true;
-            }      
+            }     
+            //fecha arquivo
             return false;
         }    
         
   
 		
 	
-	/*public Usuario buscarUsuario () {
-		
+	public Usuario buscarUsuario (String email) {
+            
+            for (int i = 0; i < listaProfessores.size(); i++){
+                if (listaProfessores.get(i).getEmail().equals(email)){
+                    return listaProfessores.get(i);
+                }
+            }
+            for (int i = 0; i < listaAlunos.size(); i++){
+                if (listaAlunos.get(i).getEmail().equals(email)){
+                    return listaAlunos.get(i);
+                }
+            }
+            for (int i = 0; i < listaFuncionarios.size(); i++){
+                if (listaFuncionarios.get(i).getEmail().equals(email)){
+                    return listaFuncionarios.get(i);
+                }
+            }
+            for (int i = 0; i < listaUserExternos.size(); i++){
+                if (listaUserExternos.get(i).getEmail().equals(email)){
+                    return listaUserExternos.get(i);
+                }
+            }
+            
+            return null;
 	}
 	
-	public void removerUsuario () {
-		
-	}
-	*/
+	public boolean removerUsuario (String email) {
+            
+            for (int i = 0; i < listaProfessores.size(); i++){
+                if (listaProfessores.get(i).getEmail().equals(email)){
+                    listaProfessores.remove(i);
+                    return true;
+                }
+            }
+            for (int i = 0; i < listaAlunos.size(); i++){
+                if (listaAlunos.get(i).getEmail().equals(email)){
+                    listaAlunos.remove(i);
+                    return true;
+                }
+            }
+            for (int i = 0; i < listaFuncionarios.size(); i++){
+                if (listaFuncionarios.get(i).getEmail().equals(email)){
+                    listaFuncionarios.remove(i);
+                    return true;
+                }
+            }
+            for (int i = 0; i < listaUserExternos.size(); i++){
+                if (listaUserExternos.get(i).getEmail().equals(email)){
+                    listaUserExternos.remove(i);
+                    return true;
+                }
+            }
+            return false;
+            
+             
+            
+        }
         
+  
 	public Usuario login (String login,String senha) {
             
             for (int i = 0; i < listaAlunos.size(); i++) {
