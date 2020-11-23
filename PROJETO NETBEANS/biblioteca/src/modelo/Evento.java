@@ -1,22 +1,34 @@
 
 package modelo;
 
-import java.util.Date;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-import modelo.Espaco;
-        
 public class Evento {
     
     // atributos
     
-    private String descEvento, responsavel, hora, fone;
-    private int publico;
-    private Date data;
-    private Espaco local;
+    private String descEvento;
+    private String responsavel;
+    private String hora;
+    private String fone;
+    private String publico;
+    private String data;
+    private String local;
     
     //construtores 
     
-    public Evento(String descEvento, String responsavel, String hora, String fone, int publico, Date data, Espaco local) {
+    public Evento(String descEvento, String responsavel, String hora, String fone, String publico, String data, String local) {
         this.descEvento = descEvento;
         this.responsavel = responsavel;
         this.hora = hora;
@@ -33,12 +45,96 @@ public class Evento {
     public String toString() {
         return "Evento{" + "descEvento=" + descEvento + ", responsavel=" + responsavel + ", hora=" + hora + ", fone=" + fone + ", publico=" + publico + ", data=" + data + ", local=" + local + '}';
     }
-    
-    public String cadastrarEvento(){
-        return null;
-    }
    
+    public String salvar(){
+                         
+        try {
+            FileWriter editaArq = new FileWriter("evento.txt", true);     
+            PrintWriter escreveArq = new PrintWriter(editaArq);
+
+            escreveArq.println(this.descEvento);
+            escreveArq.println(this.data);
+            escreveArq.println(this.hora);
+            escreveArq.println(this.local);
+            escreveArq.println(this.publico);
+            escreveArq.println(this.responsavel);
+            escreveArq.println(this.fone); 
+            escreveArq.flush();
+            escreveArq.close();
+            editaArq.close();
+
+        } catch (IOException ex) {
+            Logger.getLogger(Evento.class.getName()).log(Level.SEVERE, null, ex);         
+        }
+      
+        return "Evento cadastrado com sucesso!";
+       
+    } 
     
+    public String importar(String caminho){
+        Path arquivo = Paths.get(caminho);
+        try {
+            byte[] texto = Files.readAllBytes(arquivo);
+            String dadosExternos = new String(texto);
+            FileWriter editaArq = new FileWriter("evento.txt", true);     
+            PrintWriter escreveArq = new PrintWriter(editaArq);
+            escreveArq.println(dadosExternos);
+            escreveArq.flush();
+            escreveArq.close();
+            editaArq.close();
+  
+        } catch (IOException ex) {
+            Logger.getLogger(Evento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+  
+         
+        return "Importação realizada com sucesso!";
+         
+     }
+    
+    
+    public String agenda() throws IOException{
+        try {
+            FileReader acessaArq = new FileReader("evento.txt");
+            BufferedReader leiaArq = new BufferedReader(acessaArq);
+            String linha = leiaArq.readLine();
+            FileWriter agenda = new FileWriter("agenda.txt");
+            PrintWriter relatorio = new PrintWriter(agenda);
+                      
+            relatorio.println("---------------------  MORAIS LIBRARY  --------------------");
+            relatorio.println("--------------------- AGENDA DE EVENTOS--------------------\n");
+            int cont = 0;
+            while (linha != null){
+                cont++;
+                relatorio.println("Evento......: "+ linha);
+                linha=leiaArq.readLine();
+                relatorio.println("Data........: "+ linha);
+                linha=leiaArq.readLine();
+                relatorio.println("Hora........: "+ linha);
+                linha=leiaArq.readLine();
+                relatorio.println("Local.......: "+ linha);
+                linha=leiaArq.readLine();
+                relatorio.println("Publico.....: "+ linha+" pessoas");
+                linha=leiaArq.readLine();
+                relatorio.println("Responsável.: "+ linha);
+                linha=leiaArq.readLine();
+                relatorio.println("Fone........: "+ linha+"\n");
+                
+            }
+            relatorio.println(cont+" EVENTOS CADASTRADOS!");
+            relatorio.flush();
+            relatorio.close();
+            agenda.close();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Evento.class.getName()).log(Level.SEVERE, null, ex);
+
+            
+            
+            
+        }
+        return "Relatório gerado com sucesso!";
+       
+    }
     //acessadores e modificadores de atributos
     
     public String getDescEvento() {
@@ -73,28 +169,30 @@ public class Evento {
         this.fone = fone;
     }
 
-    public int getPublico() {
+    public String getPublico() {
         return publico;
     }
 
-    public void setPublico(int publico) {
+    public void setPublico(String publico) {
         this.publico = publico;
     }
 
-    public Date getData() {
+    public String getData() {
         return data;
     }
 
-    public void setData(Date data) {
+    public void setData(String data) {
         this.data = data;
     }
 
-    public Espaco getLocal() {
+    public String getLocal() {
         return local;
     }
 
-    public void setLocal(Espaco local) {
+    public void setLocal(String local) {
         this.local = local;
     } 
+
+      
     
 }
