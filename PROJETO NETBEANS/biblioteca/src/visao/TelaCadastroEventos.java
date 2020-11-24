@@ -257,6 +257,7 @@ public class TelaCadastroEventos extends javax.swing.JInternalFrame {
         tfPublicoEvt.setText("");  
         tfRespEvt.setText("");
         tfFoneEvt.setText("");
+        tfDescEvt.requestFocus();
     }//GEN-LAST:event_btSalvarEvtActionPerformed
 
     private void tfFoneEvtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfFoneEvtActionPerformed
