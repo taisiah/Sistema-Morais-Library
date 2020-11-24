@@ -26,11 +26,11 @@ public class TelaUsuario extends javax.swing.JFrame {
 
         painelPrincipal = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
+        jMenuUsuario = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
-        jMenu4 = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuLivro = new javax.swing.JMenu();
+        jMenuBuscarLivro = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
@@ -58,8 +58,8 @@ public class TelaUsuario extends javax.swing.JFrame {
 
         jMenuBar1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/user-16.png"))); // NOI18N
-        jMenu1.setText("Usuário");
+        jMenuUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/user-16.png"))); // NOI18N
+        jMenuUsuario.setText("Usuário");
 
         jMenuItem1.setText("meus dados");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -67,18 +67,23 @@ public class TelaUsuario extends javax.swing.JFrame {
                 jMenuItem1ActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
+        jMenuUsuario.add(jMenuItem1);
 
         jMenuItem4.setText("financeiro");
-        jMenu1.add(jMenuItem4);
+        jMenuUsuario.add(jMenuItem4);
 
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.add(jMenuUsuario);
 
-        jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/book-16.png"))); // NOI18N
-        jMenu4.setText("Livros");
+        jMenuLivro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/book-16.png"))); // NOI18N
+        jMenuLivro.setText("Livros");
 
-        jMenuItem2.setText("Busca");
-        jMenu4.add(jMenuItem2);
+        jMenuBuscarLivro.setText("Busca");
+        jMenuBuscarLivro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuBuscarLivroActionPerformed(evt);
+            }
+        });
+        jMenuLivro.add(jMenuBuscarLivro);
 
         jMenuItem3.setText("Gerenciamento ");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
@@ -86,9 +91,9 @@ public class TelaUsuario extends javax.swing.JFrame {
                 jMenuItem3ActionPerformed(evt);
             }
         });
-        jMenu4.add(jMenuItem3);
+        jMenuLivro.add(jMenuItem3);
 
-        jMenuBar1.add(jMenu4);
+        jMenuBar1.add(jMenuLivro);
 
         jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/today-16.png"))); // NOI18N
         jMenu2.setText("Eventos");
@@ -180,9 +185,7 @@ public class TelaUsuario extends javax.swing.JFrame {
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         // TODO add your handling code here:
         
-        TelaCadastroEventos tlCadEventos = new TelaCadastroEventos();
-        painelPrincipal.add(tlCadEventos);
-        tlCadEventos.setVisible(true);
+        
         
         
     }//GEN-LAST:event_jMenuItem5ActionPerformed
@@ -190,6 +193,11 @@ public class TelaUsuario extends javax.swing.JFrame {
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuBuscarLivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuBuscarLivroActionPerformed
+        // TODO add your handling code here:
+         new TelaAluguelLivro().setVisible(true);
+    }//GEN-LAST:event_jMenuBuscarLivroActionPerformed
 
     /**
      * @param args the command line arguments
@@ -230,15 +238,13 @@ public class TelaUsuario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuBuscarLivro;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
@@ -246,6 +252,8 @@ public class TelaUsuario extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
+    private javax.swing.JMenu jMenuLivro;
+    private javax.swing.JMenu jMenuUsuario;
     private javax.swing.JDesktopPane painelPrincipal;
     // End of variables declaration//GEN-END:variables
 }
