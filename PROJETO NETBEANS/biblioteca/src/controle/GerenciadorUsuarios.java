@@ -81,7 +81,6 @@ public class GerenciadorUsuarios {
             return false;
         }    
         
-  
 		
 	
 	public Usuario buscarUsuario (String email) {
@@ -137,8 +136,6 @@ public class GerenciadorUsuarios {
                 }
             }
             return false;
-            
-             
             
         }
         

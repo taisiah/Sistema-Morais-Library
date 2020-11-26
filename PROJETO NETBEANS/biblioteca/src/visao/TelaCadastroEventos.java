@@ -1,6 +1,7 @@
 
 package visao;
 
+import controle.GerenciadorEventos;
 import javax.swing.JOptionPane;
 import modelo.Evento;
 
@@ -77,6 +78,11 @@ public class TelaCadastroEventos extends javax.swing.JInternalFrame {
         btExcluirEvt.setForeground(new java.awt.Color(255, 255, 255));
         btExcluirEvt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/delete-24_1.png"))); // NOI18N
         btExcluirEvt.setText("Excluir");
+        btExcluirEvt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btExcluirEvtActionPerformed(evt);
+            }
+        });
 
         tfDescEvt.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
@@ -234,22 +240,75 @@ public class TelaCadastroEventos extends javax.swing.JInternalFrame {
 
     private void btBuscarEvtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBuscarEvtActionPerformed
         // TODO add your handling code here:
+        String buscaEvt = tfDescEvt.getText();
+        GerenciadorEventos gerenciadorEvt = GerenciadorEventos.getInstance();
+        Evento evt1 = gerenciadorEvt.buscarEvento(buscaEvt);
+        if (evt1 ==(null)){
+            JOptionPane.showMessageDialog(null,"Evento não encontrado!");
+            
+        }    
+                
+        else{
+            tfDescEvt.setText(evt1.getDescEvento());
+            tfDataEvt.setText(evt1.getData());
+            tfHoraEvt.setText(evt1.getHora());
+            tfLocalEvt.setText(evt1.getLocal());
+            tfRespEvt.setText(evt1.getResponsavel());
+            tfFoneEvt.setText(evt1.getFone());
+            tfPublicoEvt.setText(evt1.getPublico());              
+            }  
     }//GEN-LAST:event_btBuscarEvtActionPerformed
-
+    
     private void btSalvarEvtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarEvtActionPerformed
 
-        Evento evento = new Evento();
-
-        evento.setDescEvento(tfDescEvt.getText());
-        evento.setData(tfDataEvt.getText());
-        evento.setHora(tfHoraEvt.getText());
-        evento.setLocal(tfLocalEvt.getText());
-        evento.setPublico (tfPublicoEvt.getText());
-        evento.setResponsavel(tfRespEvt.getText());
-        evento.setFone(tfFoneEvt.getText());
-           
-        JOptionPane.showMessageDialog(null, evento.salvar());
-           
+        String descEvt = tfDescEvt.getText();
+        if(descEvt.length() == 0) {
+            JOptionPane.showMessageDialog(null,"Digitar a descrição do evento");
+            return;
+        }
+        
+        String dataEvt = tfDataEvt.getText();
+        if(dataEvt.length() == 0) {
+            JOptionPane.showMessageDialog(null,"Digitar data do evento");
+            return;
+        }
+        
+        String horaEvt = tfHoraEvt.getText();
+        if(horaEvt.length() == 0) {
+            JOptionPane.showMessageDialog(null,"Digitar hora do evento");
+            return;
+        }
+        
+        String localEvt = tfLocalEvt.getText();
+        if(localEvt.length() == 0) {
+            JOptionPane.showMessageDialog(null,"Digitar local do evento");
+            return;
+        }
+             
+        String respEvt = tfRespEvt.getText();
+        if(respEvt.length() == 0) {
+            JOptionPane.showMessageDialog(null,"Digitar responsável do evento");
+            return;
+        }
+        
+        String foneEvt = tfFoneEvt.getText();
+        if(foneEvt.length() == 0) {
+            JOptionPane.showMessageDialog(null,"Digitar fone do responsável pelo evento");
+            return;
+        }
+        
+        String publicoEvt = tfPublicoEvt.getText();
+        if(publicoEvt.length() == 0) {
+            JOptionPane.showMessageDialog(null,"Digitar público do evento");
+            return;
+        }
+        
+        Evento evento = new Evento(descEvt, dataEvt, horaEvt, localEvt, respEvt, foneEvt, publicoEvt);
+        GerenciadorEventos gerenciadorEvt = GerenciadorEventos.getInstance();
+        gerenciadorEvt.adicionarEvento(evento);
+        
+        JOptionPane.showMessageDialog(null,"Evento cadastrado com sucesso!");
+            
         tfDescEvt.setText("");
         tfDataEvt.setText("");
         tfHoraEvt.setText("");
@@ -275,6 +334,28 @@ public class TelaCadastroEventos extends javax.swing.JInternalFrame {
         tfFoneEvt.setText("");
         tfDescEvt.requestFocus();
     }//GEN-LAST:event_btLimparEvtActionPerformed
+
+    private void btExcluirEvtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btExcluirEvtActionPerformed
+        // TODO add your handling code here:
+        
+        String descEvt = tfDescEvt.getText();
+        GerenciadorEventos gerenciadorEvt = GerenciadorEventos.getInstance();
+        boolean eventoRemover= gerenciadorEvt.removerEvento(descEvt);
+        if ( eventoRemover==false){
+            JOptionPane.showMessageDialog(null,"Evento não encontrado!");
+        }
+        else{
+            JOptionPane.showMessageDialog(null,"Evento removido com sucesso!");
+        }
+        tfDescEvt.setText("");
+        tfDataEvt.setText("");
+        tfHoraEvt.setText("");
+        tfLocalEvt.setText("");     
+        tfPublicoEvt.setText("");  
+        tfRespEvt.setText("");
+        tfFoneEvt.setText("");
+        tfDescEvt.requestFocus();
+    }//GEN-LAST:event_btExcluirEvtActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

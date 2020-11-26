@@ -45,6 +45,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
 
         jDialog1 = new javax.swing.JDialog();
         jPanel4 = new javax.swing.JPanel();
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         lbTituloCadastroUsu = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -547,10 +548,8 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         if (senha.length()==0){
             JOptionPane.showMessageDialog(null,"Campo senha vazio");
             return;
-
         }
-       
-        
+         
         
         String nascimento = tfDataNascUsu.getText();
         if (nascimento.length()==0){
@@ -608,6 +607,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         }
         
         JOptionPane.showMessageDialog(null,"Usuário " + nome + " adicionado com sucesso!");
+        
         tfEmailUsu.setText("");
         tfNomeUsu.setText("");
         tfFoneUsu.setText("");
@@ -847,6 +847,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
     private javax.swing.JButton btExcluirUsu;
     private javax.swing.JButton btLimparUsu;
     private javax.swing.JButton btSalvarUsu;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> jCtipoUsu;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JPanel jPBotoes;

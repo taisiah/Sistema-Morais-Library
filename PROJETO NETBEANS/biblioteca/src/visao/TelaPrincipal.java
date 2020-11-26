@@ -5,10 +5,6 @@
  */
 package visao;
 
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 import modelo.Evento;
 
 /**
@@ -184,13 +180,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem8ActionPerformed
 
     private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
-        Evento evento = new Evento();
-        try {
-            JOptionPane.showMessageDialog(null, evento.agenda());         
-
-        } catch (IOException ex) {
-            Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-        }
+  
     }//GEN-LAST:event_jMenuItem9ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
@@ -199,6 +189,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         TelaCadastroEventos tlCadEventos = new TelaCadastroEventos();
         painelPrincipal.add(tlCadEventos);
         tlCadEventos.setVisible(true);
+        
         
         
     }//GEN-LAST:event_jMenuItem5ActionPerformed

@@ -83,9 +83,9 @@ public class TelaImporteEventos extends javax.swing.JInternalFrame {
                 .addGap(25, 25, 25)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfCaminho, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jbimport, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jbimport, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfCaminho, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addComponent(jbImport)
                 .addGap(38, 38, 38))
@@ -122,6 +122,7 @@ public class TelaImporteEventos extends javax.swing.JInternalFrame {
         int retorno = arqImport.showOpenDialog(this);
         
         if (retorno == JFileChooser.APPROVE_OPTION){
+            
             this.arq = arqImport.getSelectedFile();
             tfCaminho.setText(this.arq.getPath());
           
@@ -137,7 +138,8 @@ public class TelaImporteEventos extends javax.swing.JInternalFrame {
     private void jbImportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbImportActionPerformed
         // TODO add your handling code here:
         Evento evento = new Evento();
-        JOptionPane.showMessageDialog(null, evento.importar(this.arq.getPath()));
+        
+        //JOptionPane.showMessageDialog(null, evento.importar(this.arq.getPath()));
         
         
         

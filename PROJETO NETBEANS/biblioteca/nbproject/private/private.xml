@@ -3,33 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/D:/googledrive/sistemas%20para%20internet/P02/PROJETOS/JAVA/ProjetoPOO/PROJETO%20NETBEANS/biblioteca/src/visao/Telalogin.java</file>
-            <file>file:/D:/googledrive/sistemas%20para%20internet/P02/PROJETOS/JAVA/ProjetoPOO/PROJETO%20NETBEANS/biblioteca/src/modelo/Aluno.java</file>
-            <file>file:/D:/googledrive/sistemas%20para%20internet/P02/PROJETOS/JAVA/ProjetoPOO/PROJETO%20NETBEANS/biblioteca/src/modelo/Espaco.java</file>
-            <file>file:/D:/googledrive/sistemas%20para%20internet/P02/PROJETOS/JAVA/ProjetoPOO/PROJETO%20NETBEANS/biblioteca/src/visao/TelaUsuario.java</file>
-            <file>file:/D:/googledrive/sistemas%20para%20internet/P02/PROJETOS/JAVA/ProjetoPOO/PROJETO%20NETBEANS/biblioteca/src/modelo/Funcionario.java</file>
-            <file>file:/D:/googledrive/sistemas%20para%20internet/P02/PROJETOS/JAVA/ProjetoPOO/PROJETO%20NETBEANS/biblioteca/src/visao/TelaPrincipal.java</file>
-            <file>file:/D:/googledrive/sistemas%20para%20internet/P02/PROJETOS/JAVA/ProjetoPOO/PROJETO%20NETBEANS/biblioteca/src/modelo/Livro.java</file>
-            <file>file:/D:/googledrive/sistemas%20para%20internet/P02/PROJETOS/JAVA/ProjetoPOO/PROJETO%20NETBEANS/biblioteca/src/modelo/UserExterno.java</file>
-            <file>file:/D:/googledrive/sistemas%20para%20internet/P02/PROJETOS/JAVA/ProjetoPOO/PROJETO%20NETBEANS/biblioteca/src/modelo/Usuario.java</file>
-            <file>file:/D:/googledrive/sistemas%20para%20internet/P02/PROJETOS/JAVA/ProjetoPOO/PROJETO%20NETBEANS/biblioteca/src/visao/TelaCadastroUsuario.java</file>
-            <file>file:/D:/googledrive/sistemas%20para%20internet/P02/PROJETOS/JAVA/ProjetoPOO/PROJETO%20NETBEANS/biblioteca/src/visao/TelaCadastroEventos.java</file>
-            <file>file:/D:/googledrive/sistemas%20para%20internet/P02/PROJETOS/JAVA/ProjetoPOO/PROJETO%20NETBEANS/biblioteca/src/visao/TelaAluguelLivro.java</file>
-            <file>file:/D:/googledrive/sistemas%20para%20internet/P02/PROJETOS/JAVA/ProjetoPOO/PROJETO%20NETBEANS/biblioteca/src/controle/GerenciadorUsuarios.java</file>
-            <file>file:/D:/googledrive/sistemas%20para%20internet/P02/PROJETOS/JAVA/ProjetoPOO/PROJETO%20NETBEANS/biblioteca/src/modelo/Evento.java</file>
-            <file>file:/D:/googledrive/sistemas%20para%20internet/P02/PROJETOS/JAVA/ProjetoPOO/PROJETO%20NETBEANS/biblioteca/src/modelo/Professor.java</file>
-            <file>file:/D:/googledrive/sistemas%20para%20internet/P02/PROJETOS/JAVA/ProjetoPOO/PROJETO%20NETBEANS/biblioteca/src/modelo/ArrayList.java</file>
-            <file>file:/D:/googledrive/sistemas%20para%20internet/P02/PROJETOS/JAVA/ProjetoPOO/PROJETO%20NETBEANS/biblioteca/src/controle/GerenciadorLivros.java</file>
-            <file>file:/D:/googledrive/sistemas%20para%20internet/P02/PROJETOS/JAVA/ProjetoPOO/PROJETO%20NETBEANS/biblioteca/src/visao/TelaImporteEventos.java</file>
-=======
             <file>file:/D:/D_Arquivos/GitHub/ProjetoPOO/PROJETO%20NETBEANS/biblioteca/src/controle/GerenciadorEventos.java</file>
+            <file>file:/D:/D_Arquivos/GitHub/ProjetoPOO/PROJETO%20NETBEANS/biblioteca/src/visao/TelaCadastroUsuario.java</file>
             <file>file:/D:/D_Arquivos/GitHub/ProjetoPOO/PROJETO%20NETBEANS/biblioteca/src/visao/TelaCadastroEventos.java</file>
             <file>file:/D:/D_Arquivos/GitHub/ProjetoPOO/PROJETO%20NETBEANS/biblioteca/src/modelo/Usuario.java</file>
-            <file>file:/D:/D_Arquivos/GitHub/ProjetoPOO/PROJETO%20NETBEANS/biblioteca/src/visao/TelaPrincipal.java</file>
             <file>file:/D:/D_Arquivos/GitHub/ProjetoPOO/PROJETO%20NETBEANS/biblioteca/src/controle/GerenciadorUsuarios.java</file>
+            <file>file:/D:/D_Arquivos/GitHub/ProjetoPOO/PROJETO%20NETBEANS/biblioteca/src/visao/TelaPrincipal.java</file>
+            <file>file:/D:/D_Arquivos/GitHub/ProjetoPOO/PROJETO%20NETBEANS/biblioteca/src/visao/TelaImporteEventos.java</file>
             <file>file:/D:/D_Arquivos/GitHub/ProjetoPOO/PROJETO%20NETBEANS/biblioteca/src/modelo/Evento.java</file>
->>>>>>> a5428558fa11c1636002a4f8da702cea60771c4e
         </group>
     </open-files>
 </project-private>
