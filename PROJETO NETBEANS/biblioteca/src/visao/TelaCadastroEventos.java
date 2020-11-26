@@ -16,6 +16,8 @@ public class TelaCadastroEventos extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextPane1 = new javax.swing.JTextPane();
         jPanel1 = new javax.swing.JPanel();
         tfRespEvt = new javax.swing.JTextField();
         lbFoneEvt = new javax.swing.JLabel();
@@ -36,6 +38,8 @@ public class TelaCadastroEventos extends javax.swing.JInternalFrame {
         tfHoraEvt = new javax.swing.JFormattedTextField();
         tfFoneEvt = new javax.swing.JFormattedTextField();
         tfLocalEvt = new javax.swing.JTextField();
+
+        jScrollPane1.setViewportView(jTextPane1);
 
         setBorder(null);
         setClosable(true);
@@ -358,13 +362,14 @@ public class TelaCadastroEventos extends javax.swing.JInternalFrame {
         tfDescEvt.requestFocus();
     }//GEN-LAST:event_btExcluirEvtActionPerformed
 
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btBuscarEvt;
     private javax.swing.JButton btExcluirEvt;
     private javax.swing.JButton btLimparEvt;
     private javax.swing.JButton btSalvarEvt;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextPane jTextPane1;
     private javax.swing.JLabel lbDataEvt;
     private javax.swing.JLabel lbDescEvt;
     private javax.swing.JLabel lbEspacoEvt;

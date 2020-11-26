@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
     <Container class="javax.swing.JDialog" name="jDialog1">
 
@@ -57,11 +57,6 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="jPBotoes" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
-          </Group>
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
@@ -72,8 +67,12 @@
                       <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                       <Component id="jPdadosEspec" min="-2" pref="555" max="-2" attributes="0"/>
                   </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
+                      <Component id="jPBotoes" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="33" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -84,8 +83,9 @@
               <Component id="jPanel1" min="-2" pref="288" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jPdadosEspec" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
               <Component id="jPBotoes" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -160,33 +160,25 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                   <Component id="tfEndUsu" alignment="0" max="32767" attributes="0"/>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="tfSenhaUsu" min="-2" pref="152" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                                      <Component id="lbStatusUsu" min="-2" pref="102" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="jRStatusUsu" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
-                                      <Component id="jRStatusInaUsu" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
-                                  </Group>
                                   <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="tfFoneUsu" max="32767" attributes="0"/>
+                                          <Component id="tfCPFUsu" pref="148" max="32767" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="tfCPFUsu" min="-2" pref="148" max="-2" attributes="0"/>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Group type="102" attributes="0">
                                               <Component id="lbDataNascUsu" min="-2" pref="125" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                                           </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="tfFoneUsu" min="-2" pref="148" max="-2" attributes="0"/>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="1" attributes="0">
                                               <Component id="lbTipoUsu" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jCtipoUsu" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="tfDataNascUsu" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jCtipoUsu" max="32767" attributes="0"/>
+                                          <Component id="tfDataNascUsu" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
@@ -195,6 +187,22 @@
                                       <Component id="btBuscarUsu" min="-2" pref="27" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="tfNomeUsu" alignment="0" min="-2" pref="452" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                                      <Component id="tfSenhaUsu" min="-2" pref="141" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="lbStatusUsu" min="-2" pref="102" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jComboBox1" min="-2" max="-2" attributes="0"/>
+                                          <Group type="102" attributes="0">
+                                              <Component id="jRStatusUsu" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+                                              <Component id="jRStatusInaUsu" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
                       </Group>
@@ -224,14 +232,16 @@
                           <Component id="lbCPFUsu" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                           <Component id="tfCPFUsu" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lbDataNascUsu" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                          <Component id="tfDataNascUsu" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="tfDataNascUsu" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lbTipoUsu" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
-                          <Component id="tfFoneUsu" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lbFoneUsu" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
-                          <Component id="jCtipoUsu" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lbTipoUsu" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
+                              <Component id="lbFoneUsu" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
+                              <Component id="jCtipoUsu" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="tfFoneUsu" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -241,12 +251,14 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lbSenhaoUsu" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
-                          <Component id="tfSenhaUsu" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lbStatusUsu" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
                           <Component id="jRStatusUsu" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jRStatusInaUsu" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="tfSenhaUsu" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="19" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jComboBox1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -321,26 +333,12 @@
                 <Property name="text" type="java.lang.String" value="Data de nascimento:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="tfDataNascUsu">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="14" style="0"/>
-                </Property>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JLabel" name="lbSenhaoUsu">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="12" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Senha:"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="tfFoneUsu">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="14" style="0"/>
-                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lbFoneUsu">
@@ -350,16 +348,6 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Fone:"/>
               </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="tfSenhaUsu">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="14" style="0"/>
-                </Property>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfSenhaUsuActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="lbEmailUsu">
               <Properties>
@@ -430,6 +418,44 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Nome:"/>
               </Properties>
+            </Component>
+            <Component class="javax.swing.JFormattedTextField" name="tfDataNascUsu">
+              <Properties>
+                <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
+                  <Format format="##/##/####" subtype="-1" type="5"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfDataNascUsuActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JFormattedTextField" name="tfFoneUsu">
+              <Properties>
+                <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
+                  <Format format="( )     - " subtype="-1" type="5"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JPasswordField" name="tfSenhaUsu">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="jPasswordField1"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfSenhaUsuActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="jComboBox1">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="2">
+                    <StringItem index="0" value="ATIVO"/>
+                    <StringItem index="1" value="INATIVO"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>
