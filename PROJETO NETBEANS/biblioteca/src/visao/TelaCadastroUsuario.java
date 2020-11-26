@@ -116,6 +116,11 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         lbEnderecoUsu.setText("Endereço:");
 
         jRStatusUsu.setText("Ativo");
+        jRStatusUsu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRStatusUsuActionPerformed(evt);
+            }
+        });
 
         tfCPFUsu.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
@@ -806,6 +811,10 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
             
         }
     }//GEN-LAST:event_btExcluirUsuActionPerformed
+
+    private void jRStatusUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRStatusUsuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRStatusUsuActionPerformed
 
     /**
      * @param args the command line arguments

@@ -7,15 +7,17 @@ public class Espaco {
     //atributos
     
     private String descEspaco;
+    private String capacidade;
     private boolean disponivel;
-    private int capacidade;
+
     
     //construtores
     
-    public Espaco(String descEspaco, boolean disponivel, int capacidade) {
+    public Espaco(String descEspaco, String capacidade, boolean disponivel ) {
         this.descEspaco = descEspaco;
-        this.disponivel = disponivel;
         this.capacidade = capacidade;
+        this.disponivel = disponivel;
+
     }
     
     public Espaco() {}
@@ -23,13 +25,10 @@ public class Espaco {
     //metodos
     
     public String toString() {
-        return "Espaco{" + "descEspaco=" + descEspaco + ",disponivel=" + disponivel + ", capacidade=" + capacidade + '}';
+        return "Espaco{" + "descEspaco=" + descEspaco + ", capacidade=" + capacidade + ",disponivel=" + disponivel + '}';
     }
     
-    public String cadastrarEspaco(){
-        return null;
-    }
-       
+          
     //acessadores e modificadores de atributos
     
     public String getDescEspaco() {
@@ -40,6 +39,14 @@ public class Espaco {
         this.descEspaco = descEspaco;
     }
 
+    public String getCapacidade() {
+        return capacidade;
+    }
+
+    public void setCapacidade(String capacidade) {
+        this.capacidade = capacidade;
+    }
+    
     public boolean isDisponivel() {
         return disponivel;
     }
@@ -47,17 +54,5 @@ public class Espaco {
     public void setDisponivel(boolean disponivel) {
         this.disponivel = disponivel;
     }
-
-    public int getCapacidade() {
-        return capacidade;
-    }
-
-    public void setCapacidade(int capacidade) {
-        this.capacidade = capacidade;
-    }
-      
-    
-    
-    
     
 }

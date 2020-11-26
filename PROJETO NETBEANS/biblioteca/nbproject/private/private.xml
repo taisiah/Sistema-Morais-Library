@@ -5,11 +5,14 @@
         <group>
             <file>file:/D:/D_Arquivos/GitHub/ProjetoPOO/PROJETO%20NETBEANS/biblioteca/src/controle/GerenciadorEventos.java</file>
             <file>file:/D:/D_Arquivos/GitHub/ProjetoPOO/PROJETO%20NETBEANS/biblioteca/src/visao/TelaCadastroUsuario.java</file>
+            <file>file:/D:/D_Arquivos/GitHub/ProjetoPOO/PROJETO%20NETBEANS/biblioteca/src/controle/GerenciadorEspacos.java</file>
             <file>file:/D:/D_Arquivos/GitHub/ProjetoPOO/PROJETO%20NETBEANS/biblioteca/src/visao/TelaCadastroEventos.java</file>
+            <file>file:/D:/D_Arquivos/GitHub/ProjetoPOO/PROJETO%20NETBEANS/biblioteca/src/visao/TelaCadastroEspacos.java</file>
             <file>file:/D:/D_Arquivos/GitHub/ProjetoPOO/PROJETO%20NETBEANS/biblioteca/src/modelo/Usuario.java</file>
             <file>file:/D:/D_Arquivos/GitHub/ProjetoPOO/PROJETO%20NETBEANS/biblioteca/src/controle/GerenciadorUsuarios.java</file>
             <file>file:/D:/D_Arquivos/GitHub/ProjetoPOO/PROJETO%20NETBEANS/biblioteca/src/visao/TelaPrincipal.java</file>
             <file>file:/D:/D_Arquivos/GitHub/ProjetoPOO/PROJETO%20NETBEANS/biblioteca/src/visao/TelaImporteEventos.java</file>
+            <file>file:/D:/D_Arquivos/GitHub/ProjetoPOO/PROJETO%20NETBEANS/biblioteca/src/modelo/Espaco.java</file>
             <file>file:/D:/D_Arquivos/GitHub/ProjetoPOO/PROJETO%20NETBEANS/biblioteca/src/modelo/Evento.java</file>
         </group>
     </open-files>

@@ -12,7 +12,7 @@ public class GerenciadorEventos {
        
     
     private GerenciadorEventos() {
-        this.listaEventos = new ArrayList<Evento>() ;
+        this.listaEventos = new ArrayList<>() ;
     }
     
     

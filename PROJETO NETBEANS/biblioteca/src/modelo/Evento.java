@@ -16,7 +16,7 @@ public class Evento {
     
     //construtores 
     
-    public Evento(String descEvento, String data, String hora,String local,String responsavel,String fone, String publico) {
+    public Evento(String descEvento, String data, String hora,String local,String responsavel, String fone, String publico) {
         this.descEvento = descEvento;
         this.data = data;
         this.local = local;
