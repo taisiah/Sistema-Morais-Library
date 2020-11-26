@@ -159,7 +159,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         });
 
         try {
-            tfFoneUsu.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("( )     - ")));
+            tfFoneUsu.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) #####-####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
