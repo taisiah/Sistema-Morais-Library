@@ -67,7 +67,7 @@ public class TelaCadastroEspacos extends javax.swing.JInternalFrame {
         btExcluir.setBackground(new java.awt.Color(255, 0, 0));
         btExcluir.setForeground(new java.awt.Color(255, 255, 255));
         btExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/delete-24_1.png"))); // NOI18N
-        btExcluir.setText("btExcluir");
+        btExcluir.setText("Excluir");
         btExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btExcluirActionPerformed(evt);
@@ -95,7 +95,7 @@ public class TelaCadastroEspacos extends javax.swing.JInternalFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(btSalvar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
                                 .addComponent(btLimpar)
                                 .addGap(43, 43, 43)
                                 .addComponent(btExcluir))

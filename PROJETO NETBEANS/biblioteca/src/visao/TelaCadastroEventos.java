@@ -2,6 +2,7 @@
 package visao;
 
 import controle.GerenciadorEventos;
+import java.awt.event.ActionEvent;
 import javax.swing.JOptionPane;
 import modelo.Evento;
 
@@ -34,10 +35,10 @@ public class TelaCadastroEventos extends javax.swing.JInternalFrame {
         lbEspacoEvt = new javax.swing.JLabel();
         btBuscarEvt = new javax.swing.JButton();
         lbRespEvt = new javax.swing.JLabel();
-        tfDataEvt = new javax.swing.JFormattedTextField();
         tfHoraEvt = new javax.swing.JFormattedTextField();
         tfFoneEvt = new javax.swing.JFormattedTextField();
         tfLocalEvt = new javax.swing.JTextField();
+        tfDataEvt = new javax.swing.JFormattedTextField();
 
         jScrollPane1.setViewportView(jTextPane1);
 
@@ -114,17 +115,12 @@ public class TelaCadastroEventos extends javax.swing.JInternalFrame {
         lbRespEvt.setText("Responsável");
 
         try {
-            tfDataEvt.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-        tfDataEvt.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
-        try {
             tfHoraEvt.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##:##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        tfHoraEvt.setText("");
+        tfHoraEvt.setToolTipText("");
         tfHoraEvt.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         try {
@@ -140,6 +136,13 @@ public class TelaCadastroEventos extends javax.swing.JInternalFrame {
         });
 
         tfLocalEvt.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        try {
+            tfDataEvt.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        tfDataEvt.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -205,8 +208,8 @@ public class TelaCadastroEventos extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbHoraEvt, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tfHoraEvt, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
-                    .addComponent(tfDataEvt, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbDataEvt))
+                    .addComponent(lbDataEvt)
+                    .addComponent(tfDataEvt, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lbEspacoEvt, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
