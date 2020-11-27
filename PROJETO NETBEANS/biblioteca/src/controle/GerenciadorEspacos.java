@@ -109,23 +109,9 @@ public class GerenciadorEspacos {
             File file = new File("espaco.txt");
             file.delete();
                     
-        }else{
-  
-            try {
-                    FileWriter editaArq = new FileWriter("espaco.txt");
-                    PrintWriter escreveArq = new PrintWriter(editaArq); 
-                    escreveArq.println(this.listaEspacos.get(0).getDescEspaco());
-                    escreveArq.println(this.listaEspacos.get(0).getCapacidade());
-                    escreveArq.println(this.listaEspacos.get(0).isDisponivel());
-                    editaArq.flush();
-                    editaArq.close();
-                    escreveArq.close();
-                } catch (IOException ex) {
-                    Logger.getLogger(GerenciadorEspacos.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            
+        }else{          
            
-            for (int j = 1; j < this.listaEspacos.size(); j++){
+            for (int j = 0; j < this.listaEspacos.size(); j++){
 
                 try {
                     FileWriter editaArq = new FileWriter("espaco.txt",true);
