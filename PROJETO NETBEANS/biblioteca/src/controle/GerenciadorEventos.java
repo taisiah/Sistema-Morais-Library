@@ -8,6 +8,9 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -25,7 +28,7 @@ public class GerenciadorEventos {
         this.listaEventos = new ArrayList<Evento>() ;
  
     }
-    
+       
     
     public static GerenciadorEventos getInstance() {
             if(uniqueInstance == null) {
@@ -34,6 +37,7 @@ public class GerenciadorEventos {
             return uniqueInstance;
         }
     
+      
     
     public String adicionarEvento(Evento e){
         
@@ -153,7 +157,73 @@ public class GerenciadorEventos {
         }  
         return result;   
     }
+    
+    
+    public String importarEventos(String caminho){
+        Path arquivo = Paths.get(caminho);
+        try {
+            byte[] texto = Files.readAllBytes(arquivo);
+            String dadosExternos = new String(texto);
+            FileWriter editaArq = new FileWriter("evento.txt", true);     
+            PrintWriter escreveArq = new PrintWriter(editaArq);
+            escreveArq.println(dadosExternos);
+            escreveArq.flush();
+            escreveArq.close();
+            editaArq.close();
+  
+        } catch (IOException ex) {
+            Logger.getLogger(Evento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+           
+        return "Importação realizada com sucesso!";
+         
+     }
 
+            
+    public String relatorioEventos() throws IOException{
+            
+        try {
+            FileReader acessaArq = new FileReader("evento.txt");
+            BufferedReader leiaArq = new BufferedReader(acessaArq);
+            String linha = leiaArq.readLine();
+            FileWriter relatorioEvt = new FileWriter("relatorio.txt");
+            PrintWriter relatorio = new PrintWriter(relatorioEvt);
+                      
+            relatorio.println("---------------------  MORAIS LIBRARY  --------------------");
+            relatorio.println("--------------------- AGENDA DE EVENTOS--------------------\n");
+            int cont = 0;
+            while (linha != null){
+                cont++;
+                relatorio.println("        Evento......: "+ linha);
+                linha=leiaArq.readLine();
+                relatorio.println("        Data........: "+ linha);
+                linha=leiaArq.readLine();
+                relatorio.println("        Hora........: "+ linha);
+                linha=leiaArq.readLine();
+                relatorio.println("        Local.......: "+ linha);
+                linha=leiaArq.readLine();
+                relatorio.println("        Responsável.: "+ linha);
+                linha=leiaArq.readLine();
+                relatorio.println("        Fone........: "+ linha);
+                linha=leiaArq.readLine();
+                relatorio.println("        Publico.....: "+ linha+" pessoas\n");
+                linha=leiaArq.readLine();
+                
+            }
+            relatorio.println("        "+cont+" EVENTOS CADASTRADOS!\n");
+            relatorio.println("---------------------------  //  --------------------------");
+            relatorio.flush();
+            relatorio.close();
+            relatorioEvt.close();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Evento.class.getName()).log(Level.SEVERE, null, ex);
+            return "Não existem eventos cadastrados!";
+                    
+        }
+        return "Relatório gerado com sucesso!";
+       
+    }
+    
     public static GerenciadorEventos getUniqueInstance() {
         return uniqueInstance;
     }
@@ -161,7 +231,7 @@ public class GerenciadorEventos {
     public static void setUniqueInstance(GerenciadorEventos uniqueInstance) {
         GerenciadorEventos.uniqueInstance = uniqueInstance;
     }
-
+    
     public ArrayList<Evento> getListaEventos() {
         return listaEventos;
     }
@@ -169,8 +239,6 @@ public class GerenciadorEventos {
     public void setListaEventos(ArrayList<Evento> listaEventos) {
         this.listaEventos = listaEventos;
     }
-    
-    
     
     
 }

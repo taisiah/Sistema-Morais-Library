@@ -1,6 +1,11 @@
 
 package visao;
 
+import controle.GerenciadorEventos;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import modelo.Evento;
 
 public class TelaPrincipal extends javax.swing.JFrame {
@@ -16,20 +21,20 @@ public class TelaPrincipal extends javax.swing.JFrame {
         painelPrincipal = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
+        menuUsuCadastro = new javax.swing.JMenuItem();
+        menuUsuImportar = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        menuLivCadastro = new javax.swing.JMenuItem();
+        menuLivFicha = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem8 = new javax.swing.JMenuItem();
+        menuEvtCadastro = new javax.swing.JMenuItem();
+        menuEvtImportar = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        jMenuItem7 = new javax.swing.JMenuItem();
+        menuEspCadastro = new javax.swing.JMenuItem();
+        menuEspReserva = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
-        jMenuItem9 = new javax.swing.JMenuItem();
-        jMenu6 = new javax.swing.JMenu();
+        menuRelAgenda = new javax.swing.JMenuItem();
+        menuSobre = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Morais Library - Principal");
@@ -52,83 +57,83 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/user-16.png"))); // NOI18N
         jMenu1.setText("Usuarios");
 
-        jMenuItem1.setText("Cadastro");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        menuUsuCadastro.setText("Cadastro");
+        menuUsuCadastro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                menuUsuCadastroActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
+        jMenu1.add(menuUsuCadastro);
 
-        jMenuItem4.setText("Importar Usuário");
-        jMenu1.add(jMenuItem4);
+        menuUsuImportar.setText("Importar Usuário");
+        jMenu1.add(menuUsuImportar);
 
         jMenuBar1.add(jMenu1);
 
         jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/book-16.png"))); // NOI18N
         jMenu4.setText("Livros");
 
-        jMenuItem2.setText("Cadastro");
-        jMenu4.add(jMenuItem2);
+        menuLivCadastro.setText("Cadastro");
+        jMenu4.add(menuLivCadastro);
 
-        jMenuItem3.setText("Ficha Catalográfica");
-        jMenu4.add(jMenuItem3);
+        menuLivFicha.setText("Ficha Catalográfica");
+        jMenu4.add(menuLivFicha);
 
         jMenuBar1.add(jMenu4);
 
         jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/today-16.png"))); // NOI18N
         jMenu2.setText("Eventos");
 
-        jMenuItem5.setText("Cadastro");
-        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+        menuEvtCadastro.setText("Cadastro");
+        menuEvtCadastro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem5ActionPerformed(evt);
+                menuEvtCadastroActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem5);
+        jMenu2.add(menuEvtCadastro);
 
-        jMenuItem8.setText("Importar Eventos");
-        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+        menuEvtImportar.setText("Importar Eventos");
+        menuEvtImportar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem8ActionPerformed(evt);
+                menuEvtImportarActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem8);
+        jMenu2.add(menuEvtImportar);
 
         jMenuBar1.add(jMenu2);
 
         jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/map-marker-2-16.png"))); // NOI18N
         jMenu3.setText("Espaços");
 
-        jMenuItem6.setText("Cadastro");
-        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+        menuEspCadastro.setText("Cadastro");
+        menuEspCadastro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem6ActionPerformed(evt);
+                menuEspCadastroActionPerformed(evt);
             }
         });
-        jMenu3.add(jMenuItem6);
+        jMenu3.add(menuEspCadastro);
 
-        jMenuItem7.setText("Reserva");
-        jMenu3.add(jMenuItem7);
+        menuEspReserva.setText("Reserva Espaço");
+        jMenu3.add(menuEspReserva);
 
         jMenuBar1.add(jMenu3);
 
         jMenu5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/printer-16.png"))); // NOI18N
         jMenu5.setText("Relatórios");
 
-        jMenuItem9.setText("Agenda de Eventos");
-        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
+        menuRelAgenda.setText("Agenda de Eventos");
+        menuRelAgenda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem9ActionPerformed(evt);
+                menuRelAgendaActionPerformed(evt);
             }
         });
-        jMenu5.add(jMenuItem9);
+        jMenu5.add(menuRelAgenda);
 
         jMenuBar1.add(jMenu5);
 
-        jMenu6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/info-5-16.png"))); // NOI18N
-        jMenu6.setText("Sobre");
-        jMenuBar1.add(jMenu6);
+        menuSobre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/info-5-16.png"))); // NOI18N
+        menuSobre.setText("Sobre");
+        jMenuBar1.add(menuSobre);
 
         setJMenuBar(jMenuBar1);
 
@@ -147,31 +152,37 @@ public class TelaPrincipal extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void menuUsuCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuUsuCadastroActionPerformed
         // TODO add your handling code here:
         telaCadastroUsuario.setVisible(true);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_menuUsuCadastroActionPerformed
 
-    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+    private void menuEspCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuEspCadastroActionPerformed
         // TODO add your handling code here:
         TelaCadastroEspacos tlCadEsp = new TelaCadastroEspacos();
         painelPrincipal.add(tlCadEsp);
         tlCadEsp.setVisible(true);
-    }//GEN-LAST:event_jMenuItem6ActionPerformed
+    }//GEN-LAST:event_menuEspCadastroActionPerformed
 
-    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+    private void menuEvtImportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuEvtImportarActionPerformed
         // TODO add your handling code here:
         TelaImporteEventos tlImpEventos = new TelaImporteEventos();
         painelPrincipal.add(tlImpEventos);
         tlImpEventos.setVisible(true);
         
-    }//GEN-LAST:event_jMenuItem8ActionPerformed
+    }//GEN-LAST:event_menuEvtImportarActionPerformed
 
-    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
-  
-    }//GEN-LAST:event_jMenuItem9ActionPerformed
+    private void menuRelAgendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuRelAgendaActionPerformed
+        GerenciadorEventos gerenciadorEvt = GerenciadorEventos.getInstance();
+        try {
+            JOptionPane.showMessageDialog(null, gerenciadorEvt.relatorioEventos());
 
-    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        } catch (IOException ex) {
+            Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_menuRelAgendaActionPerformed
+
+    private void menuEvtCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuEvtCadastroActionPerformed
         // TODO add your handling code here:
         
         TelaCadastroEventos tlCadEventos = new TelaCadastroEventos();
@@ -180,7 +191,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         
         
         
-    }//GEN-LAST:event_jMenuItem5ActionPerformed
+    }//GEN-LAST:event_menuEvtCadastroActionPerformed
 
     /**
      * @param args the command line arguments
@@ -226,17 +237,17 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
-    private javax.swing.JMenuItem jMenuItem9;
+    private javax.swing.JMenuItem menuEspCadastro;
+    private javax.swing.JMenuItem menuEspReserva;
+    private javax.swing.JMenuItem menuEvtCadastro;
+    private javax.swing.JMenuItem menuEvtImportar;
+    private javax.swing.JMenuItem menuLivCadastro;
+    private javax.swing.JMenuItem menuLivFicha;
+    private javax.swing.JMenuItem menuRelAgenda;
+    private javax.swing.JMenu menuSobre;
+    private javax.swing.JMenuItem menuUsuCadastro;
+    private javax.swing.JMenuItem menuUsuImportar;
     private javax.swing.JDesktopPane painelPrincipal;
     // End of variables declaration//GEN-END:variables
 }

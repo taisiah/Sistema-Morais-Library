@@ -1,6 +1,7 @@
 
 package visao;
 
+import controle.GerenciadorEventos;
 import java.io.File;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -137,9 +138,9 @@ public class TelaImporteEventos extends javax.swing.JInternalFrame {
 
     private void jbImportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbImportActionPerformed
         // TODO add your handling code here:
-        Evento evento = new Evento();
+        GerenciadorEventos gerenciadorEvt = GerenciadorEventos.getInstance();
+        JOptionPane.showMessageDialog(null, gerenciadorEvt.importarEventos(this.arq.getPath()));
         
-        //JOptionPane.showMessageDialog(null, evento.importar(this.arq.getPath()));
         
         
         
