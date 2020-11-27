@@ -150,7 +150,7 @@ public class GerenciadorEventos {
             if (listaEventos.isEmpty()&& result){
                 return result;
             }
-                    }  
+        }  
         return result;   
     }
 

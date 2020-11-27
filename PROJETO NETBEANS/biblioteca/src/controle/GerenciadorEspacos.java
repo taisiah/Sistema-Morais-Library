@@ -123,11 +123,12 @@ public class GerenciadorEspacos {
                     Logger.getLogger(GerenciadorEspacos.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-            return result;
-             
-        }
+         }else{
+            if (listaEspacos.isEmpty()&& result){
+                return result;
+            }
+        }  
         return result; 
-       
         
     }
     
