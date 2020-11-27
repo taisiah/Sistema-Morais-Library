@@ -175,9 +175,8 @@ public class TelaCadastroEspacos extends javax.swing.JInternalFrame {
         
         Espaco espaco = new Espaco(descEsp,capEsp,dispEsp);
         GerenciadorEspacos gerenciadorEsp = GerenciadorEspacos.getInstance();
-        gerenciadorEsp.adicionarEspaco(espaco);
-        
-        JOptionPane.showMessageDialog(null,"Espaço cadastrado com sucesso!");
+                
+        JOptionPane.showMessageDialog(null,gerenciadorEsp.adicionarEspaco(espaco));
         
         tfDescEsp.setText("");
         tfCapEsp.setText("");

@@ -48,7 +48,7 @@ public class GerenciadorEspacos {
             Logger.getLogger(GerenciadorEspacos.class.getName()).log(Level.SEVERE, null, ex);
         }
   
-        return null;
+        return ("Espaço cadastrado com sucesso!");
     }
       
         
@@ -93,24 +93,21 @@ public class GerenciadorEspacos {
     public boolean removerEspaco (String descEsp){
                 
         boolean result=false;
+        File file = new File("espaco.txt");
                                
         for (int i = 0; i < this.listaEspacos.size(); i++){
             
             if (this.listaEspacos.get(i).getDescEspaco().equals(descEsp)){
                 this.listaEspacos.remove(i);
                 System.out.println(listaEspacos);
+                file.delete();
                 result = true;
-
                 break;
             }        
         }
         
-        if (listaEspacos.isEmpty()){  
-            File file = new File("espaco.txt");
-            file.delete();
-                    
-        }else{          
-           
+        if (!listaEspacos.isEmpty()){  
+        
             for (int j = 0; j < this.listaEspacos.size(); j++){
 
                 try {
@@ -130,6 +127,7 @@ public class GerenciadorEspacos {
              
         }
         return result; 
+       
         
     }
     

@@ -205,11 +205,12 @@ public class TelaCadastroEventos extends javax.swing.JInternalFrame {
                     .addComponent(btBuscarEvt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lbDescEvt, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbHoraEvt, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfHoraEvt, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
-                    .addComponent(lbDataEvt)
-                    .addComponent(tfDataEvt, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tfDataEvt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lbHoraEvt, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tfHoraEvt, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
+                        .addComponent(lbDataEvt)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lbEspacoEvt, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -313,9 +314,8 @@ public class TelaCadastroEventos extends javax.swing.JInternalFrame {
         
         Evento evento = new Evento(descEvt, dataEvt, horaEvt, localEvt, respEvt, foneEvt, publicoEvt);
         GerenciadorEventos gerenciadorEvt = GerenciadorEventos.getInstance();
-        gerenciadorEvt.adicionarEvento(evento);
         
-        JOptionPane.showMessageDialog(null,"Evento cadastrado com sucesso!");
+        JOptionPane.showMessageDialog(null,gerenciadorEvt.adicionarEvento(evento));
             
         tfDescEvt.setText("");
         tfDataEvt.setText("");
@@ -349,6 +349,7 @@ public class TelaCadastroEventos extends javax.swing.JInternalFrame {
         String descEvt = tfDescEvt.getText();
         GerenciadorEventos gerenciadorEvt = GerenciadorEventos.getInstance();
         boolean eventoRemover= gerenciadorEvt.removerEvento(descEvt);
+        
         if ( eventoRemover==false){
             JOptionPane.showMessageDialog(null,"Evento não encontrado!");
         }
