@@ -196,7 +196,7 @@ public class TelaUsuario extends javax.swing.JFrame {
 
     private void jMenuBuscarLivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuBuscarLivroActionPerformed
         // TODO add your handling code here:
-         new TelaAluguelLivro().setVisible(true);
+         new TelaReservaLivro().setVisible(true);
     }//GEN-LAST:event_jMenuBuscarLivroActionPerformed
 
     /**

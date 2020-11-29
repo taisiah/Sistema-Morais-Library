@@ -1,0 +1,6 @@
+Catalogos
+Folhetos
+Livros
+Monografias
+Periodicos
+Tese

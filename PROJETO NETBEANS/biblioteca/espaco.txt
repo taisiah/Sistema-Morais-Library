@@ -1,0 +1,6 @@
+teste1
+1000
+true
+João
+23333
+true

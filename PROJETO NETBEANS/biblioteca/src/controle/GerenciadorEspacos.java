@@ -60,17 +60,17 @@ public class GerenciadorEspacos {
             Espaco e;
             FileReader acessaArq = new FileReader("espaco.txt");
             BufferedReader leiaArq = new BufferedReader(acessaArq);
-            String linhaDesc = leiaArq.readLine();
-            String linhaCap;
-            boolean linhaDisp;
+            String lnDesc = leiaArq.readLine();
+            String lnCap;
+            boolean lnDisp;
             
-            while (linhaDesc != null){
+            while (lnDesc != null){
                 
-                linhaCap = leiaArq.readLine();
-                linhaDisp = Boolean.getBoolean(leiaArq.readLine());              
-                e = new Espaco(linhaDesc,linhaCap,linhaDisp);      
+                lnCap = leiaArq.readLine();
+                lnDisp = Boolean.getBoolean(leiaArq.readLine());              
+                e = new Espaco(lnDesc,lnCap,lnDisp);      
                 this.listaEspacos.add(e);
-                linhaDesc = leiaArq.readLine();
+                lnDesc = leiaArq.readLine();
                 
                 }
             acessaArq.close();

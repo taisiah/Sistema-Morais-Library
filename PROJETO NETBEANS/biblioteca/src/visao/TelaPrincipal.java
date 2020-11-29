@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import modelo.Evento;
 
 public class TelaPrincipal extends javax.swing.JFrame {
 
@@ -26,6 +25,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenu4 = new javax.swing.JMenu();
         menuLivCadastro = new javax.swing.JMenuItem();
         menuLivFicha = new javax.swing.JMenuItem();
+        menuSolicitarFicha = new javax.swing.JMenuItem();
+        menuReservaLivro = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         menuEvtCadastro = new javax.swing.JMenuItem();
         menuEvtImportar = new javax.swing.JMenuItem();
@@ -73,11 +74,37 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/book-16.png"))); // NOI18N
         jMenu4.setText("Livros");
 
-        menuLivCadastro.setText("Cadastro");
+        menuLivCadastro.setText("Cadastro de Livro");
+        menuLivCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuLivCadastroActionPerformed(evt);
+            }
+        });
         jMenu4.add(menuLivCadastro);
 
         menuLivFicha.setText("Ficha Catalográfica");
+        menuLivFicha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuLivFichaActionPerformed(evt);
+            }
+        });
         jMenu4.add(menuLivFicha);
+
+        menuSolicitarFicha.setText("Solicitar Ficha Catalográfica");
+        menuSolicitarFicha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuSolicitarFichaActionPerformed(evt);
+            }
+        });
+        jMenu4.add(menuSolicitarFicha);
+
+        menuReservaLivro.setText("Reservar Livro");
+        menuReservaLivro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuReservaLivroActionPerformed(evt);
+            }
+        });
+        jMenu4.add(menuReservaLivro);
 
         jMenuBar1.add(jMenu4);
 
@@ -193,6 +220,38 @@ public class TelaPrincipal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_menuEvtCadastroActionPerformed
 
+    private void menuLivCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuLivCadastroActionPerformed
+        // TODO add your handling code here:
+        TelaCadastroLivro tlCadLivros = new TelaCadastroLivro();
+        painelPrincipal.add(tlCadLivros);
+        tlCadLivros.setVisible(true);
+        
+    }//GEN-LAST:event_menuLivCadastroActionPerformed
+
+    private void menuLivFichaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuLivFichaActionPerformed
+        // TODO add your handling code here:
+        TelaFicha tlFicha = new TelaFicha();
+        painelPrincipal.add(tlFicha);
+        tlFicha.setVisible(true);
+        
+        
+    }//GEN-LAST:event_menuLivFichaActionPerformed
+
+    private void menuSolicitarFichaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuSolicitarFichaActionPerformed
+        // TODO add your handling code here:
+        TelaSolicitaFicha tlSolFicha = new TelaSolicitaFicha();
+        painelPrincipal.add(tlSolFicha);
+        tlSolFicha.setVisible(true);
+        
+    }//GEN-LAST:event_menuSolicitarFichaActionPerformed
+
+    private void menuReservaLivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuReservaLivroActionPerformed
+        // TODO add your handling code here:
+        TelaReservaLivro tlResLivro = new TelaReservaLivro();
+        painelPrincipal.add(tlResLivro);
+        tlResLivro.setVisible(true);
+    }//GEN-LAST:event_menuReservaLivroActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -245,7 +304,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuLivCadastro;
     private javax.swing.JMenuItem menuLivFicha;
     private javax.swing.JMenuItem menuRelAgenda;
+    private javax.swing.JMenuItem menuReservaLivro;
     private javax.swing.JMenu menuSobre;
+    private javax.swing.JMenuItem menuSolicitarFicha;
     private javax.swing.JMenuItem menuUsuCadastro;
     private javax.swing.JMenuItem menuUsuImportar;
     private javax.swing.JDesktopPane painelPrincipal;

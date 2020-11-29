@@ -161,7 +161,7 @@ public class TelaCadastroEspacos extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         String descEsp = tfDescEsp.getText();
         if(descEsp.length() == 0) {
-            JOptionPane.showMessageDialog(null,"Digitar a descrição do espaço");
+            JOptionPane.showMessageDialog(null,"Digitar descrição do espaço");
             return;
         }
         

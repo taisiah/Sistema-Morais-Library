@@ -13,7 +13,7 @@ public class Espaco {
     
     //construtores
     
-    public Espaco(String descEspaco, String capacidade, boolean disponivel ) {
+    public Espaco(String descEspaco, String capacidade, boolean disponivel) {
         this.descEspaco = descEspaco;
         this.capacidade = capacidade;
         this.disponivel = disponivel;
