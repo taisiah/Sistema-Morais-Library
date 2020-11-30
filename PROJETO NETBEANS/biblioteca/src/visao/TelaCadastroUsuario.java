@@ -64,7 +64,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         tfDataNascUsu = new javax.swing.JFormattedTextField();
         tfFoneUsu = new javax.swing.JFormattedTextField();
         tfSenhaUsu = new javax.swing.JPasswordField();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jRadioButton1 = new javax.swing.JRadioButton();
         jPBotoes = new javax.swing.JPanel();
         btExcluirUsu = new javax.swing.JButton();
         btLimparUsu = new javax.swing.JButton();
@@ -175,7 +175,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ATIVO", "INATIVO" }));
+        jRadioButton1.setText("ATIVO");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -226,8 +226,8 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(lbStatusUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(99, 99, 99)))))
+                                .addComponent(jRadioButton1)
+                                .addGap(77, 77, 77)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -265,7 +265,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
                     .addComponent(lbSenhaoUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbStatusUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tfSenhaUsu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jRadioButton1))
                 .addContainerGap(37, Short.MAX_VALUE))
         );
 
@@ -869,12 +869,12 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
     private javax.swing.JButton btExcluirUsu;
     private javax.swing.JButton btLimparUsu;
     private javax.swing.JButton btSalvarUsu;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jCtipoUsu;
     private javax.swing.JPanel jPBotoes;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPdadosEspec;
+    private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JLabel lbCPFUsu;
     private javax.swing.JLabel lbCargoUsu;
     private javax.swing.JLabel lbCursoUsu;
