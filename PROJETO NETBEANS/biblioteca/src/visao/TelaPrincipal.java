@@ -181,7 +181,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void menuUsuCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuUsuCadastroActionPerformed
         // TODO add your handling code here:
-        telaCadastroUsuario.setVisible(true);
+        new TelaCadastroUsuario().setVisible(true);
+        TelaCadastroUsuario tlCadUsu = new TelaCadastroUsuario();
+        painelPrincipal.add(tlCadUsu);
+        tlCadUsu.setVisible(true);
     }//GEN-LAST:event_menuUsuCadastroActionPerformed
 
     private void menuEspCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuEspCadastroActionPerformed
@@ -287,7 +290,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
     }
     
-    private TelaCadastroUsuario telaCadastroUsuario = new TelaCadastroUsuario();
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

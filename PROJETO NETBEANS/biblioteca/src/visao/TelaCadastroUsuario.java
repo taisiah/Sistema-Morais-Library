@@ -6,32 +6,24 @@
 package visao;
 
 import controle.GerenciadorUsuarios;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import modelo.Aluno;
 import modelo.Funcionario;
 import modelo.Professor;
 import modelo.UserExterno;
 import modelo.Usuario;
-
 /**
  *
 
  */
-public class TelaCadastroUsuario extends javax.swing.JFrame {
+public class TelaCadastroUsuario extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form TelaCadastroUsuario
+     * Creates new form NewJInternalFrame
      */
     public TelaCadastroUsuario() {
         initComponents();
-        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        jCtipoUsu.setSelectedItem("");
-        this.tfdepartamentoUsu.setEnabled(false);
-        this.tfCargoUsu.setEnabled(false);
-        this.tfpagamentoUsu.setEnabled(false);
-        this.tfCursoUsu.setEnabled(false);
-        this.tfMatriculaUsu.setEnabled(false);
+        
     }
 
     /**
@@ -64,7 +56,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         tfDataNascUsu = new javax.swing.JFormattedTextField();
         tfFoneUsu = new javax.swing.JFormattedTextField();
         tfSenhaUsu = new javax.swing.JPasswordField();
-        jRadioButton1 = new javax.swing.JRadioButton();
+        tfUsuStatus = new javax.swing.JRadioButton();
         jPBotoes = new javax.swing.JPanel();
         btExcluirUsu = new javax.swing.JButton();
         btLimparUsu = new javax.swing.JButton();
@@ -81,7 +73,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         lbDepartamentoUsu = new javax.swing.JLabel();
         tfpagamentoUsu = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setClosable(true);
 
         lbTituloCadastroUsu.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lbTituloCadastroUsu.setText("Cadastro de Usuários");
@@ -175,7 +167,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
             }
         });
 
-        jRadioButton1.setText("ATIVO");
+        tfUsuStatus.setText("ATIVO");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -226,7 +218,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(lbStatusUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jRadioButton1)
+                                .addComponent(tfUsuStatus)
                                 .addGap(77, 77, 77)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -265,7 +257,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
                     .addComponent(lbSenhaoUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbStatusUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tfSenhaUsu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jRadioButton1))
+                    .addComponent(tfUsuStatus))
                 .addContainerGap(37, Short.MAX_VALUE))
         );
 
@@ -465,7 +457,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(71, 71, 71)
                         .addComponent(jPBotoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -482,6 +474,188 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void tfNomeUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNomeUsuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfNomeUsuActionPerformed
+
+    private void btBuscarUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBuscarUsuActionPerformed
+        // TODO add your handling code here:
+
+        String email = tfEmailUsu.getText();
+        GerenciadorUsuarios gerenciadorUsu = GerenciadorUsuarios.getInstance();
+        Usuario user = gerenciadorUsu.buscarUsuario(email);
+        if (user ==(null)){
+            JOptionPane.showMessageDialog(null,"Não encontrado!");
+
+        }
+        else{
+            String tipodeusuario = jCtipoUsu.getSelectedItem().toString();
+            if(user instanceof Aluno){
+                Aluno aluno = (Aluno)user;
+                this.tfCursoUsu.setEnabled(true);
+                this.tfMatriculaUsu.setEnabled(true);
+                String nome = aluno.getNome();
+                String cpf = aluno.getCpf();
+                String telefone = aluno.getTelefone();
+                String endereco =aluno.getEndereco();
+                String senha = aluno.getSenha();
+                String nascimento = aluno.getNascimento();
+                String curso = aluno.getCurso();
+                String matricula = aluno.getMatricula();
+                tfNomeUsu.setText(nome);
+                tfFoneUsu.setText(telefone);
+                tfSenhaUsu.setText(senha);
+                tfCPFUsu.setText(cpf);
+                tfDataNascUsu.setText(nascimento);
+                tfCursoUsu.setText(curso);
+                tfMatriculaUsu.setText(matricula);
+                tfEndUsu.setText(endereco);
+                tfUsuStatus.setSelected(true);
+
+            }
+            else if ( user instanceof Professor){
+                Professor professor = (Professor)user;
+                this.tfdepartamentoUsu.setEnabled(true);
+                String nome = professor.getNome();
+                String cpf = professor.getCpf();
+                String telefone = professor.getTelefone();
+                String endereco =professor.getEndereco();
+                String senha = professor.getSenha();
+                String nascimento = professor.getNascimento();
+                String departamento = professor.getDepartamento();
+                tfNomeUsu.setText(nome);
+                tfFoneUsu.setText(telefone);
+                tfSenhaUsu.setText(senha);
+                tfCPFUsu.setText(cpf);
+                tfDataNascUsu.setText(nascimento);
+                tfdepartamentoUsu.setText(departamento);
+                tfEndUsu.setText(endereco);
+
+            }
+            else if (user instanceof Funcionario){
+                Funcionario funcionario = (Funcionario)user;
+                this.tfCargoUsu.setEnabled(true);
+                String nome = funcionario.getNome();
+                String cpf = funcionario.getCpf();
+                String telefone = funcionario.getTelefone();
+                String endereco =funcionario.getEndereco();
+                String senha = funcionario.getSenha();
+                String nascimento = funcionario.getNascimento();
+                String cargo = funcionario.getCargo();
+                tfNomeUsu.setText(nome);
+                tfFoneUsu.setText(telefone);
+                tfSenhaUsu.setText(senha);
+                tfCPFUsu.setText(cpf);
+                tfDataNascUsu.setText(nascimento);
+                tfCargoUsu.setText(cargo);
+                tfEndUsu.setText(endereco);
+                tfUsuStatus.setSelected(true);
+
+            }
+            else if (user instanceof UserExterno){
+                UserExterno externo = (UserExterno) user;
+                this.tfpagamentoUsu.setEnabled(true);
+                String nome = externo.getNome();
+                String cpf = externo.getCpf();
+                String telefone = externo.getTelefone();
+                String endereco =externo.getEndereco();
+                String senha = externo.getSenha();
+                String nascimento = externo.getNascimento();
+                String pagamento = externo.getMensalidade();
+                tfNomeUsu.setText(nome);
+                tfFoneUsu.setText(telefone);
+                tfSenhaUsu.setText(senha);
+                tfCPFUsu.setText(cpf);
+                tfDataNascUsu.setText(nascimento);
+                tfpagamentoUsu.setText(pagamento);
+                tfEndUsu.setText(endereco);
+                tfUsuStatus.setSelected(true);
+
+            }
+        }
+
+    }//GEN-LAST:event_btBuscarUsuActionPerformed
+
+    private void jCtipoUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCtipoUsuActionPerformed
+        // TODO add your handling code here:
+        String tipodeusuario = jCtipoUsu.getSelectedItem().toString();
+        if(tipodeusuario.equals ("Aluno")){
+            this.tfdepartamentoUsu.setEnabled(false);
+            this.tfCargoUsu.setEnabled(false);
+            this.tfpagamentoUsu.setEnabled(false);
+            this.tfCursoUsu.setEnabled(true);
+            this.tfMatriculaUsu.setEnabled(true);
+        }
+        else if (tipodeusuario.equals ("Professor")){
+            this.tfdepartamentoUsu.setEnabled(true);
+            this.tfCargoUsu.setEnabled(false);
+            this.tfpagamentoUsu.setEnabled(false);
+            this.tfCursoUsu.setEnabled(false);
+            this.tfMatriculaUsu.setEnabled(false);
+
+        }
+        else if(tipodeusuario.equals ("Funcionário")){
+            this.tfdepartamentoUsu.setEnabled(false);
+            this.tfCargoUsu.setEnabled(true);
+            this.tfpagamentoUsu.setEnabled(false);
+            this.tfCursoUsu.setEnabled(false);
+            this.tfMatriculaUsu.setEnabled(false);
+        }
+        else if (tipodeusuario.equals ("Externo")){
+            this.tfdepartamentoUsu.setEnabled(false);
+            this.tfCargoUsu.setEnabled(false);
+            this.tfpagamentoUsu.setEnabled(true);
+            this.tfCursoUsu.setEnabled(false);
+            this.tfMatriculaUsu.setEnabled(false);
+
+        }
+
+    }//GEN-LAST:event_jCtipoUsuActionPerformed
+
+    private void tfEmailUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfEmailUsuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfEmailUsuActionPerformed
+
+    private void tfDataNascUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfDataNascUsuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfDataNascUsuActionPerformed
+
+    private void tfFoneUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfFoneUsuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfFoneUsuActionPerformed
+
+    private void tfSenhaUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfSenhaUsuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfSenhaUsuActionPerformed
+
+    private void btExcluirUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btExcluirUsuActionPerformed
+        // TODO add your handling code here:
+        String email = tfEmailUsu.getText();
+        GerenciadorUsuarios gerenciadorUsu = GerenciadorUsuarios.getInstance();
+        boolean usuarioRemover= gerenciadorUsu.removerUsuario(email);
+        if ( usuarioRemover==false){
+            JOptionPane.showMessageDialog(null,"Não encontrado!");
+        }
+        else{
+            JOptionPane.showMessageDialog(null,"Usuário removido com sucesso!");
+
+        }
+        tfEmailUsu.setText("");
+        tfNomeUsu.setText("");
+        tfFoneUsu.setText("");
+        tfSenhaUsu.setText("");
+        tfCPFUsu.setText("");
+        tfDataNascUsu.setText("");
+        tfEndUsu.setText("");
+        tfCursoUsu.setText("");
+        tfMatriculaUsu.setText("");
+        tfdepartamentoUsu.setText("");
+        tfpagamentoUsu.setText("");
+        tfCargoUsu.setText("");
+        jCtipoUsu.setSelectedItem("");
+        tfUsuStatus.setSelected(false);
+    }//GEN-LAST:event_btExcluirUsuActionPerformed
+
     private void btLimparUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLimparUsuActionPerformed
         // TODO add your handling code here:
         tfEmailUsu.setText("");
@@ -497,6 +671,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         tfpagamentoUsu.setText("");
         tfCargoUsu.setText("");
         jCtipoUsu.setSelectedItem("");
+        tfUsuStatus.setSelected(false);
     }//GEN-LAST:event_btLimparUsuActionPerformed
 
     private void btSalvarUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarUsuActionPerformed
@@ -526,15 +701,13 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"Endereço vazio");
             return;
         }
-        
-        
+
         String senha = tfSenhaUsu.getText();
         if (senha.length()==0){
             JOptionPane.showMessageDialog(null,"Campo senha vazio");
             return;
         }
-         
-        
+
         String nascimento = tfDataNascUsu.getText();
         if (nascimento.length()==0){
             JOptionPane.showMessageDialog(null,"Campo data de nascimento vazio");
@@ -555,13 +728,12 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
             Aluno aluno1 = new Aluno (curso,matricula,senha,nome,endereco,email,fone,nascimento,cpf);
             GerenciadorUsuarios gerenciadorUsu = GerenciadorUsuarios.getInstance();
             if(gerenciadorUsu.addUsuario(aluno1)){
-                JOptionPane.showMessageDialog(null,"Usuário " + nome + " adicionado com sucesso!");     
+                JOptionPane.showMessageDialog(null,"Usuário " + nome + " adicionado com sucesso!");
             }
             else{
                 JOptionPane.showMessageDialog(null,"Aluno já cadastrado com esse email");
             }
-            
-            
+
         }
         else if (tipodeusuario.equals ("Professor")){
             String departamento = tfdepartamentoUsu.getText();
@@ -573,11 +745,11 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
             GerenciadorUsuarios gerenciadorUsu = GerenciadorUsuarios.getInstance();
             if (gerenciadorUsu.addUsuario(prof1)){
                 JOptionPane.showMessageDialog(null,"Usuário " + nome + " adicionado com sucesso!");
-                
+
             }
             else{
                 JOptionPane.showMessageDialog(null,"Professor já cadastrado com esse email");
-                
+
             }
         }
         else if (tipodeusuario.equals ("Funcionário")){
@@ -589,11 +761,11 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
             Funcionario func1 = new Funcionario (cargo,senha,nome,endereco,email,fone,nascimento,cpf);
             GerenciadorUsuarios gerenciadorUsu = GerenciadorUsuarios.getInstance();
             if (gerenciadorUsu.addUsuario(func1)){
-                JOptionPane.showMessageDialog(null,"Usuário " + nome + " adicionado com sucesso!");     
+                JOptionPane.showMessageDialog(null,"Usuário " + nome + " adicionado com sucesso!");
             }
             else{
                 JOptionPane.showMessageDialog(null,"Funcionário já cadastrado com esse email");
-                
+
             }
         }
         else if (tipodeusuario.equals ("Externo")){
@@ -611,8 +783,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null,"Usuário já cadastrado com esse email");
             }
         }
-        
-        
+
         tfEmailUsu.setText("");
         tfNomeUsu.setText("");
         tfFoneUsu.setText("");
@@ -626,161 +797,20 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         tfpagamentoUsu.setText("");
         tfCargoUsu.setText("");
         jCtipoUsu.setSelectedItem("");
+        tfUsuStatus.setSelected(false);
     }//GEN-LAST:event_btSalvarUsuActionPerformed
 
-    private void tfNomeUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNomeUsuActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfNomeUsuActionPerformed
-
-    private void tfEmailUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfEmailUsuActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfEmailUsuActionPerformed
-
-    private void btBuscarUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBuscarUsuActionPerformed
-        // TODO add your handling code here:
-        
-        String email = tfEmailUsu.getText();
-        GerenciadorUsuarios gerenciadorUsu = GerenciadorUsuarios.getInstance();
-        Usuario user = gerenciadorUsu.buscarUsuario(email);
-        if (user ==(null)){
-            JOptionPane.showMessageDialog(null,"Não encontrado!");
-            
-        }
-        else{
-            String tipodeusuario = jCtipoUsu.getSelectedItem().toString();
-            if(user instanceof Aluno){
-                Aluno aluno = (Aluno)user;
-                this.tfCursoUsu.setEnabled(true);
-                this.tfMatriculaUsu.setEnabled(true);
-                String nome = aluno.getNome();
-                String cpf = aluno.getCpf();
-                String telefone = aluno.getTelefone();
-                String endereco =aluno.getEndereco();
-                String senha = aluno.getSenha();
-                String nascimento = aluno.getNascimento();
-                String curso = aluno.getCurso();
-                String matricula = aluno.getMatricula();
-                tfNomeUsu.setText(nome);
-                tfFoneUsu.setText(telefone);
-                tfSenhaUsu.setText(senha);
-                tfCPFUsu.setText(cpf);
-                tfDataNascUsu.setText(nascimento);
-                tfCursoUsu.setText(curso);
-                tfMatriculaUsu.setText(matricula);
-                tfEndUsu.setText(endereco);
-                
-            }
-            else if ( user instanceof Professor){
-                Professor professor = (Professor)user;
-                this.tfdepartamentoUsu.setEnabled(true);
-                String nome = professor.getNome();
-                String cpf = professor.getCpf();
-                String telefone = professor.getTelefone();
-                String endereco =professor.getEndereco();
-                String senha = professor.getSenha();
-                String nascimento = professor.getNascimento();
-                String departamento = professor.getDepartamento();
-                tfNomeUsu.setText(nome);
-                tfFoneUsu.setText(telefone);
-                tfSenhaUsu.setText(senha);
-                tfCPFUsu.setText(cpf);
-                tfDataNascUsu.setText(nascimento);
-                tfdepartamentoUsu.setText(departamento);
-                tfEndUsu.setText(endereco);
-                
-            }
-            else if (user instanceof Funcionario){
-                Funcionario funcionario = (Funcionario)user;
-                this.tfCargoUsu.setEnabled(true);
-                String nome = funcionario.getNome();
-                String cpf = funcionario.getCpf();
-                String telefone = funcionario.getTelefone();
-                String endereco =funcionario.getEndereco();
-                String senha = funcionario.getSenha();
-                String nascimento = funcionario.getNascimento();
-                String cargo = funcionario.getCargo();
-                tfNomeUsu.setText(nome);
-                tfFoneUsu.setText(telefone);
-                tfSenhaUsu.setText(senha);
-                tfCPFUsu.setText(cpf);
-                tfDataNascUsu.setText(nascimento);
-                tfCargoUsu.setText(cargo);
-                tfEndUsu.setText(endereco);
-                
-            }
-            else if (user instanceof UserExterno){
-                UserExterno externo = (UserExterno) user;
-                this.tfpagamentoUsu.setEnabled(true);
-                String nome = externo.getNome();
-                String cpf = externo.getCpf();
-                String telefone = externo.getTelefone();
-                String endereco =externo.getEndereco();
-                String senha = externo.getSenha();
-                String nascimento = externo.getNascimento();
-                String pagamento = externo.getMensalidade();
-                tfNomeUsu.setText(nome);
-                tfFoneUsu.setText(telefone);
-                tfSenhaUsu.setText(senha);
-                tfCPFUsu.setText(cpf);
-                tfDataNascUsu.setText(nascimento);
-                tfpagamentoUsu.setText(pagamento);
-                tfEndUsu.setText(endereco);
-                
-            }
-        }
-  
-        
-     
-    }//GEN-LAST:event_btBuscarUsuActionPerformed
-
-    private void jCtipoUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCtipoUsuActionPerformed
-        // TODO add your handling code here:
-        String tipodeusuario = jCtipoUsu.getSelectedItem().toString();
-        if(tipodeusuario.equals ("Aluno")){
-            this.tfdepartamentoUsu.setEnabled(false);
-            this.tfCargoUsu.setEnabled(false);
-            this.tfpagamentoUsu.setEnabled(false);
-            this.tfCursoUsu.setEnabled(true);
-            this.tfMatriculaUsu.setEnabled(true);
-        }
-        else if (tipodeusuario.equals ("Professor")){
-            this.tfdepartamentoUsu.setEnabled(true);
-            this.tfCargoUsu.setEnabled(false);
-            this.tfpagamentoUsu.setEnabled(false);
-            this.tfCursoUsu.setEnabled(false);
-            this.tfMatriculaUsu.setEnabled(false);
-            
-        }
-        else if(tipodeusuario.equals ("Funcionário")){
-            this.tfdepartamentoUsu.setEnabled(false);
-            this.tfCargoUsu.setEnabled(true);
-            this.tfpagamentoUsu.setEnabled(false);
-            this.tfCursoUsu.setEnabled(false);
-            this.tfMatriculaUsu.setEnabled(false);
-        }
-        else if (tipodeusuario.equals ("Externo")){
-            this.tfdepartamentoUsu.setEnabled(false);
-            this.tfCargoUsu.setEnabled(false);
-            this.tfpagamentoUsu.setEnabled(true);
-            this.tfCursoUsu.setEnabled(false);
-            this.tfMatriculaUsu.setEnabled(false);
-            
-        }
-        
-        
-    }//GEN-LAST:event_jCtipoUsuActionPerformed
-        
     private void tfCursoUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfCursoUsuActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tfCursoUsuActionPerformed
 
-    private void tfMatriculaUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfMatriculaUsuActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfMatriculaUsuActionPerformed
-
     private void tfCargoUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfCargoUsuActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tfCargoUsuActionPerformed
+
+    private void tfMatriculaUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfMatriculaUsuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfMatriculaUsuActionPerformed
 
     private void tfdepartamentoUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfdepartamentoUsuActionPerformed
         // TODO add your handling code here:
@@ -790,79 +820,6 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tfpagamentoUsuActionPerformed
 
-    private void btExcluirUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btExcluirUsuActionPerformed
-        // TODO add your handling code here:
-        String email = tfEmailUsu.getText();
-        GerenciadorUsuarios gerenciadorUsu = GerenciadorUsuarios.getInstance();
-        boolean usuarioRemover= gerenciadorUsu.removerUsuario(email);
-        if ( usuarioRemover==false){
-            JOptionPane.showMessageDialog(null,"Não encontrado!");
-        }
-        else{
-            JOptionPane.showMessageDialog(null,"Usuário removido com sucesso!");
-            
-        }
-          tfEmailUsu.setText("");
-        tfNomeUsu.setText("");
-        tfFoneUsu.setText("");
-        tfSenhaUsu.setText("");
-        tfCPFUsu.setText("");
-        tfDataNascUsu.setText("");
-        tfEndUsu.setText("");
-        tfCursoUsu.setText("");
-        tfMatriculaUsu.setText("");
-        tfdepartamentoUsu.setText("");
-        tfpagamentoUsu.setText("");
-        tfCargoUsu.setText("");
-        jCtipoUsu.setSelectedItem("");
-    }//GEN-LAST:event_btExcluirUsuActionPerformed
-
-    private void tfDataNascUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfDataNascUsuActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfDataNascUsuActionPerformed
-
-    private void tfSenhaUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfSenhaUsuActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfSenhaUsuActionPerformed
-
-    private void tfFoneUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfFoneUsuActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfFoneUsuActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastroUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastroUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastroUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastroUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TelaCadastroUsuario().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btBuscarUsu;
@@ -874,7 +831,6 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPdadosEspec;
-    private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JLabel lbCPFUsu;
     private javax.swing.JLabel lbCargoUsu;
     private javax.swing.JLabel lbCursoUsu;
@@ -900,6 +856,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
     private javax.swing.JTextField tfMatriculaUsu;
     private javax.swing.JTextField tfNomeUsu;
     private javax.swing.JPasswordField tfSenhaUsu;
+    private javax.swing.JRadioButton tfUsuStatus;
     private javax.swing.JTextField tfdepartamentoUsu;
     private javax.swing.JTextField tfpagamentoUsu;
     // End of variables declaration//GEN-END:variables

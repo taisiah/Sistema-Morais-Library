@@ -186,7 +186,7 @@ public class TelaUsuario extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         
-        
+ 
         
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
