@@ -213,7 +213,7 @@ public class Telalogin extends javax.swing.JFrame {
     }
     private static GerenciadorUsuarios grUsuario ;
     private TelaPrincipal telaPrincipal = new TelaPrincipal();
-    private TelaUsuario telaUsuario = new TelaUsuario();
+   
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel LBLogin;
