@@ -14,6 +14,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import modelo.Evento;
@@ -65,10 +66,7 @@ public class GerenciadorUsuarios {
                     escreveArq.println(listaAlunos.get(i).getNome());
                     escreveArq.println(listaAlunos.get(i).getSenha());
                     escreveArq.println(listaAlunos.get(i).getTelefone());
-                    
-                    
 
-                    
                 }
                 editaArq.flush();
                 editaArq.close();
@@ -88,7 +86,7 @@ public class GerenciadorUsuarios {
                 }
             }
             listaProfessores.add((Professor) u);
-             try {
+            try {
                 FileWriter editaArq = new FileWriter("usu_professores.txt", false);
                 PrintWriter escreveArq = new PrintWriter(editaArq);
                 for (int i = 0; i < listaProfessores.size(); i++) {
@@ -100,8 +98,7 @@ public class GerenciadorUsuarios {
                     escreveArq.println(listaProfessores.get(i).getNome());
                     escreveArq.println(listaProfessores.get(i).getSenha());
                     escreveArq.println(listaProfessores.get(i).getTelefone());
-                    
-                    
+
                 }
                 editaArq.flush();
                 editaArq.close();
@@ -119,7 +116,7 @@ public class GerenciadorUsuarios {
                 }
             }
             listaUserExternos.add((UserExterno) u);
-             try {
+            try {
                 FileWriter editaArq = new FileWriter("usu_externos.txt", false);
                 PrintWriter escreveArq = new PrintWriter(editaArq);
                 for (int i = 0; i < listaUserExternos.size(); i++) {
@@ -131,8 +128,7 @@ public class GerenciadorUsuarios {
                     escreveArq.println(listaUserExternos.get(i).getNome());
                     escreveArq.println(listaUserExternos.get(i).getSenha());
                     escreveArq.println(listaUserExternos.get(i).getTelefone());
-                    
-                    
+
                 }
                 editaArq.flush();
                 editaArq.close();
@@ -149,7 +145,7 @@ public class GerenciadorUsuarios {
                 }
             }
             listaFuncionarios.add((Funcionario) u);
-             try {
+            try {
                 FileWriter editaArq = new FileWriter("usu_funcionarios.txt", false);
                 PrintWriter escreveArq = new PrintWriter(editaArq);
                 for (int i = 0; i < listaFuncionarios.size(); i++) {
@@ -161,14 +157,13 @@ public class GerenciadorUsuarios {
                     escreveArq.println(listaFuncionarios.get(i).getNome());
                     escreveArq.println(listaFuncionarios.get(i).getSenha());
                     escreveArq.println(listaFuncionarios.get(i).getTelefone());
-                    
-                    
+
                 }
                 editaArq.flush();
                 editaArq.close();
                 escreveArq.close();
             } catch (IOException ex) {
-                 System.out.println(ex.getMessage());  
+                System.out.println(ex.getMessage());
             }
 
             return true;
@@ -204,9 +199,9 @@ public class GerenciadorUsuarios {
     }
 
     public boolean removerUsuario(String email) {
-        Usuario u = buscarUsuario(email) ;
-        
-        if (u instanceof Professor){
+        Usuario u = buscarUsuario(email);
+
+        if (u instanceof Professor) {
             File file = new File("usu_professores.txt");
             for (int i = 0; i < listaProfessores.size(); i++) {
                 if (listaProfessores.get(i).getEmail().equals(email)) {
@@ -216,8 +211,8 @@ public class GerenciadorUsuarios {
                     return true;
                 }
             }
-            if (!listaProfessores.isEmpty()){
-                for (int i = 0; i < listaProfessores.size(); i++){
+            if (!listaProfessores.isEmpty()) {
+                for (int i = 0; i < listaProfessores.size(); i++) {
                     try {
                         FileWriter editaArq = new FileWriter("usu_professores.txt", false);
                         PrintWriter escreveArq = new PrintWriter(editaArq);
@@ -231,16 +226,15 @@ public class GerenciadorUsuarios {
                         escreveArq.println(listaProfessores.get(i).getTelefone());
                         editaArq.flush();
                         editaArq.close();
-                        escreveArq.close();   
-                    }
-                    catch (IOException ex) {
-                    Logger.getLogger(GerenciadorEventos.class.getName()).log(Level.SEVERE, null, ex);
+                        escreveArq.close();
+                    } catch (IOException ex) {
+                        Logger.getLogger(GerenciadorEventos.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
-            }   
+            }
         }
-        
-        if (u instanceof Aluno){
+
+        if (u instanceof Aluno) {
             File file = new File("usu_alunos.txt");
             for (int i = 0; i < listaAlunos.size(); i++) {
                 if (listaAlunos.get(i).getEmail().equals(email)) {
@@ -248,8 +242,8 @@ public class GerenciadorUsuarios {
                     return true;
                 }
             }
-            if (!listaAlunos.isEmpty()){
-                for (int i = 0; i < listaAlunos.size(); i++){
+            if (!listaAlunos.isEmpty()) {
+                for (int i = 0; i < listaAlunos.size(); i++) {
                     try {
                         FileWriter editaArq = new FileWriter("usu_alunos.txt", false);
                         PrintWriter escreveArq = new PrintWriter(editaArq);
@@ -264,17 +258,15 @@ public class GerenciadorUsuarios {
                         escreveArq.println(listaAlunos.get(i).getTelefone());
                         editaArq.flush();
                         editaArq.close();
-                        escreveArq.close();   
-                    }
-                    catch (IOException ex) {
-                    Logger.getLogger(GerenciadorEventos.class.getName()).log(Level.SEVERE, null, ex);
+                        escreveArq.close();
+                    } catch (IOException ex) {
+                        Logger.getLogger(GerenciadorEventos.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
-            }   
+            }
         }
-        if (u instanceof Funcionario){
-            
-        
+        if (u instanceof Funcionario) {
+
             File file = new File("usu_funcionarios.txt");
             for (int i = 0; i < listaFuncionarios.size(); i++) {
                 if (listaFuncionarios.get(i).getEmail().equals(email)) {
@@ -282,8 +274,8 @@ public class GerenciadorUsuarios {
                     return true;
                 }
             }
-             if (!listaFuncionarios.isEmpty()){
-                for (int i = 0; i < listaFuncionarios.size(); i++){
+            if (!listaFuncionarios.isEmpty()) {
+                for (int i = 0; i < listaFuncionarios.size(); i++) {
                     try {
                         FileWriter editaArq = new FileWriter("usu_funcionarios.txt", false);
                         PrintWriter escreveArq = new PrintWriter(editaArq);
@@ -297,26 +289,24 @@ public class GerenciadorUsuarios {
                         escreveArq.println(listaFuncionarios.get(i).getTelefone());
                         editaArq.flush();
                         editaArq.close();
-                        escreveArq.close();   
-                    }
-                    catch (IOException ex) {
-                    Logger.getLogger(GerenciadorEventos.class.getName()).log(Level.SEVERE, null, ex);
+                        escreveArq.close();
+                    } catch (IOException ex) {
+                        Logger.getLogger(GerenciadorEventos.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
-            }  
+            }
         }
-        if (u instanceof UserExterno){
-            
-        
-            File file = new File("usu_externostxt");
+        if (u instanceof UserExterno) {
+
+            File file = new File("usu_externos.txt");
             for (int i = 0; i < listaUserExternos.size(); i++) {
                 if (listaUserExternos.get(i).getEmail().equals(email)) {
                     listaUserExternos.remove(i);
                     return true;
                 }
             }
-            if (!listaUserExternos.isEmpty()){
-                for (int i = 0; i < listaUserExternos.size(); i++){
+            if (!listaUserExternos.isEmpty()) {
+                for (int i = 0; i < listaUserExternos.size(); i++) {
                     try {
                         FileWriter editaArq = new FileWriter("usu_externos.txt", false);
                         PrintWriter escreveArq = new PrintWriter(editaArq);
@@ -330,26 +320,26 @@ public class GerenciadorUsuarios {
                         escreveArq.println(listaUserExternos.get(i).getTelefone());
                         editaArq.flush();
                         editaArq.close();
-                        escreveArq.close();   
-                    }
-                    catch (IOException ex) {
-                    Logger.getLogger(GerenciadorEventos.class.getName()).log(Level.SEVERE, null, ex);
+                        escreveArq.close();
+                    } catch (IOException ex) {
+                        Logger.getLogger(GerenciadorEventos.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
-            }  
+            }
         }
         return false;
 
     }
-    public String relatorioUsuarios() throws IOException{
-            
+
+    public String relatorioUsuarios() throws IOException {
+
         try {
             FileReader acessaArq = new FileReader("users.txt");
             BufferedReader leiaArq = new BufferedReader(acessaArq);
             String linha = leiaArq.readLine();
             FileWriter relatorioEvt = new FileWriter("relatorio.txt");
             PrintWriter relatorio = new PrintWriter(relatorioEvt);
-                      
+
             relatorio.println("---------------------  MORAIS LIBRARY  --------------------");
             relatorio.println("--------------------- LISTA DE USUÁRIOS--------------------\n");
             int cont = 0;
@@ -359,10 +349,11 @@ public class GerenciadorUsuarios {
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Evento.class.getName()).log(Level.SEVERE, null, ex);
             return "Não existe usuários cadastrados";
-                    
+
         }
         return "Relatório gerado com sucesso!";
     }
+
     public Usuario login(String login, String senha) {
 
         for (int i = 0; i < listaAlunos.size(); i++) {
@@ -391,4 +382,90 @@ public class GerenciadorUsuarios {
 
         return null;
     }
-}
+
+    public void importInicio() {
+        File f = new File("usu_professores.txt");
+        Scanner input;
+        try {
+            input = new Scanner(f);
+
+            while (input.hasNextLine()) {
+                String email = input.nextLine();
+                String departamento = input.nextLine();
+                String cpf = input.nextLine();
+                String endereco = input.nextLine();
+                String nascimento = input.nextLine();
+                String nome = input.nextLine();
+                String senha = input.nextLine();
+                String telefone = input.nextLine();
+
+                Professor p1 = new Professor(departamento, senha, nome, endereco, email, telefone, nascimento, cpf);
+                listaProfessores.add(p1);
+
+            }
+            input.close();
+
+            f = new File("usu_alunos.txt");
+
+            input = new Scanner(f);
+
+            while (input.hasNextLine()) {
+                String email = input.nextLine();
+                String curso = input.nextLine();
+                String matricula = input.nextLine();
+                String cpf = input.nextLine();
+                String endereco = input.nextLine();
+                String nascimento = input.nextLine();
+                String nome = input.nextLine();
+                String senha = input.nextLine();
+                String telefone = input.nextLine();
+
+                Aluno a1 = new Aluno(curso, matricula, senha, nome, endereco, email, telefone, nascimento, cpf);
+                listaAlunos.add(a1);
+
+            }
+            input.close();
+            
+            f = new File("usu_externos.txt");
+
+            input = new Scanner(f);
+
+            while (input.hasNextLine()) {
+                String email = input.nextLine();
+                String mensalidade= input.nextLine();
+                String cpf = input.nextLine();
+                String endereco = input.nextLine();
+                String nascimento = input.nextLine();
+                String nome = input.nextLine();
+                String senha = input.nextLine();
+                String telefone = input.nextLine();
+                UserExterno e1 = new UserExterno(senha, nome, endereco, email, telefone, nascimento, cpf,mensalidade);
+                listaUserExternos.add(e1);
+
+            }
+            input.close();
+            
+            f = new File("usu_funcionarios.txt");
+
+            input = new Scanner(f);
+
+            while (input.hasNextLine()) {
+                String email = input.nextLine();
+                String cargo= input.nextLine();
+                String cpf = input.nextLine();
+                String endereco = input.nextLine();
+                String nascimento = input.nextLine();
+                String nome = input.nextLine();
+                String senha = input.nextLine();
+                String telefone = input.nextLine();
+                Funcionario f1 = new Funcionario(cargo,senha, nome, endereco, email, telefone, nascimento, cpf);
+                listaFuncionarios.add(f1);
+
+            }
+            input.close();
+
+
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(GerenciadorUsuarios.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
