@@ -15,7 +15,7 @@ import modelo.Usuario;
 
 /**
  *
- * @author ruand
+ *
  */
 public class TelaReservaLivro extends javax.swing.JInternalFrame {
 

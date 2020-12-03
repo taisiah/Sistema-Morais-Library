@@ -160,7 +160,7 @@ public class Telalogin extends javax.swing.JFrame {
                 telaPrincipal.setVisible(true);
             }
             else {
-                telaUsuario.setVisible(true);
+               telaPrincipal.setVisible(true);
             }
             this.setVisible(false);
         }
@@ -203,6 +203,7 @@ public class Telalogin extends javax.swing.JFrame {
         grUsuario = GerenciadorUsuarios.getInstance() ;
         Funcionario u_inicial = new Funcionario("bibliotecario","123", "Taisia", "rua teste","taisia@taisia.com", "111111111","03/11/1989","11111111111");
         grUsuario.addUsuario(u_inicial);
+        grUsuario.importInicio();
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
