@@ -16,6 +16,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import modelo.Evento;
 
 public class GerenciadorUsuarios {
 
@@ -202,36 +203,166 @@ public class GerenciadorUsuarios {
         return null;
     }
 
-    public boolean removerUsuario(String email) {
-
-        for (int i = 0; i < listaProfessores.size(); i++) {
-            if (listaProfessores.get(i).getEmail().equals(email)) {
-                listaProfessores.remove(i);
-                return true;
+    public boolean removerUsuario(String email) throws IOException {
+        Usuario u = buscarUsuario(email) ;
+        
+        if (u instanceof Professor){
+            File file = new File("usu_professores.txt");
+            for (int i = 0; i < listaProfessores.size(); i++) {
+                if (listaProfessores.get(i).getEmail().equals(email)) {
+                    listaProfessores.remove(i);
+                    file.delete();
+                    System.out.println(listaProfessores);
+                    return true;
+                }
             }
+            if (!listaProfessores.isEmpty()){
+                for (int i = 0; i < listaProfessores.size(); i++){
+                    try {
+                        FileWriter editaArq = new FileWriter("usu_professores.txt", false);
+                        PrintWriter escreveArq = new PrintWriter(editaArq);
+                        escreveArq.println(listaProfessores.get(i).getEmail());
+                        escreveArq.println(listaProfessores.get(i).getDepartamento());
+                        escreveArq.println(listaProfessores.get(i).getCpf());
+                        escreveArq.println(listaProfessores.get(i).getEndereco());
+                        escreveArq.println(listaProfessores.get(i).getNascimento());
+                        escreveArq.println(listaProfessores.get(i).getNome());
+                        escreveArq.println(listaProfessores.get(i).getSenha());
+                        escreveArq.println(listaProfessores.get(i).getTelefone());
+                        editaArq.flush();
+                        editaArq.close();
+                        escreveArq.close();   
+                    }
+                    catch (IOException ex) {
+                    Logger.getLogger(GerenciadorEventos.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            }   
         }
-        for (int i = 0; i < listaAlunos.size(); i++) {
-            if (listaAlunos.get(i).getEmail().equals(email)) {
-                listaAlunos.remove(i);
-                return true;
+        
+        if (u instanceof Aluno){
+            File file = new File("usu_alunos.txt");
+            for (int i = 0; i < listaAlunos.size(); i++) {
+                if (listaAlunos.get(i).getEmail().equals(email)) {
+                    listaAlunos.remove(i);
+                    return true;
+                }
             }
+            if (!listaAlunos.isEmpty()){
+                for (int i = 0; i < listaAlunos.size(); i++){
+                    try {
+                        FileWriter editaArq = new FileWriter("usu_alunos.txt", false);
+                        PrintWriter escreveArq = new PrintWriter(editaArq);
+                        escreveArq.println(listaAlunos.get(i).getEmail());
+                        escreveArq.println(listaAlunos.get(i).getCurso());
+                        escreveArq.println(listaAlunos.get(i).getMatricula());
+                        escreveArq.println(listaAlunos.get(i).getCpf());
+                        escreveArq.println(listaAlunos.get(i).getEndereco());
+                        escreveArq.println(listaAlunos.get(i).getNascimento());
+                        escreveArq.println(listaAlunos.get(i).getNome());
+                        escreveArq.println(listaAlunos.get(i).getSenha());
+                        escreveArq.println(listaAlunos.get(i).getTelefone());
+                        editaArq.flush();
+                        editaArq.close();
+                        escreveArq.close();   
+                    }
+                    catch (IOException ex) {
+                    Logger.getLogger(GerenciadorEventos.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            }   
         }
-        for (int i = 0; i < listaFuncionarios.size(); i++) {
-            if (listaFuncionarios.get(i).getEmail().equals(email)) {
-                listaFuncionarios.remove(i);
-                return true;
+        if (u instanceof Funcionario){
+            
+        
+            File file = new File("usu_funcionarios.txt");
+            for (int i = 0; i < listaFuncionarios.size(); i++) {
+                if (listaFuncionarios.get(i).getEmail().equals(email)) {
+                    listaFuncionarios.remove(i);
+                    return true;
+                }
             }
+             if (!listaFuncionarios.isEmpty()){
+                for (int i = 0; i < listaFuncionarios.size(); i++){
+                    try {
+                        FileWriter editaArq = new FileWriter("usu_funcionarios.txt", false);
+                        PrintWriter escreveArq = new PrintWriter(editaArq);
+                        escreveArq.println(listaFuncionarios.get(i).getEmail());
+                        escreveArq.println(listaFuncionarios.get(i).getCargo());
+                        escreveArq.println(listaFuncionarios.get(i).getCpf());
+                        escreveArq.println(listaFuncionarios.get(i).getEndereco());
+                        escreveArq.println(listaFuncionarios.get(i).getNascimento());
+                        escreveArq.println(listaFuncionarios.get(i).getNome());
+                        escreveArq.println(listaFuncionarios.get(i).getSenha());
+                        escreveArq.println(listaFuncionarios.get(i).getTelefone());
+                        editaArq.flush();
+                        editaArq.close();
+                        escreveArq.close();   
+                    }
+                    catch (IOException ex) {
+                    Logger.getLogger(GerenciadorEventos.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            }  
         }
-        for (int i = 0; i < listaUserExternos.size(); i++) {
-            if (listaUserExternos.get(i).getEmail().equals(email)) {
-                listaUserExternos.remove(i);
-                return true;
+        if (u instanceof UserExterno){
+            
+        
+            File file = new File("usu_externostxt");
+            for (int i = 0; i < listaUserExternos.size(); i++) {
+                if (listaUserExternos.get(i).getEmail().equals(email)) {
+                    listaUserExternos.remove(i);
+                    return true;
+                }
             }
+            if (!listaUserExternos.isEmpty()){
+                for (int i = 0; i < listaUserExternos.size(); i++){
+                    try {
+                        FileWriter editaArq = new FileWriter("usu_externos.txt", false);
+                        PrintWriter escreveArq = new PrintWriter(editaArq);
+                        escreveArq.println(listaUserExternos.get(i).getEmail());
+                        escreveArq.println(listaUserExternos.get(i).getMensalidade());
+                        escreveArq.println(listaUserExternos.get(i).getCpf());
+                        escreveArq.println(listaUserExternos.get(i).getEndereco());
+                        escreveArq.println(listaUserExternos.get(i).getNascimento());
+                        escreveArq.println(listaUserExternos.get(i).getNome());
+                        escreveArq.println(listaUserExternos.get(i).getSenha());
+                        escreveArq.println(listaUserExternos.get(i).getTelefone());
+                        editaArq.flush();
+                        editaArq.close();
+                        escreveArq.close();   
+                    }
+                    catch (IOException ex) {
+                    Logger.getLogger(GerenciadorEventos.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            }  
         }
         return false;
 
     }
-
+    public String relatorioUsuarios() throws IOException{
+            
+        try {
+            FileReader acessaArq = new FileReader("users.txt");
+            BufferedReader leiaArq = new BufferedReader(acessaArq);
+            String linha = leiaArq.readLine();
+            FileWriter relatorioEvt = new FileWriter("relatorio.txt");
+            PrintWriter relatorio = new PrintWriter(relatorioEvt);
+                      
+            relatorio.println("---------------------  MORAIS LIBRARY  --------------------");
+            relatorio.println("--------------------- LISTA DE USUÁRIOS--------------------\n");
+            int cont = 0;
+            relatorio.flush();
+            relatorio.close();
+            relatorioEvt.close();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Evento.class.getName()).log(Level.SEVERE, null, ex);
+            return "Não existe usuários cadastrados";
+                    
+        }
+        return "Relatório gerado com sucesso!";
+    }
     public Usuario login(String login, String senha) {
 
         for (int i = 0; i < listaAlunos.size(); i++) {
