@@ -23,6 +23,7 @@ public class TelaCadastroUsuario extends javax.swing.JInternalFrame {
      */
     public TelaCadastroUsuario() {
         initComponents();
+        jCtipoUsu.setSelectedItem("");
         
     }
 
@@ -511,6 +512,10 @@ public class TelaCadastroUsuario extends javax.swing.JInternalFrame {
                 tfMatriculaUsu.setText(matricula);
                 tfEndUsu.setText(endereco);
                 tfUsuStatus.setSelected(true);
+                jCtipoUsu.setSelectedItem("Aluno");
+                tfdepartamentoUsu.setEnabled(false);
+                tfCargoUsu.setEnabled(false);
+                tfpagamentoUsu.setEnabled(false);
 
             }
             else if ( user instanceof Professor){
@@ -530,6 +535,12 @@ public class TelaCadastroUsuario extends javax.swing.JInternalFrame {
                 tfDataNascUsu.setText(nascimento);
                 tfdepartamentoUsu.setText(departamento);
                 tfEndUsu.setText(endereco);
+                jCtipoUsu.setSelectedItem("Professor");
+                tfUsuStatus.setSelected(true);
+                tfCargoUsu.setEnabled(false);
+                tfpagamentoUsu.setEnabled(false);
+                tfCursoUsu.setEnabled(false);
+                tfMatriculaUsu.setEnabled(false);
 
             }
             else if (user instanceof Funcionario){
@@ -549,7 +560,12 @@ public class TelaCadastroUsuario extends javax.swing.JInternalFrame {
                 tfDataNascUsu.setText(nascimento);
                 tfCargoUsu.setText(cargo);
                 tfEndUsu.setText(endereco);
+                jCtipoUsu.setSelectedItem("Funcionario");
                 tfUsuStatus.setSelected(true);
+                tfdepartamentoUsu.setEnabled(false);
+                tfpagamentoUsu.setEnabled(false);
+                tfCursoUsu.setEnabled(false);
+                tfMatriculaUsu.setEnabled(false);
 
             }
             else if (user instanceof UserExterno){
@@ -569,7 +585,13 @@ public class TelaCadastroUsuario extends javax.swing.JInternalFrame {
                 tfDataNascUsu.setText(nascimento);
                 tfpagamentoUsu.setText(pagamento);
                 tfEndUsu.setText(endereco);
+                jCtipoUsu.setSelectedItem("Externo");
                 tfUsuStatus.setSelected(true);
+                tfdepartamentoUsu.setEnabled(false);
+                tfCargoUsu.setEnabled(false);
+                tfCursoUsu.setEnabled(false);
+                tfMatriculaUsu.setEnabled(false);
+            
 
             }
         }

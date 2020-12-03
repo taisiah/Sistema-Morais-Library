@@ -2,6 +2,7 @@
 package visao;
 
 import controle.GerenciadorEventos;
+import controle.GerenciadorUsuarios;
 import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -13,8 +14,41 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     public TelaPrincipal() {
         initComponents();
+        GerenciadorUsuarios gr = GerenciadorUsuarios.getInstance();
+        String tipoUser = gr.getTipoUsuario();
+        System.out.println(tipoUser);
+        if (tipoUser.equals("Aluno")){
+            menuUsuCadastro.setEnabled(false);
+            menuUsuImportar.setEnabled(false);
+            menuEvtImportar.setEnabled(false);
+            menuEspCadastro.setEnabled(false);
+            relatorio.setEnabled(false);
+            
+        }
+        else if (tipoUser.equals("Professor")){
+            menuUsuCadastro.setEnabled(false);
+            menuUsuImportar.setEnabled(false);
+            menuEvtImportar.setEnabled(false);
+            menuEspCadastro.setEnabled(false);
+            relatorio.setEnabled(false);
+            
+            
+        }
+        else if (tipoUser.equals("Externo")){
+            menuUsuCadastro.setEnabled(false);
+            menuUsuImportar.setEnabled(false);
+            menuEvtImportar.setEnabled(false);
+            menuEspCadastro.setEnabled(false);
+            relatorio.setEnabled(false);
+            
+            
+        }
+        else if (tipoUser.equals("Funcionario")){
+            
+        }
     }
-
+    
+   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -24,6 +58,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         menuUsuCadastro = new javax.swing.JMenuItem();
         menuUsuImportar = new javax.swing.JMenuItem();
+        menuUsuMeusDados = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         menuLivCadastro = new javax.swing.JMenuItem();
         menuLivFicha = new javax.swing.JMenuItem();
@@ -35,7 +70,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenu3 = new javax.swing.JMenu();
         menuEspCadastro = new javax.swing.JMenuItem();
         menuEspReserva = new javax.swing.JMenuItem();
-        jMenu5 = new javax.swing.JMenu();
+        relatorio = new javax.swing.JMenu();
         menuRelAgenda = new javax.swing.JMenuItem();
         menuSobre = new javax.swing.JMenu();
 
@@ -75,6 +110,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         jMenu1.add(menuUsuImportar);
+
+        menuUsuMeusDados.setText("meus dados");
+        menuUsuMeusDados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuUsuMeusDadosActionPerformed(evt);
+            }
+        });
+        jMenu1.add(menuUsuMeusDados);
 
         jMenuBar1.add(jMenu1);
 
@@ -152,8 +195,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu3);
 
-        jMenu5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/printer-16.png"))); // NOI18N
-        jMenu5.setText("Relatórios");
+        relatorio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/printer-16.png"))); // NOI18N
+        relatorio.setText("Relatórios");
 
         menuRelAgenda.setText("Agenda de Eventos");
         menuRelAgenda.addActionListener(new java.awt.event.ActionListener() {
@@ -161,9 +204,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 menuRelAgendaActionPerformed(evt);
             }
         });
-        jMenu5.add(menuRelAgenda);
+        relatorio.add(menuRelAgenda);
 
-        jMenuBar1.add(jMenu5);
+        jMenuBar1.add(relatorio);
 
         menuSobre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/info-5-16.png"))); // NOI18N
         menuSobre.setText("Sobre");
@@ -274,6 +317,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
        }
     }//GEN-LAST:event_menuUsuImportarActionPerformed
 
+    private void menuUsuMeusDadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuUsuMeusDadosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menuUsuMeusDadosActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -316,7 +363,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem menuEspCadastro;
     private javax.swing.JMenuItem menuEspReserva;
@@ -330,6 +376,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuSolicitarFicha;
     private javax.swing.JMenuItem menuUsuCadastro;
     private javax.swing.JMenuItem menuUsuImportar;
+    private javax.swing.JMenuItem menuUsuMeusDados;
     private javax.swing.JDesktopPane painelPrincipal;
+    private javax.swing.JMenu relatorio;
     // End of variables declaration//GEN-END:variables
 }

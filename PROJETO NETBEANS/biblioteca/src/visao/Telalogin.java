@@ -152,9 +152,11 @@ public class Telalogin extends javax.swing.JFrame {
         // TODO add your handling code here:
         String email_login = TFlogin.getText();
         String senha_login = TFsenha.getText();
+        GerenciadorUsuarios grUsuario = GerenciadorUsuarios.getInstance() ;
         Usuario user = grUsuario.login(email_login, senha_login);
         
         if( user != null) {
+            TelaPrincipal telaPrincipal = new TelaPrincipal();
             JOptionPane.showMessageDialog(null, "Login feito com sucesso");
             if (user instanceof Funcionario){
                 telaPrincipal.setVisible(true);
@@ -200,7 +202,7 @@ public class Telalogin extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Telalogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        grUsuario = GerenciadorUsuarios.getInstance() ;
+        GerenciadorUsuarios grUsuario = GerenciadorUsuarios.getInstance() ;
         Funcionario u_inicial = new Funcionario("bibliotecario","123", "Taisia", "rua teste","taisia@taisia.com", "111111111","03/11/1989","11111111111");
         grUsuario.addUsuario(u_inicial);
         grUsuario.importInicio();
@@ -210,10 +212,7 @@ public class Telalogin extends javax.swing.JFrame {
                 new Telalogin().setVisible(true);
             }
         });
-    }
-    private static GerenciadorUsuarios grUsuario ;
-    private TelaPrincipal telaPrincipal = new TelaPrincipal();
-   
+    }   
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel LBLogin;

@@ -26,12 +26,14 @@ public class GerenciadorUsuarios {
     private ArrayList<Professor> listaProfessores;
     private ArrayList<Funcionario> listaFuncionarios;
     private ArrayList<UserExterno> listaUserExternos;
+    private String tipoUsuario ;
 
     private GerenciadorUsuarios() {
         this.listaAlunos = new ArrayList<Aluno>();
         this.listaProfessores = new ArrayList<Professor>();
         this.listaFuncionarios = new ArrayList<Funcionario>();
         this.listaUserExternos = new ArrayList<UserExterno>();
+        this.tipoUsuario = "" ;
         //abrir arquivo
         //ler todos os dados do arquivo e adicionar os objetos nos arraylists
         //fechar arquivo
@@ -358,24 +360,28 @@ public class GerenciadorUsuarios {
 
         for (int i = 0; i < listaAlunos.size(); i++) {
             if (listaAlunos.get(i).getEmail().equals(login) && listaAlunos.get(i).getSenha().equals(senha)) {
+                this.tipoUsuario = "Aluno";
                 return listaAlunos.get(i);
             }
         }
 
         for (int i = 0; i < listaProfessores.size(); i++) {
             if (listaProfessores.get(i).getEmail().equals(login) && listaProfessores.get(i).getSenha().equals(senha)) {
+                this.tipoUsuario = "Professor";
                 return listaProfessores.get(i);
             }
         }
 
         for (int i = 0; i < listaFuncionarios.size(); i++) {
             if (listaFuncionarios.get(i).getEmail().equals(login) && listaFuncionarios.get(i).getSenha().equals(senha)) {
+                this.tipoUsuario = "Funcionario";
                 return listaFuncionarios.get(i);
             }
         }
 
         for (int i = 0; i < listaUserExternos.size(); i++) {
             if (listaUserExternos.get(i).getEmail().equals(login) && listaUserExternos.get(i).getSenha().equals(senha)) {
+                this.tipoUsuario = "Externo";
                 return listaUserExternos.get(i);
             }
         }
@@ -383,6 +389,10 @@ public class GerenciadorUsuarios {
         return null;
     }
 
+    public String getTipoUsuario(){
+        return this.tipoUsuario;
+    }
+    
     public void importInicio() {
         File f = new File("usu_professores.txt");
         Scanner input;
