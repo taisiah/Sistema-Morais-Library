@@ -741,6 +741,7 @@ public class TelaCadastroUsuario extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(null,"Campo departamento vazio");
                 return;
             }
+            
             Professor prof1 = new Professor (departamento,senha,nome,endereco,email,fone,nascimento,cpf);
             GerenciadorUsuarios gerenciadorUsu = GerenciadorUsuarios.getInstance();
             if (gerenciadorUsu.addUsuario(prof1)){

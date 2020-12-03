@@ -203,7 +203,7 @@ public class GerenciadorUsuarios {
         return null;
     }
 
-    public boolean removerUsuario(String email) throws IOException {
+    public boolean removerUsuario(String email) {
         Usuario u = buscarUsuario(email) ;
         
         if (u instanceof Professor){

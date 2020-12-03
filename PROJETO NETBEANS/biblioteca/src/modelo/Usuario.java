@@ -60,7 +60,7 @@ public class Usuario {
     }
     
     public String getCpf() {
-        return endereco;
+        return cpf;
     }
      
     public void setEndereco(String endereco) {

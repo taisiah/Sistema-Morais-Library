@@ -2,9 +2,11 @@
 package visao;
 
 import controle.GerenciadorEventos;
+import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
 public class TelaPrincipal extends javax.swing.JFrame {
@@ -67,6 +69,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenu1.add(menuUsuCadastro);
 
         menuUsuImportar.setText("Importar Usuário");
+        menuUsuImportar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuUsuImportarActionPerformed(evt);
+            }
+        });
         jMenu1.add(menuUsuImportar);
 
         jMenuBar1.add(jMenu1);
@@ -254,6 +261,18 @@ public class TelaPrincipal extends javax.swing.JFrame {
         painelPrincipal.add(tlResLivro);
         tlResLivro.setVisible(true);
     }//GEN-LAST:event_menuReservaLivroActionPerformed
+
+    private void menuUsuImportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuUsuImportarActionPerformed
+        // TODO add your handling code here:
+       JFileChooser file = new JFileChooser();
+       file.setFileSelectionMode(JFileChooser.FILES_ONLY);
+       int i= file.showOpenDialog(null);
+       if (i==1){
+           
+       } else {
+           File arquivo = file.getSelectedFile();
+       }
+    }//GEN-LAST:event_menuUsuImportarActionPerformed
 
     /**
      * @param args the command line arguments
