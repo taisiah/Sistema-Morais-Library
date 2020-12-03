@@ -1,6 +1,8 @@
 
 package modelo;
 
+import java.sql.Array;
+
 public class Livro {
     
     //atributos
@@ -12,11 +14,18 @@ public class Livro {
     private String categoria;  
     private String tematica;
     private boolean disponivel;
-    
-        
+    private int qtEstoque;
+    private int qtAlugada;
+    private int qtReservada;
+         
     //contrutores
-     
-    public Livro(String titulo, String autor, String editora, String cidade, String uf, int ano, int edicao, String isbn, String categoria, String tematica, boolean disponivel) {
+
+    public Livro(String titulo, String autor, String editora, String cidade, 
+            String uf, int ano, int edicao, String isbn, String categoria, 
+            String tematica, boolean disponivel, int qtEstoque, int qtAlugada, 
+            int qtReservada) {
+        
+        
         this.titulo = titulo;
         this.autor = autor;
         this.editora = editora;
@@ -28,7 +37,13 @@ public class Livro {
         this.categoria = categoria;
         this.tematica = tematica;
         this.disponivel = disponivel;
+        this.qtEstoque = qtEstoque;
+        this.qtAlugada = qtAlugada;
+        this.qtReservada = qtReservada;
+        
     }
+    
+    
   
     public Livro(){}
     
@@ -39,7 +54,8 @@ public class Livro {
         return "Livro{" + "titulo=" + titulo + ", autor=" + autor + ", editora=" + editora 
                 + ", cidade=" + cidade + ", uf=" + uf + ", isbn=" + isbn + ", ano=" + ano 
                 + ", edicao=" + edicao + ", categoria=" + categoria + ", tematica=" + tematica 
-                + ", disponivel=" + disponivel + '}';
+                + ", disponivel=" + disponivel + ", qtEstoque=" + qtEstoque
+                + ", qtAlugada=" + qtAlugada + ", qtReservada=" + qtReservada+"}";
     } 
     
 
@@ -131,6 +147,30 @@ public class Livro {
 
     public void setDisponivel(boolean disponivel) {
         this.disponivel = disponivel;
+    }
+
+    public int getQtEstoque() {
+        return qtEstoque;
+    }
+
+    public void setQtEstoque(int qtEstoque) {
+        this.qtEstoque = qtEstoque;
+    }
+
+    public int getQtAlugada() {
+        return qtAlugada;
+    }
+
+    public void setQtAlugada(int qtAlugada) {
+        this.qtAlugada = qtAlugada;
+    }
+
+    public int getQtReservada() {
+        return qtReservada;
+    }
+
+    public void setQtReservada(int qtReservada) {
+        this.qtReservada = qtReservada;
     }
 
     
