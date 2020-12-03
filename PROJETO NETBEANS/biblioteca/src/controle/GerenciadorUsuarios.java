@@ -469,3 +469,4 @@ public class GerenciadorUsuarios {
             Logger.getLogger(GerenciadorUsuarios.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+}
