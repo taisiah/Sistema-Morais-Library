@@ -38,7 +38,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="23" max="32767" attributes="0"/>
+              <EmptySpace pref="24" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -72,22 +72,15 @@
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="btBuscarLivro" min="-2" pref="34" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="lbRetirada" min="-2" pref="76" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="cbxCategoria" min="-2" pref="259" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="lbRetirada1" min="-2" pref="76" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="lbEdicao" min="-2" pref="49" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="tfEdicao" min="-2" pref="63" max="-2" attributes="0"/>
-                                  </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="lbRetirada" min="-2" pref="76" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="cbxCategoria" min="-2" pref="259" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="lbRetirada1" min="-2" pref="76" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="28" max="32767" attributes="0"/>
+                          <EmptySpace pref="23" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -109,27 +102,49 @@
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="lbIsbn" min="-2" pref="63" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="tfIsbn" min="-2" pref="222" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="-2" pref="140" max="-2" attributes="0"/>
-                                          <Component id="btSalvar" min="-2" pref="119" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-                                          <Component id="btLimpar" min="-2" pref="120" max="-2" attributes="0"/>
-                                      </Group>
+                                      <Component id="lbIsbn" min="-2" pref="63" max="-2" attributes="0"/>
+                                      <Component id="lbQtEstoque" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="btExcluir1" min="-2" pref="119" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Group type="102" attributes="0">
+                                          <Component id="tfIsbn" min="-2" pref="222" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="lbEdicao" min="-2" pref="49" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="tfEdicao" min="-2" pref="63" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
                                           <Component id="lbAno" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                           <Component id="tfAno" min="-2" pref="68" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                                          <EmptySpace pref="85" max="32767" attributes="0"/>
                                           <Component id="ckbDisponivel" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="tfqtEstoque" min="-2" pref="100" max="-2" attributes="0"/>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                                                  <Component id="btCadastrar" min="-2" pref="120" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" attributes="0">
+                                                  <Component id="btLimpar" min="-2" pref="120" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
+                                                  <Component id="btExcluir1" min="-2" pref="120" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" attributes="0">
+                                                  <Component id="lbQtAlugada" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Component id="tfqtAlugada" min="-2" pref="100" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
+                                                  <Component id="lbQtDisponivel" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Component id="tfqtReservada" min="-2" pref="100" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
                                       </Group>
                                   </Group>
                               </Group>
@@ -145,54 +160,56 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="lbAluguelLivro" min="-2" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="tfTitulo" alignment="0" max="32767" attributes="0"/>
-                              <Component id="btBuscarLivro" alignment="0" max="32767" attributes="0"/>
-                              <Component id="lbTitulo" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="lbCidade" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
-                              <Component id="lbUF" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
-                              <Component id="lbEditora1" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
-                              <Component id="tfEditora" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
-                              <Component id="tfCidade" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
-                              <Component id="tfUF" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="lbRetirada" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
-                              <Component id="lbRetirada1" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
-                              <Component id="cbxCategoria" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="cbxTematica" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="lbIsbn" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
-                              <Component id="tfIsbn" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                              <Component id="tfEdicao" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                              <Component id="lbAno" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                              <Component id="tfAno" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
-                              <Component id="ckbDisponivel" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="lbEdicao" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace pref="133" max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="btLimpar" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
-                              <Component id="btExcluir1" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
-                              <Component id="btSalvar" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                      </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="tfTitulo" alignment="0" pref="30" max="32767" attributes="0"/>
+                      <Component id="btBuscarLivro" alignment="0" max="32767" attributes="0"/>
+                      <Component id="lbTitulo" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
                   </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lbCidade" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
+                      <Component id="lbUF" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
+                      <Component id="lbEditora1" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
+                      <Component id="tfEditora" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="tfCidade" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="tfUF" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lbRetirada" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                      <Component id="lbRetirada1" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                      <Component id="cbxCategoria" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="cbxTematica" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lbIsbn" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
+                      <Component id="tfIsbn" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="tfEdicao" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="lbAno" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="tfAno" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="ckbDisponivel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lbEdicao" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="tfqtAlugada" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="lbQtEstoque" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lbQtAlugada" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lbQtDisponivel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tfqtReservada" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="tfqtEstoque" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="22" pref="22" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="btLimpar" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                      <Component id="btCadastrar" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                      <Component id="btExcluir1" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="46" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -217,7 +234,7 @@
             <Property name="text" type="java.lang.String" value="Cadastrar Publica&#xe7;&#xe3;o"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="btSalvar">
+        <Component class="javax.swing.JButton" name="btCadastrar">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="96" red="32" type="rgb"/>
@@ -228,16 +245,16 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/imagens/save-24_1.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Salvar"/>
+            <Property name="text" type="java.lang.String" value="Cadastrar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btSalvarActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btCadastrarActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btLimpar">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="99" red="ff" type="rgb"/>
+              <Color blue="33" green="99" red="ff" type="rgb"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -362,9 +379,9 @@
                       <EmptySpace pref="12" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lbAutor" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
-                          <Component id="tfSnAutor" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
+                          <Component id="tfSnAutor" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                           <Component id="lbAutor3" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
-                          <Component id="tfPnAutor" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="tfPnAutor" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -512,6 +529,39 @@
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
+        </Component>
+        <Component class="javax.swing.JTextField" name="tfqtAlugada">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lbQtEstoque">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Qtd Estoque:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lbQtAlugada">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Qtd Alugada:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lbQtDisponivel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Qtd Reservada:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="tfqtEstoque">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfqtEstoqueActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="tfqtReservada">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfqtReservadaActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

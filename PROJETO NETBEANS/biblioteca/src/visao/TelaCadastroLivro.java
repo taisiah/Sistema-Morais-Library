@@ -2,9 +2,11 @@ package visao;
 
 import controle.GerenciadorLivros;
 import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -33,7 +35,7 @@ public class TelaCadastroLivro extends javax.swing.JInternalFrame {
         jPanel1 = new javax.swing.JPanel();
         lbRetirada = new javax.swing.JLabel();
         lbAluguelLivro = new javax.swing.JLabel();
-        btSalvar = new javax.swing.JButton();
+        btCadastrar = new javax.swing.JButton();
         btLimpar = new javax.swing.JButton();
         tfTitulo = new javax.swing.JTextField();
         lbTitulo = new javax.swing.JLabel();
@@ -60,6 +62,12 @@ public class TelaCadastroLivro extends javax.swing.JInternalFrame {
         lbRetirada1 = new javax.swing.JLabel();
         cbxCategoria = new javax.swing.JComboBox<>();
         cbxTematica = new javax.swing.JComboBox<>();
+        tfqtAlugada = new javax.swing.JTextField();
+        lbQtEstoque = new javax.swing.JLabel();
+        lbQtAlugada = new javax.swing.JLabel();
+        lbQtDisponivel = new javax.swing.JLabel();
+        tfqtEstoque = new javax.swing.JTextField();
+        tfqtReservada = new javax.swing.JTextField();
 
         lbAutor2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         lbAutor2.setText("Sobrenome:");
@@ -74,17 +82,17 @@ public class TelaCadastroLivro extends javax.swing.JInternalFrame {
         lbAluguelLivro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/book-16.png"))); // NOI18N
         lbAluguelLivro.setText("Cadastrar Publicação");
 
-        btSalvar.setBackground(new java.awt.Color(50, 150, 0));
-        btSalvar.setForeground(new java.awt.Color(255, 255, 255));
-        btSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/save-24_1.png"))); // NOI18N
-        btSalvar.setText("Salvar");
-        btSalvar.addActionListener(new java.awt.event.ActionListener() {
+        btCadastrar.setBackground(new java.awt.Color(50, 150, 0));
+        btCadastrar.setForeground(new java.awt.Color(255, 255, 255));
+        btCadastrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/save-24_1.png"))); // NOI18N
+        btCadastrar.setText("Cadastrar");
+        btCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btSalvarActionPerformed(evt);
+                btCadastrarActionPerformed(evt);
             }
         });
 
-        btLimpar.setBackground(new java.awt.Color(255, 153, 0));
+        btLimpar.setBackground(new java.awt.Color(255, 153, 51));
         btLimpar.setForeground(new java.awt.Color(255, 255, 255));
         btLimpar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/refresh-24_1.png"))); // NOI18N
         btLimpar.setText("Limpar");
@@ -160,9 +168,9 @@ public class TelaCadastroLivro extends javax.swing.JInternalFrame {
                 .addContainerGap(12, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfSnAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfSnAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbAutor3, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfPnAutor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfPnAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -220,6 +228,27 @@ public class TelaCadastroLivro extends javax.swing.JInternalFrame {
             }
         });
 
+        tfqtAlugada.setEditable(false);
+
+        lbQtEstoque.setText("Qtd Estoque:");
+
+        lbQtAlugada.setText("Qtd Alugada:");
+
+        lbQtDisponivel.setText("Qtd Reservada:");
+
+        tfqtEstoque.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfqtEstoqueActionPerformed(evt);
+            }
+        });
+
+        tfqtReservada.setEditable(false);
+        tfqtReservada.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfqtReservadaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -237,18 +266,13 @@ public class TelaCadastroLivro extends javax.swing.JInternalFrame {
                                 .addComponent(tfTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 631, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(btBuscarLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(lbRetirada, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(cbxCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(lbRetirada1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(lbEdicao, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(tfEdicao, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addContainerGap(28, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(lbRetirada, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cbxCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(lbRetirada1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(23, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -267,24 +291,42 @@ public class TelaCadastroLivro extends javax.swing.JInternalFrame {
                                     .addComponent(tfUF, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lbIsbn, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lbQtEstoque))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(lbIsbn, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(tfIsbn, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(140, 140, 140)
-                                        .addComponent(btSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(39, 39, 39)
-                                        .addComponent(btLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(43, 43, 43)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btExcluir1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(tfIsbn, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(lbEdicao, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(tfEdicao, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(13, 13, 13)
                                         .addComponent(lbAno)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(tfAno, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(26, 26, 26)
-                                        .addComponent(ckbDisponivel)))))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
+                                        .addComponent(ckbDisponivel))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(tfqtEstoque, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addGap(8, 8, 8)
+                                                .addComponent(btCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGap(63, 63, 63)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addComponent(btLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(63, 63, 63)
+                                                .addComponent(btExcluir1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addComponent(lbQtAlugada)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(tfqtAlugada, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(94, 94, 94)
+                                                .addComponent(lbQtDisponivel)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(tfqtReservada, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -292,46 +334,50 @@ public class TelaCadastroLivro extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lbAluguelLivro)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(tfTitulo)
-                            .addComponent(btBuscarLivro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lbTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lbCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbUF, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbEditora1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tfEditora, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tfCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tfUF, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lbRetirada, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbRetirada1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cbxCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cbxTematica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lbIsbn, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tfIsbn, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tfEdicao, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbAno, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tfAno, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ckbDisponivel)
-                            .addComponent(lbEdicao, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(133, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btExcluir1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(29, 29, 29))))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(tfTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+                    .addComponent(btBuscarLivro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lbTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbUF, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbEditora1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfEditora, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfUF, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbRetirada, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbRetirada1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbxCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbxTematica, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbIsbn, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfIsbn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfEdicao, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbAno, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfAno, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ckbDisponivel)
+                    .addComponent(lbEdicao, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tfqtAlugada, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbQtEstoque)
+                    .addComponent(lbQtAlugada)
+                    .addComponent(lbQtDisponivel)
+                    .addComponent(tfqtReservada, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfqtEstoque, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btExcluir1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -341,7 +387,7 @@ public class TelaCadastroLivro extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -367,7 +413,11 @@ public class TelaCadastroLivro extends javax.swing.JInternalFrame {
         tfIsbn.setText("");
         cbxCategoria.setSelectedItem("...");
         cbxTematica.setSelectedItem("...");
-        ckbDisponivel.setSelected(false);    
+        ckbDisponivel.setSelected(false); 
+        tfqtEstoque.setText("");
+        tfqtAlugada.setText("");
+        tfqtReservada.setText("");
+        
         tfTitulo.requestFocus();
     }//GEN-LAST:event_btLimparActionPerformed
 
@@ -375,80 +425,123 @@ public class TelaCadastroLivro extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tfEdicaoActionPerformed
 
-    private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
+    private void btCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarActionPerformed
         // TODO add your handling code here:
         
-        String titulo = tfTitulo.getText();
+        GerenciadorLivros gerenciadorLiv = GerenciadorLivros.getInstance();
+        
+        String titulo, snautor, pnautor, editora, cidade, uf, categoria, tematica, isbn, txtedicao,  txtano, txtqtdeEstoque;
+        int edicao;
+        int ano;
+        int qtEstoque;
+        int qtAlugada,qtReservada;
+        boolean disponivel;
+        
+        titulo = tfTitulo.getText();
+        
+        /*
+        Livro delliv = gerenciadorLiv.buscarLivro(titulo);
+                
+        if (titulo.equals(delliv.getTitulo())){
+            gerenciadorLiv.removerLivro(titulo); 
+            snautor = tfSnAutor.getText().toUpperCase();
+            pnautor = tfPnAutor.getText();
+            editora = tfEditora.getText();
+            cidade = tfCidade.getText();
+            uf = tfUF.getText().toUpperCase();
+            categoria = cbxCategoria.getSelectedItem().toString();
+            tematica = cbxTematica.getSelectedItem().toString();
+            isbn = tfIsbn.getText();
+            edicao = Integer.parseInt(tfEdicao.getText());
+            ano = Integer.parseInt(tfAno.getText());
+            qtEstoque = Integer.parseInt(tfqtEstoque.getText());
+        
+        }
+        */
+        
         if(titulo.length() == 0) {
             JOptionPane.showMessageDialog(null,"Digitar título da publicação");
             return;
         }
         
-        String snautor = tfSnAutor.getText().toUpperCase();
+        snautor = tfSnAutor.getText().toUpperCase();
         if(snautor.length() == 0) {
             JOptionPane.showMessageDialog(null,"Digitar sobrenome do autor");
             return;
         }
         
-        String pnautor = tfPnAutor.getText();
+        pnautor = tfPnAutor.getText();
         if(pnautor.length() == 0) {
             JOptionPane.showMessageDialog(null,"Digitar primeiro nome do autor");
             return;
         }
-        
-        String editora = tfEditora.getText();
+        editora = tfEditora.getText();
         if(editora.length() == 0) {
             JOptionPane.showMessageDialog(null,"Digitar Editora");
             return;
         }
         
-        String cidade = tfCidade.getText();
+        cidade = tfCidade.getText();
         if(cidade.length() == 0) {
             JOptionPane.showMessageDialog(null,"Digitar Cidade");
             return;
         }
         
-        String uf = tfUF.getText().toUpperCase();
+        uf = tfUF.getText().toUpperCase();
         if(uf.length() == 0) {
             JOptionPane.showMessageDialog(null,"Digitar UF");
             return;
         }
         
-        String categoria = cbxCategoria.getSelectedItem().toString();
+        categoria = cbxCategoria.getSelectedItem().toString();
         if(categoria.equals("...")) {
             JOptionPane.showMessageDialog(null,"Escolher categoria");
             return;
-        }
+        }  
         
-        String tematica = cbxTematica.getSelectedItem().toString();
+        tematica = cbxTematica.getSelectedItem().toString();
         if(tematica.equals("...")) {
             JOptionPane.showMessageDialog(null,"Escolher temática");
             return;
         }
-        
-        String isbn = tfIsbn.getText();
+                
+        isbn = tfIsbn.getText();
         if(isbn.length() == 0) {
             JOptionPane.showMessageDialog(null,"Digitar ISBN");
             return;
         }
         
-        int edicao = Integer.parseInt(tfEdicao.getText());
-        if(edicao == 0) {
+        txtedicao = tfEdicao.getText();
+        if(txtedicao.length() == 0){
             JOptionPane.showMessageDialog(null,"Digitar edição  da publicação");
             return;
         }
+        edicao = Integer.parseInt(txtedicao);
         
-        int ano = Integer.parseInt(tfAno.getText());
-        if(ano == 0) {
+        txtano = tfAno.getText();
+        if(txtano.length() == 0) {
             JOptionPane.showMessageDialog(null,"Digitar ano da publicação");
             return;
         }
+        ano = Integer.parseInt(txtano);
         
-        boolean disponivel = ckbDisponivel.isSelected();
-                
-        Livro livro = new Livro(titulo,snautor+","+pnautor,editora,cidade,uf,ano,edicao,isbn,categoria,tematica, disponivel);
-        GerenciadorLivros gerenciadorLiv = GerenciadorLivros.getInstance();
-        JOptionPane.showMessageDialog(null,gerenciadorLiv.adicionarLivro(livro));
+        disponivel = ckbDisponivel.isSelected();
+        
+        txtqtdeEstoque = tfqtEstoque.getText();
+        if(txtqtdeEstoque.length() == 0) {
+            JOptionPane.showMessageDialog(null,"Digitar a quantidade em estoque");
+            return;
+        }
+        qtEstoque = Integer.parseInt(txtqtdeEstoque);
+        
+        qtAlugada = 0;
+        
+        qtReservada = 0;       
+        
+
+        Livro addlivro = new Livro(titulo,snautor+","+pnautor,editora,cidade,uf,ano,edicao,isbn,categoria,tematica,disponivel,qtEstoque,qtAlugada,qtReservada);
+        
+        JOptionPane.showMessageDialog(null,gerenciadorLiv.adicionarLivro(addlivro));
         
         tfTitulo.setText("");
         tfSnAutor.setText("");
@@ -461,10 +554,13 @@ public class TelaCadastroLivro extends javax.swing.JInternalFrame {
         tfIsbn.setText("");
         cbxCategoria.setSelectedItem("...");
         cbxTematica.setSelectedItem("...");
-        ckbDisponivel.setSelected(false);   
+        ckbDisponivel.setSelected(false);  
+        tfqtEstoque.setText("");
+        tfqtAlugada.setText("");
+        tfqtReservada.setText("");          
         tfTitulo.requestFocus();
         
-    }//GEN-LAST:event_btSalvarActionPerformed
+    }//GEN-LAST:event_btCadastrarActionPerformed
 
     private void ckbDisponivelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ckbDisponivelActionPerformed
         // TODO add your handling code here:
@@ -495,6 +591,9 @@ public class TelaCadastroLivro extends javax.swing.JInternalFrame {
             cbxCategoria.setSelectedItem(liv.getCategoria());
             cbxTematica.setSelectedItem(liv.getTematica());
             ckbDisponivel.setSelected(liv.isDisponivel());
+            tfqtEstoque.setText(Integer.toString(liv.getQtEstoque()));
+            tfqtAlugada.setText(Integer.toString(liv.getQtAlugada()));
+            tfqtReservada.setText(Integer.toString(liv.getQtReservada()));
             
         }  
                 
@@ -523,10 +622,12 @@ public class TelaCadastroLivro extends javax.swing.JInternalFrame {
         tfIsbn.setText("");
         cbxCategoria.setSelectedItem("...");
         cbxTematica.setSelectedItem("...");
-        ckbDisponivel.setSelected(false);   
+        ckbDisponivel.setSelected(false); 
+        tfqtEstoque.setText("");
+        tfqtAlugada.setText("");
+        tfqtReservada.setText("");
         tfTitulo.requestFocus();
-        
-        
+                
     }//GEN-LAST:event_btExcluir1ActionPerformed
 
     private void tfIsbnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfIsbnActionPerformed
@@ -538,8 +639,11 @@ public class TelaCadastroLivro extends javax.swing.JInternalFrame {
   
         FileReader acessaArq;
         try {
-            acessaArq = new FileReader("categorias.txt");
-            BufferedReader leiaArq = new BufferedReader(acessaArq);
+            //acessaArq = new FileReader("categorias.txt");
+            
+            BufferedReader leiaArq = new BufferedReader(new InputStreamReader(new FileInputStream("categorias.txt"), "UTF-8"));
+            
+            //BufferedReader leiaArq = new BufferedReader(acessaArq);
             String linha = leiaArq.readLine();
             while (linha != null){
                 this.cbxCategoria.addItem(linha);
@@ -572,12 +676,20 @@ public class TelaCadastroLivro extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_cbxTematicaActionPerformed
 
+    private void tfqtEstoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfqtEstoqueActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfqtEstoqueActionPerformed
+
+    private void tfqtReservadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfqtReservadaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfqtReservadaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btBuscarLivro;
+    private javax.swing.JButton btCadastrar;
     private javax.swing.JButton btExcluir1;
     private javax.swing.JButton btLimpar;
-    private javax.swing.JButton btSalvar;
     private javax.swing.JComboBox<String> cbxCategoria;
     private javax.swing.JComboBox<String> cbxTematica;
     private javax.swing.JCheckBox ckbDisponivel;
@@ -592,6 +704,9 @@ public class TelaCadastroLivro extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lbEdicao;
     private javax.swing.JLabel lbEditora1;
     private javax.swing.JLabel lbIsbn;
+    private javax.swing.JLabel lbQtAlugada;
+    private javax.swing.JLabel lbQtDisponivel;
+    private javax.swing.JLabel lbQtEstoque;
     private javax.swing.JLabel lbRetirada;
     private javax.swing.JLabel lbRetirada1;
     private javax.swing.JLabel lbTitulo;
@@ -605,5 +720,8 @@ public class TelaCadastroLivro extends javax.swing.JInternalFrame {
     private javax.swing.JTextField tfSnAutor;
     private javax.swing.JTextField tfTitulo;
     private javax.swing.JTextField tfUF;
+    private javax.swing.JTextField tfqtAlugada;
+    private javax.swing.JTextField tfqtEstoque;
+    private javax.swing.JTextField tfqtReservada;
     // End of variables declaration//GEN-END:variables
 }

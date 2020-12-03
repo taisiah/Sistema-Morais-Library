@@ -48,6 +48,9 @@ public class GerenciadorLivros {
             escreveArq.println(liv.getCategoria());
             escreveArq.println(liv.getTematica());
             escreveArq.println(liv.isDisponivel());
+            escreveArq.println(liv.getQtEstoque());
+            escreveArq.println(liv.getQtAlugada());
+            escreveArq.println(liv.getQtReservada());         
             editaArq.flush();
             editaArq.close();
             escreveArq.close();
@@ -55,7 +58,7 @@ public class GerenciadorLivros {
             Logger.getLogger(GerenciadorEspacos.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        return ("Livro cadastrado com sucesso!");
+        return ("Cadastro salvo com sucesso!");
     }
 
     public Livro buscarLivro(String titLivro){
@@ -77,6 +80,10 @@ public class GerenciadorLivros {
             String lnCategoria;  
             String lnTematica;
             boolean lnDisponivel;
+            int lnQtEstoque;
+            int lnQtAlugada;
+            int lnQtReservada;
+            
 
             while (lnTitulo != null){
 
@@ -90,8 +97,14 @@ public class GerenciadorLivros {
                 lnCategoria = leiaArq.readLine(); 
                 lnTematica = leiaArq.readLine();
                 lnDisponivel = Boolean.parseBoolean(leiaArq.readLine()); 
+                lnQtEstoque = Integer.parseInt(leiaArq.readLine());
+                lnQtAlugada = Integer.parseInt(leiaArq.readLine());
+                lnQtReservada = Integer.parseInt(leiaArq.readLine());
                 
-                liv1 = new Livro(lnTitulo,lnAutor,lnEditora,lnCidade,lnUF,lnAno,lnEdicao,lnIsbn,lnCategoria,lnTematica,lnDisponivel);  
+                liv1 = new Livro(lnTitulo,lnAutor,lnEditora,lnCidade,lnUF,lnAno,
+                        lnEdicao,lnIsbn,lnCategoria,lnTematica,lnDisponivel,
+                        lnQtEstoque,lnQtAlugada,lnQtReservada);
+                
                 this.listaLivros.add(liv1);
 
                 lnTitulo = leiaArq.readLine();
@@ -112,6 +125,134 @@ public class GerenciadorLivros {
         }
         return null;
     }
+             
+   
+    public String reservarLivro(String titLivro){
+        
+        File file = new File("livro.txt");
+        String msg = "";
+        int novaQtR = 0;
+        int novaQtE = 0; 
+                               
+        for (int i = 0; i < this.listaLivros.size(); i++){
+            
+            if (this.listaLivros.get(i).getTitulo().equals(titLivro)){
+                if (this.listaLivros.get(i).isDisponivel() == true){
+                    if (this.listaLivros.get(i).getQtEstoque() > 0){                       
+                        novaQtR = this.listaLivros.get(i).getQtReservada()+1;
+                        novaQtE = this.listaLivros.get(i).getQtEstoque()-1;
+                        this.listaLivros.get(i).setQtReservada(novaQtR) ;
+                        this.listaLivros.get(i).setQtEstoque(novaQtE);
+                        file.delete();
+                        msg = "Reserva efetuada com sucesso!";
+                    }else {
+                        msg = "Não dispomos de volumes para reserva!";
+                    }   
+                }else {
+                    msg = "Publicação indisponível para reserva!";
+                }   
+            }else {
+                msg = "Publicação não encontrada!";
+            }        
+        }
+        
+        if (!listaLivros.isEmpty()){  
+        
+            for (int j = 0; j < this.listaLivros.size(); j++){
+
+                try {
+                    FileWriter editaArq = new FileWriter("livro.txt",true);
+                    PrintWriter escreveArq = new PrintWriter(editaArq); 
+                    escreveArq.println(this.listaLivros.get(j).getTitulo());
+                    escreveArq.println(this.listaLivros.get(j).getAutor());
+                    escreveArq.println(this.listaLivros.get(j).getEditora());
+                    escreveArq.println(this.listaLivros.get(j).getCidade());
+                    escreveArq.println(this.listaLivros.get(j).getUf());
+                    escreveArq.println(this.listaLivros.get(j).getAno());
+                    escreveArq.println(this.listaLivros.get(j).getEdicao());
+                    escreveArq.println(this.listaLivros.get(j).getIsbn());
+                    escreveArq.println(this.listaLivros.get(j).getCategoria());
+                    escreveArq.println(this.listaLivros.get(j).getTematica());
+                    escreveArq.println(this.listaLivros.get(j).isDisponivel());
+                    escreveArq.println(this.listaLivros.get(j).getQtEstoque());
+                    escreveArq.println(this.listaLivros.get(j).getQtAlugada());
+                    escreveArq.println(this.listaLivros.get(j).getQtReservada());
+                    editaArq.flush();
+                    editaArq.close();
+                    escreveArq.close();
+                } catch (IOException ex) {
+                    Logger.getLogger(GerenciadorLivros.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }  
+        } else {
+            msg = "Não existem livros cadastrados!";
+        } 
+        return msg;
+    }
+    
+    
+    public String alugarLivro(String titLivro){
+        
+        File file = new File("livro.txt");
+        String msg = "";
+        int novaQtA;
+        int novaQtE;
+                               
+        for (int i = 0; i < this.listaLivros.size(); i++){
+            
+            if (this.listaLivros.get(i).getTitulo().equals(titLivro)){
+                if (this.listaLivros.get(i).isDisponivel() == true){
+                    if (this.listaLivros.get(i).getQtEstoque() > 0){                       
+                        novaQtA = this.listaLivros.get(i).getQtAlugada()+1;
+                        novaQtE = this.listaLivros.get(i).getQtEstoque()-1;
+                        this.listaLivros.get(i).setQtAlugada(novaQtA) ;
+                        this.listaLivros.get(i).setQtEstoque(novaQtE);
+                        file.delete();
+                        msg = "Aluguel efetuado com sucesso!";
+                    }else {
+                        msg = "Não dispomos de volumes para aluguel!";
+                    }   
+                }else {
+                    msg = "Publicação indisponível para locação!";
+                }   
+            }else {
+                msg = "Publicação não encontrada!";
+            }        
+        }
+        
+        if (!listaLivros.isEmpty()){  
+        
+            for (int j = 0; j < this.listaLivros.size(); j++){
+
+                try {
+                    FileWriter editaArq = new FileWriter("livro.txt",true);
+                    PrintWriter escreveArq = new PrintWriter(editaArq); 
+                    escreveArq.println(this.listaLivros.get(j).getTitulo());
+                    escreveArq.println(this.listaLivros.get(j).getAutor());
+                    escreveArq.println(this.listaLivros.get(j).getEditora());
+                    escreveArq.println(this.listaLivros.get(j).getCidade());
+                    escreveArq.println(this.listaLivros.get(j).getUf());
+                    escreveArq.println(this.listaLivros.get(j).getAno());
+                    escreveArq.println(this.listaLivros.get(j).getEdicao());
+                    escreveArq.println(this.listaLivros.get(j).getIsbn());
+                    escreveArq.println(this.listaLivros.get(j).getCategoria());
+                    escreveArq.println(this.listaLivros.get(j).getTematica());
+                    escreveArq.println(this.listaLivros.get(j).isDisponivel());
+                    escreveArq.println(this.listaLivros.get(j).getQtEstoque());
+                    escreveArq.println(this.listaLivros.get(j).getQtAlugada());
+                    escreveArq.println(this.listaLivros.get(j).getQtReservada());
+                    editaArq.flush();
+                    editaArq.close();
+                    escreveArq.close();
+                } catch (IOException ex) {
+                    Logger.getLogger(GerenciadorLivros.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }  
+        } else {
+            msg = "Não existem livros cadastrados!";
+        } 
+        return (msg);
+    }
     
     
     
@@ -124,7 +265,6 @@ public class GerenciadorLivros {
             
             if (this.listaLivros.get(i).getTitulo().equals(titLivro)){
                 this.listaLivros.remove(i);
-                System.out.println(listaLivros);
                 file.delete();
                 result = true;
                 break;
@@ -149,6 +289,9 @@ public class GerenciadorLivros {
                     escreveArq.println(this.listaLivros.get(j).getCategoria());
                     escreveArq.println(this.listaLivros.get(j).getTematica());
                     escreveArq.println(this.listaLivros.get(j).isDisponivel());
+                    escreveArq.println(this.listaLivros.get(j).getQtEstoque());
+                    escreveArq.println(this.listaLivros.get(j).getQtAlugada());
+                    escreveArq.println(this.listaLivros.get(j).getQtReservada());
                     editaArq.flush();
                     editaArq.close();
                     escreveArq.close();
@@ -161,9 +304,7 @@ public class GerenciadorLivros {
                 return result;
             }
         }  
-        return result; 
-     
-    
+        return result;    
     }
     
     
