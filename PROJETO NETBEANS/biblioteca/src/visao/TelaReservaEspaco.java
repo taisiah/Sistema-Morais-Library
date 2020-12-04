@@ -11,8 +11,6 @@ import controle.GerenciadorUsuarios;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import modelo.Espaco;
-import modelo.Evento;
-import modelo.ReservaEspaco;
 import modelo.Usuario;
 
 /**
@@ -26,8 +24,11 @@ public class TelaReservaEspaco extends javax.swing.JInternalFrame {
      */
     public TelaReservaEspaco() {
         initComponents();
+        
         GerenciadorEspacos ge = GerenciadorEspacos.getInstance();
         ge.buscarEspaco("");
+        
+        cbEspacoEvento.addItem("...");
         ArrayList<Espaco> espacos = ge.getListaEspacos();
         for (int i = 0; i < espacos.size(); i++) {
             cbEspacoEvento.addItem(espacos.get(i).getDescEspaco());
@@ -35,7 +36,6 @@ public class TelaReservaEspaco extends javax.swing.JInternalFrame {
         GerenciadorUsuarios gr = GerenciadorUsuarios.getInstance();
         Usuario usuario = gr.getUsuarioLogado();
         tfRespResEsp.setText(usuario.getEmail());
-        tfFoneResEsp.setText(usuario.getTelefone());
     }
 
     /**
@@ -59,8 +59,6 @@ public class TelaReservaEspaco extends javax.swing.JInternalFrame {
         tfRespEvt = new javax.swing.JTextField();
         lbRespEvt = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        lbFoneResEsp = new javax.swing.JLabel();
-        tfFoneResEsp = new javax.swing.JFormattedTextField();
         lbDataResEsp = new javax.swing.JLabel();
         tfDataResEsp = new javax.swing.JFormattedTextField();
         lbHoraResEsp = new javax.swing.JLabel();
@@ -70,7 +68,7 @@ public class TelaReservaEspaco extends javax.swing.JInternalFrame {
         btSalvarResEsp = new javax.swing.JButton();
         lbRespResEsp = new javax.swing.JLabel();
         tfRespResEsp = new javax.swing.JTextField();
-        tfDescEsp = new javax.swing.JTextField();
+        tfDescricao = new javax.swing.JTextField();
         lbDescEsp = new javax.swing.JLabel();
         lbDescEsp1 = new javax.swing.JLabel();
         cbEspacoEvento = new javax.swing.JComboBox<>();
@@ -150,22 +148,6 @@ public class TelaReservaEspaco extends javax.swing.JInternalFrame {
 
         setClosable(true);
 
-        lbFoneResEsp.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        lbFoneResEsp.setText("Fone:");
-
-        tfFoneResEsp.setEditable(false);
-        try {
-            tfFoneResEsp.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) #####-####")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-        tfFoneResEsp.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        tfFoneResEsp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfFoneResEspActionPerformed(evt);
-            }
-        });
-
         lbDataResEsp.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         lbDataResEsp.setText("Data:");
 
@@ -224,7 +206,7 @@ public class TelaReservaEspaco extends javax.swing.JInternalFrame {
         tfRespResEsp.setEditable(false);
         tfRespResEsp.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        tfDescEsp.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tfDescricao.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         lbDescEsp.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         lbDescEsp.setText("Descrição:");
@@ -247,7 +229,7 @@ public class TelaReservaEspaco extends javax.swing.JInternalFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -267,22 +249,20 @@ public class TelaReservaEspaco extends javax.swing.JInternalFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lbRespResEsp)
-                                    .addComponent(lbDescEsp)
-                                    .addComponent(lbFoneResEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(lbDescEsp))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(tfFoneResEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(tfDescEsp, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 364, Short.MAX_VALUE)
+                                        .addComponent(tfDescricao, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 364, Short.MAX_VALUE)
                                         .addComponent(tfRespResEsp, javax.swing.GroupLayout.Alignment.LEADING))
                                     .addComponent(tfDataResEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addComponent(btSalvarResEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(35, 35, 35)
-                        .addComponent(btLimparResEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(38, 38, 38)
-                        .addComponent(btExcluirResEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(31, 31, 31)
+                        .addComponent(btSalvarResEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28)
+                        .addComponent(btLimparResEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29)
+                        .addComponent(btExcluirResEsp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(43, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -300,24 +280,20 @@ public class TelaReservaEspaco extends javax.swing.JInternalFrame {
                     .addComponent(tfHoraResEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbHoraResEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbDataResEsp))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tfRespResEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbRespResEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfDescEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbDescEsp))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfFoneResEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbFoneResEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(41, 41, 41)
+                .addGap(38, 38, 38)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btLimparResEsp)
                     .addComponent(btExcluirResEsp)
                     .addComponent(btSalvarResEsp))
-                .addGap(33, 33, 33))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -332,8 +308,8 @@ public class TelaReservaEspaco extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(30, 30, 30))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -360,7 +336,7 @@ public class TelaReservaEspaco extends javax.swing.JInternalFrame {
     private void btSalvarResEspActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarResEspActionPerformed
 
         String espacodesc = cbEspacoEvento.getSelectedItem().toString();
-        if (espacodesc.equals("")) {
+        if (espacodesc.equals("...")) {
             JOptionPane.showMessageDialog(null, "Espaço não selecionado");
             return;
         }
@@ -369,7 +345,7 @@ public class TelaReservaEspaco extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Campo data está vazio");
             return;
         }
-        String descricao = tfDescEsp.getText();
+        String descricao = tfDescricao.getText();
         if (descricao.length() == 0) {
             JOptionPane.showMessageDialog(null, "Campo descricão está vazio");
             return;
@@ -387,7 +363,7 @@ public class TelaReservaEspaco extends javax.swing.JInternalFrame {
         
         GerenciadorReservaEspaco gre = GerenciadorReservaEspaco.getInstance();
         
-        boolean reservado = gre.AdicionarReserva(usuariologado, espaco, data, hora);
+        boolean reservado = gre.AdicionarReserva(usuariologado, espaco, data, hora, descricao);
         if(reservado == true) {
             JOptionPane.showMessageDialog(null, "Espaço reservado com sucesso!");
         }
@@ -395,35 +371,30 @@ public class TelaReservaEspaco extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Já existe reserva neste espaço, para a data e hora indicadas");
         }
 
-        cbEspacoEvento.setSelectedItem("");
+        cbEspacoEvento.setSelectedItem("...");
         tfDataResEsp.setText("");
         tfHoraResEsp.setText("");
-        tfDescEsp.setText("");
+        tfDescricao.setText("");
 
     }//GEN-LAST:event_btSalvarResEspActionPerformed
 
     private void btLimparResEspActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLimparResEspActionPerformed
 
-        cbEspacoEvento.setSelectedItem("");
+        cbEspacoEvento.setSelectedItem("...");
         tfDataResEsp.setText("");
         tfHoraResEsp.setText("");
-        tfDescEsp.setText("");
+        tfDescricao.setText("");
     }//GEN-LAST:event_btLimparResEspActionPerformed
 
     private void btExcluirResEspActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btExcluirResEspActionPerformed
 
         JOptionPane.showMessageDialog(null, "Reserva de espaço excluída com sucesso!");
-        cbEspacoEvento.setSelectedItem("");
-        tfFoneResEsp.setText("");
+        cbEspacoEvento.setSelectedItem("...");
         tfDataResEsp.setText("");
         tfRespResEsp.setText("");
         tfHoraResEsp.setText("");
-        tfDescEsp.setText("");
+        tfDescricao.setText("");
     }//GEN-LAST:event_btExcluirResEspActionPerformed
-
-    private void tfFoneResEspActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfFoneResEspActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfFoneResEspActionPerformed
 
     private void cbEspacoEventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbEspacoEventoActionPerformed
         // TODO add your handling code here:
@@ -444,7 +415,6 @@ public class TelaReservaEspaco extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lbDescEsp;
     private javax.swing.JLabel lbDescEsp1;
     private javax.swing.JLabel lbFoneEvt;
-    private javax.swing.JLabel lbFoneResEsp;
     private javax.swing.JLabel lbHoraEvt;
     private javax.swing.JLabel lbHoraResEsp;
     private javax.swing.JLabel lbRespEvt;
@@ -452,9 +422,8 @@ public class TelaReservaEspaco extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lbTituloTelaResEsp;
     private javax.swing.JFormattedTextField tfDataEvt;
     private javax.swing.JFormattedTextField tfDataResEsp;
-    private javax.swing.JTextField tfDescEsp;
+    private javax.swing.JTextField tfDescricao;
     private javax.swing.JFormattedTextField tfFoneEvt;
-    private javax.swing.JFormattedTextField tfFoneResEsp;
     private javax.swing.JFormattedTextField tfHoraEvt;
     private javax.swing.JFormattedTextField tfHoraResEsp;
     private javax.swing.JTextField tfRespEvt;

@@ -47,6 +47,7 @@ public class TelaImporteEventos extends javax.swing.JInternalFrame {
 
         jbImport.setBackground(new java.awt.Color(51, 204, 0));
         jbImport.setForeground(new java.awt.Color(255, 255, 255));
+        jbImport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/refresh-24_1.png"))); // NOI18N
         jbImport.setText("Importar");
         jbImport.setActionCommand("");
         jbImport.addActionListener(new java.awt.event.ActionListener() {
@@ -71,7 +72,7 @@ public class TelaImporteEventos extends javax.swing.JInternalFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jbimport))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(155, 155, 155)
+                        .addGap(131, 131, 131)
                         .addComponent(jbImport)))
                 .addContainerGap(42, Short.MAX_VALUE))
         );
@@ -86,9 +87,9 @@ public class TelaImporteEventos extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jbimport, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tfCaminho, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addGap(38, 38, 38)
                 .addComponent(jbImport)
-                .addGap(38, 38, 38))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -102,7 +103,7 @@ public class TelaImporteEventos extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         pack();

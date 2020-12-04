@@ -81,7 +81,7 @@ public class TelaReservaLivro extends javax.swing.JInternalFrame {
 
         btLimpar.setBackground(new java.awt.Color(51, 102, 255));
         btLimpar.setForeground(new java.awt.Color(255, 255, 255));
-        btLimpar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/refresh-24_1.png"))); // NOI18N
+        btLimpar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/limpar-24.png"))); // NOI18N
         btLimpar.setText("Limpar");
         btLimpar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

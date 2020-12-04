@@ -90,7 +90,7 @@ public class TelaCadastroEventos extends javax.swing.JInternalFrame {
 
         btLimparEvt.setBackground(new java.awt.Color(255, 153, 0));
         btLimparEvt.setForeground(new java.awt.Color(255, 255, 255));
-        btLimparEvt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/refresh-24_1.png"))); // NOI18N
+        btLimparEvt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/limpar-24.png"))); // NOI18N
         btLimparEvt.setText("Limpar");
         btLimparEvt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -3,6 +3,7 @@ package visao;
 
 import controle.GerenciadorEventos;
 import controle.GerenciadorFichas;
+import controle.GerenciadorReservaEspaco;
 import controle.GerenciadorUsuarios;
 import java.io.File;
 import java.io.IOException;
@@ -66,6 +67,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenu5 = new javax.swing.JMenu();
         menuRelAgenda = new javax.swing.JMenuItem();
         menuFichasCadastradas = new javax.swing.JMenuItem();
+        menuRelReservasEspacos = new javax.swing.JMenuItem();
         Ajuda = new javax.swing.JMenu();
         menuSobre = new javax.swing.JMenuItem();
 
@@ -212,6 +214,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         jMenu5.add(menuFichasCadastradas);
+
+        menuRelReservasEspacos.setText("Reservas de Espaços");
+        menuRelReservasEspacos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuRelReservasEspacosActionPerformed(evt);
+            }
+        });
+        jMenu5.add(menuRelReservasEspacos);
 
         jMenuBar1.add(jMenu5);
 
@@ -365,6 +375,18 @@ public class TelaPrincipal extends javax.swing.JFrame {
         tlSobre.setVisible(true);
     }//GEN-LAST:event_menuSobreActionPerformed
 
+    private void menuRelReservasEspacosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuRelReservasEspacosActionPerformed
+        // TODO add your handling code here:
+        GerenciadorReservaEspaco gerenciadorRsv = GerenciadorReservaEspaco.getInstance();
+        try {
+            JOptionPane.showMessageDialog(null, gerenciadorRsv.relatorioReservaEspaco());
+
+        } catch (IOException ex) {
+            Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_menuRelReservasEspacosActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -419,6 +441,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuLivCadastro;
     private javax.swing.JMenuItem menuLivFicha;
     private javax.swing.JMenuItem menuRelAgenda;
+    private javax.swing.JMenuItem menuRelReservasEspacos;
     private javax.swing.JMenuItem menuReservaLivro;
     private javax.swing.JMenuItem menuSobre;
     private javax.swing.JMenuItem menuSolicitarFicha;

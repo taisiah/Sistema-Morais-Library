@@ -14,18 +14,30 @@ public class ReservaEspaco {
     private Espaco espaco;
     private String data ;
     private String hora;
-    
-    public ReservaEspaco (Usuario usuario,Espaco espaco,String data,String hora){
+    private String descricao;
+
+    public ReservaEspaco(Usuario usuario, Espaco espaco, String data, String hora, String descricao) {
         this.usuario = usuario;
-        this.espaco=espaco;
-        this.data = data ;
-        this.hora = hora;       
+        this.espaco = espaco;
+        this.data = data;
+        this.hora = hora;
+        this.descricao = descricao;
     }
+          
     
     public ReservaEspaco(){
         
     }
 
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+       
     public Usuario getUsuario() {
         return usuario;
     }

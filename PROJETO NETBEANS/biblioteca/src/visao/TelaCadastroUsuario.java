@@ -298,7 +298,7 @@ public class TelaCadastroUsuario extends javax.swing.JInternalFrame {
 
         btLimparUsu.setBackground(new java.awt.Color(255, 153, 0));
         btLimparUsu.setForeground(new java.awt.Color(255, 255, 255));
-        btLimparUsu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/refresh-24_1.png"))); // NOI18N
+        btLimparUsu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/limpar-24.png"))); // NOI18N
         btLimparUsu.setText("Limpar");
         btLimparUsu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

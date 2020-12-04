@@ -201,7 +201,7 @@ public class GerenciadorEventos {
                 linha=leiaArq.readLine();
                 relatorio.println("        Hora........: "+ linha);
                 linha=leiaArq.readLine();
-                relatorio.println("        Local.......: "+ linha);
+                relatorio.println("        Espaço......: "+ linha);
                 linha=leiaArq.readLine();
                 relatorio.println("        Responsável.: "+ linha);
                 linha=leiaArq.readLine();

@@ -1,18 +1,7 @@
-teste1
-1000
-true
-João
-23333
-true
-sala de leitura 02
-6
-true
-sala de estudo 05
-6
-true
-sala 1
-10
-true
-teste teste 2
-20
-true
+sala de leitura
+sala de estudo
+auditorio 1
+auditorio 2
+cabine 1
+cabine 2
+cabine 3
