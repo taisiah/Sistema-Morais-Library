@@ -58,22 +58,23 @@ public class TelaReservaEspaco extends javax.swing.JInternalFrame {
         lbFoneEvt = new javax.swing.JLabel();
         tfRespEvt = new javax.swing.JTextField();
         lbRespEvt = new javax.swing.JLabel();
-        tfDescEsp = new javax.swing.JTextField();
-        lbDescEsp = new javax.swing.JLabel();
-        lbTituloTelaResEsp = new javax.swing.JLabel();
-        tfDataResEsp = new javax.swing.JFormattedTextField();
+        jPanel1 = new javax.swing.JPanel();
+        lbFoneResEsp = new javax.swing.JLabel();
+        tfFoneResEsp = new javax.swing.JFormattedTextField();
         lbDataResEsp = new javax.swing.JLabel();
-        tfHoraResEsp = new javax.swing.JFormattedTextField();
+        tfDataResEsp = new javax.swing.JFormattedTextField();
         lbHoraResEsp = new javax.swing.JLabel();
-        btSalvarResEsp = new javax.swing.JButton();
+        tfHoraResEsp = new javax.swing.JFormattedTextField();
         btLimparResEsp = new javax.swing.JButton();
         btExcluirResEsp = new javax.swing.JButton();
-        tfFoneResEsp = new javax.swing.JFormattedTextField();
-        lbFoneResEsp = new javax.swing.JLabel();
-        tfRespResEsp = new javax.swing.JTextField();
+        btSalvarResEsp = new javax.swing.JButton();
         lbRespResEsp = new javax.swing.JLabel();
-        cbEspacoEvento = new javax.swing.JComboBox<>();
+        tfRespResEsp = new javax.swing.JTextField();
+        tfDescEsp = new javax.swing.JTextField();
+        lbDescEsp = new javax.swing.JLabel();
         lbDescEsp1 = new javax.swing.JLabel();
+        cbEspacoEvento = new javax.swing.JComboBox<>();
+        lbTituloTelaResEsp = new javax.swing.JLabel();
 
         try {
             tfDataEvt.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
@@ -149,13 +150,24 @@ public class TelaReservaEspaco extends javax.swing.JInternalFrame {
 
         setClosable(true);
 
-        tfDescEsp.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lbFoneResEsp.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lbFoneResEsp.setText("Fone:");
 
-        lbDescEsp.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        lbDescEsp.setText("Descrição");
+        tfFoneResEsp.setEditable(false);
+        try {
+            tfFoneResEsp.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) #####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        tfFoneResEsp.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tfFoneResEsp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfFoneResEspActionPerformed(evt);
+            }
+        });
 
-        lbTituloTelaResEsp.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        lbTituloTelaResEsp.setText("Reserva espaço");
+        lbDataResEsp.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lbDataResEsp.setText("Data:");
 
         try {
             tfDataResEsp.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
@@ -164,8 +176,8 @@ public class TelaReservaEspaco extends javax.swing.JInternalFrame {
         }
         tfDataResEsp.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        lbDataResEsp.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        lbDataResEsp.setText("Data");
+        lbHoraResEsp.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lbHoraResEsp.setText("Hora");
 
         try {
             tfHoraResEsp.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##:##")));
@@ -176,22 +188,9 @@ public class TelaReservaEspaco extends javax.swing.JInternalFrame {
         tfHoraResEsp.setToolTipText("");
         tfHoraResEsp.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        lbHoraResEsp.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        lbHoraResEsp.setText("Hora");
-
-        btSalvarResEsp.setBackground(new java.awt.Color(50, 150, 0));
-        btSalvarResEsp.setForeground(new java.awt.Color(255, 255, 255));
-        btSalvarResEsp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/delete-24_1.png"))); // NOI18N
-        btSalvarResEsp.setText("Reservar");
-        btSalvarResEsp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btSalvarResEspActionPerformed(evt);
-            }
-        });
-
         btLimparResEsp.setBackground(new java.awt.Color(255, 153, 0));
         btLimparResEsp.setForeground(new java.awt.Color(255, 255, 255));
-        btLimparResEsp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/refresh-24_1.png"))); // NOI18N
+        btLimparResEsp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/limpar-24.png"))); // NOI18N
         btLimparResEsp.setText("Limpar");
         btLimparResEsp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -209,117 +208,132 @@ public class TelaReservaEspaco extends javax.swing.JInternalFrame {
             }
         });
 
-        tfFoneResEsp.setEditable(false);
-        try {
-            tfFoneResEsp.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) #####-####")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-        tfFoneResEsp.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        tfFoneResEsp.addActionListener(new java.awt.event.ActionListener() {
+        btSalvarResEsp.setBackground(new java.awt.Color(50, 150, 0));
+        btSalvarResEsp.setForeground(new java.awt.Color(255, 255, 255));
+        btSalvarResEsp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/today-24.png"))); // NOI18N
+        btSalvarResEsp.setText("Reservar");
+        btSalvarResEsp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfFoneResEspActionPerformed(evt);
+                btSalvarResEspActionPerformed(evt);
             }
         });
 
-        lbFoneResEsp.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        lbFoneResEsp.setText("Fone");
+        lbRespResEsp.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lbRespResEsp.setText("Responsavel:");
 
         tfRespResEsp.setEditable(false);
         tfRespResEsp.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        lbRespResEsp.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        lbRespResEsp.setText("Responsável");
+        tfDescEsp.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        lbDescEsp.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lbDescEsp.setText("Descrição:");
 
         lbDescEsp1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        lbDescEsp1.setText("Espaço");
+        lbDescEsp1.setText("Espaço:");
+
+        cbEspacoEvento.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        cbEspacoEvento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbEspacoEventoActionPerformed(evt);
+            }
+        });
+
+        lbTituloTelaResEsp.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lbTituloTelaResEsp.setText("Reserva espaço");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbTituloTelaResEsp)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(lbDescEsp1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lbDataResEsp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(37, 37, 37)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(214, 214, 214)
+                                        .addComponent(lbHoraResEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(27, 27, 27)
+                                        .addComponent(tfHoraResEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(cbEspacoEvento, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lbRespResEsp)
+                                    .addComponent(lbDescEsp)
+                                    .addComponent(lbFoneResEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(tfFoneResEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(tfDescEsp, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 364, Short.MAX_VALUE)
+                                        .addComponent(tfRespResEsp, javax.swing.GroupLayout.Alignment.LEADING))
+                                    .addComponent(tfDataResEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addComponent(btSalvarResEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(35, 35, 35)
+                        .addComponent(btLimparResEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(38, 38, 38)
+                        .addComponent(btExcluirResEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(43, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(9, 9, 9)
+                .addComponent(lbTituloTelaResEsp)
+                .addGap(26, 26, 26)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbEspacoEvento, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbDescEsp1))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tfDataResEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfHoraResEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbHoraResEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbDataResEsp))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tfRespResEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbRespResEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tfDescEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbDescEsp))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tfFoneResEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbFoneResEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(41, 41, 41)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btLimparResEsp)
+                    .addComponent(btExcluirResEsp)
+                    .addComponent(btSalvarResEsp))
+                .addGap(33, 33, 33))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbDescEsp)
-                            .addComponent(lbDescEsp1))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(cbEspacoEvento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(0, 0, Short.MAX_VALUE)
-                                        .addComponent(lbHoraResEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(tfHoraResEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(tfDescEsp, javax.swing.GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE))
-                                .addGap(49, 49, 49))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(btSalvarResEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lbTituloTelaResEsp)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(lbDataResEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(tfDataResEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btLimparResEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(40, 40, 40)
-                        .addComponent(btExcluirResEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(101, 101, 101))))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(lbRespResEsp)
-                        .addComponent(lbFoneResEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(tfFoneResEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(tfRespResEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 474, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addContainerGap(50, Short.MAX_VALUE)))
+                .addContainerGap(18, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(lbTituloTelaResEsp)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cbEspacoEvento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbDescEsp1))
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbDescEsp)
-                    .addComponent(tfDescEsp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(100, 100, 100)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbDataResEsp)
-                    .addComponent(tfDataResEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbHoraResEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfHoraResEsp, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE))
-                .addGap(114, 114, 114)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btSalvarResEsp)
-                    .addComponent(btLimparResEsp)
-                    .addComponent(btExcluirResEsp))
-                .addGap(29, 29, 29))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addContainerGap(119, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lbRespResEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(tfRespResEsp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(18, 18, 18)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lbFoneResEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(tfFoneResEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(208, 208, 208)))
+                .addGap(21, 21, 21)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(30, 30, 30))
         );
 
         pack();
@@ -411,6 +425,10 @@ public class TelaReservaEspaco extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tfFoneResEspActionPerformed
 
+    private void cbEspacoEventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbEspacoEventoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbEspacoEventoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btExcluirEvt;
@@ -420,6 +438,7 @@ public class TelaReservaEspaco extends javax.swing.JInternalFrame {
     private javax.swing.JButton btSalvarEvt;
     private javax.swing.JButton btSalvarResEsp;
     private javax.swing.JComboBox<String> cbEspacoEvento;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbDataEvt;
     private javax.swing.JLabel lbDataResEsp;
     private javax.swing.JLabel lbDescEsp;

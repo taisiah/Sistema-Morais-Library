@@ -1,9 +1,14 @@
 
 package visao;
 
+import controle.GerenciadorEspacos;
 import controle.GerenciadorEventos;
+import controle.GerenciadorUsuarios;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import modelo.Espaco;
 import modelo.Evento;
+import modelo.Usuario;
 
 
 public class TelaCadastroEventos extends javax.swing.JInternalFrame {
@@ -14,7 +19,17 @@ public class TelaCadastroEventos extends javax.swing.JInternalFrame {
     }
     public TelaCadastroEventos() {
         initComponents();
-
+        
+        GerenciadorEspacos ge = GerenciadorEspacos.getInstance();
+        ge.buscarEspaco("");
+        
+        ArrayList<Espaco> espacos = ge.getListaEspacos();
+        cbEspacoEvento.addItem("...");
+                
+        for (int i = 0; i < espacos.size(); i++) {
+            cbEspacoEvento.addItem(espacos.get(i).getDescEspaco());
+        }     
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -41,8 +56,8 @@ public class TelaCadastroEventos extends javax.swing.JInternalFrame {
         lbRespEvt = new javax.swing.JLabel();
         tfHoraEvt = new javax.swing.JFormattedTextField();
         tfFoneEvt = new javax.swing.JFormattedTextField();
-        tfLocalEvt = new javax.swing.JTextField();
         tfDataEvt = new javax.swing.JFormattedTextField();
+        cbEspacoEvento = new javax.swing.JComboBox<>();
 
         jScrollPane1.setViewportView(jTextPane1);
 
@@ -139,19 +154,18 @@ public class TelaCadastroEventos extends javax.swing.JInternalFrame {
             }
         });
 
-        tfLocalEvt.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        tfLocalEvt.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tfLocalEvtMouseClicked(evt);
-            }
-        });
-
         try {
             tfDataEvt.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
         tfDataEvt.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        cbEspacoEvento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbEspacoEventoActionPerformed(evt);
+            }
+        });
 
         jLayeredPane2.setLayer(tfRespEvt, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane2.setLayer(lbFoneEvt, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -170,8 +184,8 @@ public class TelaCadastroEventos extends javax.swing.JInternalFrame {
         jLayeredPane2.setLayer(lbRespEvt, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane2.setLayer(tfHoraEvt, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane2.setLayer(tfFoneEvt, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane2.setLayer(tfLocalEvt, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane2.setLayer(tfDataEvt, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(cbEspacoEvento, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jLayeredPane2Layout = new javax.swing.GroupLayout(jLayeredPane2);
         jLayeredPane2.setLayout(jLayeredPane2Layout);
@@ -219,7 +233,7 @@ public class TelaCadastroEventos extends javax.swing.JInternalFrame {
                                             .addComponent(lbPublioEvt)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                             .addComponent(tfPublicoEvt, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(tfLocalEvt)))))
+                                        .addComponent(cbEspacoEvento, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(50, 50, 50))
         );
@@ -241,10 +255,10 @@ public class TelaCadastroEventos extends javax.swing.JInternalFrame {
                         .addComponent(tfHoraEvt, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
                         .addComponent(lbDataEvt)))
                 .addGap(18, 18, 18)
-                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbEspacoEvt, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfLocalEvt, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(cbEspacoEvento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(19, 19, 19)
                 .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbRespEvt, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tfRespEvt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -290,7 +304,7 @@ public class TelaCadastroEventos extends javax.swing.JInternalFrame {
             tfDescEvt.setText(evt1.getDescEvento());
             tfDataEvt.setText(evt1.getData());
             tfHoraEvt.setText(evt1.getHora());
-            tfLocalEvt.setText(evt1.getLocal());
+            cbEspacoEvento.setSelectedItem(evt1.getLocal());
             tfRespEvt.setText(evt1.getResponsavel());
             tfFoneEvt.setText(evt1.getFone());
             tfPublicoEvt.setText(evt1.getPublico());              
@@ -317,9 +331,9 @@ public class TelaCadastroEventos extends javax.swing.JInternalFrame {
             return;
         }
         
-        String localEvt = tfLocalEvt.getText();
-        if(localEvt.length() == 0) {
-            JOptionPane.showMessageDialog(null,"Digitar local do evento");
+        String localEvt = cbEspacoEvento.getSelectedItem().toString();
+        if(localEvt.equals("...")) {
+            JOptionPane.showMessageDialog(null,"Escolher local do evento");
             return;
         }
              
@@ -349,7 +363,7 @@ public class TelaCadastroEventos extends javax.swing.JInternalFrame {
         tfDescEvt.setText("");
         tfDataEvt.setText("");
         tfHoraEvt.setText("");
-        tfLocalEvt.setText("");     
+        cbEspacoEvento.setSelectedItem("");     
         tfPublicoEvt.setText("");  
         tfRespEvt.setText("");
         tfFoneEvt.setText("");
@@ -365,7 +379,7 @@ public class TelaCadastroEventos extends javax.swing.JInternalFrame {
         tfDescEvt.setText("");
         tfDataEvt.setText("");
         tfHoraEvt.setText("");
-        tfLocalEvt.setText("");     
+        cbEspacoEvento.setSelectedItem("");     
         tfPublicoEvt.setText("");  
         tfRespEvt.setText("");
         tfFoneEvt.setText("");
@@ -388,23 +402,23 @@ public class TelaCadastroEventos extends javax.swing.JInternalFrame {
         tfDescEvt.setText("");
         tfDataEvt.setText("");
         tfHoraEvt.setText("");
-        tfLocalEvt.setText("");     
+        cbEspacoEvento.setSelectedItem("");   
         tfPublicoEvt.setText("");  
         tfRespEvt.setText("");
         tfFoneEvt.setText("");
         tfDescEvt.requestFocus();
     }//GEN-LAST:event_btExcluirEvtActionPerformed
 
-    private void tfLocalEvtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfLocalEvtMouseClicked
+    private void cbEspacoEventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbEspacoEventoActionPerformed
         // TODO add your handling code here:
-        
-    }//GEN-LAST:event_tfLocalEvtMouseClicked
+    }//GEN-LAST:event_cbEspacoEventoActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btBuscarEvt;
     private javax.swing.JButton btExcluirEvt;
     private javax.swing.JButton btLimparEvt;
     private javax.swing.JButton btSalvarEvt;
+    private javax.swing.JComboBox<String> cbEspacoEvento;
     private javax.swing.JLayeredPane jLayeredPane2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextPane jTextPane1;
@@ -420,7 +434,6 @@ public class TelaCadastroEventos extends javax.swing.JInternalFrame {
     private javax.swing.JTextField tfDescEvt;
     private javax.swing.JFormattedTextField tfFoneEvt;
     private javax.swing.JFormattedTextField tfHoraEvt;
-    private javax.swing.JTextField tfLocalEvt;
     private javax.swing.JTextField tfPublicoEvt;
     private javax.swing.JTextField tfRespEvt;
     // End of variables declaration//GEN-END:variables
