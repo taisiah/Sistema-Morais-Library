@@ -3,6 +3,7 @@ package visao;
 
 import controle.GerenciadorEventos;
 import controle.GerenciadorFichas;
+import controle.GerenciadorUsuarios;
 import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -14,6 +15,31 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     public TelaPrincipal() {
         initComponents();
+        GerenciadorUsuarios gr = GerenciadorUsuarios.getInstance();
+        String tipoUser = gr.getTipoUsuario();
+        System.out.println(tipoUser);
+        if (tipoUser.equals("Aluno")){
+            menuUsuCadastro.setEnabled(false);
+            menuUsuImportar.setEnabled(false);
+            menuEvtImportar.setEnabled(false);
+            menuEspCadastro.setEnabled(false);
+            jMenu5.setEnabled(false);
+            
+        }
+        else if (tipoUser.equals("Professor")){
+            menuUsuCadastro.setEnabled(false);
+            menuUsuImportar.setEnabled(false);
+            menuEvtImportar.setEnabled(false);
+            menuEspCadastro.setEnabled(false);
+            jMenu5.setEnabled(false);
+        }
+        else if (tipoUser.equals("Externo")){
+            menuUsuCadastro.setEnabled(false);
+            menuUsuImportar.setEnabled(false);
+            menuEvtImportar.setEnabled(false);
+            menuEspCadastro.setEnabled(false);
+            jMenu5.setEnabled(false);
+        }
     }
 
     @SuppressWarnings("unchecked")
