@@ -112,6 +112,8 @@ public class GerenciadorEventos {
         return null;
     }
     
+      
+    
     public boolean removerEvento (String descEvt) {
         
         boolean result = false;

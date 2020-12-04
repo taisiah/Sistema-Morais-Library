@@ -1,0 +1,24 @@
+teste@mail.com
+T5
+Aluguel
+  /  /    
+teste@mail.com
+T5
+Reserva
+  /  /    
+teste@mail.com
+T5
+Reserva
+  /  /    
+teste@mail.com
+T5
+Aluguel
+  /  /    
+teste@mail.com
+T2
+Reserva
+  /  /    
+teste@mail.com
+T2
+Aluguel
+  /  /    
