@@ -19,7 +19,7 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="menuUsuCadastro">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Cadastro e busca"/>
+                <Property name="text" type="java.lang.String" value="Cadastro/busca"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuUsuCadastroActionPerformed"/>
@@ -45,7 +45,7 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="menuLivCadastro">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Cadastro de Livro"/>
+                <Property name="text" type="java.lang.String" value="Cadastro de Livro/Busca"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuLivCadastroActionPerformed"/>

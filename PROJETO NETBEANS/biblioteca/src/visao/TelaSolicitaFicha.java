@@ -15,7 +15,7 @@ import modelo.Ficha;
 import javax.swing.JComboBox;
 /**
  *
- * @author joaoh
+ 
  */
 public class TelaSolicitaFicha extends javax.swing.JInternalFrame {
 

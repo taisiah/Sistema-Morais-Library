@@ -63,7 +63,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/user-16.png"))); // NOI18N
         jMenu1.setText("Usuarios");
 
-        menuUsuCadastro.setText("Cadastro e busca");
+        menuUsuCadastro.setText("Cadastro/busca");
         menuUsuCadastro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuUsuCadastroActionPerformed(evt);
@@ -84,7 +84,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/book-16.png"))); // NOI18N
         jMenu4.setText("Livros");
 
-        menuLivCadastro.setText("Cadastro de Livro");
+        menuLivCadastro.setText("Cadastro de Livro/Busca");
         menuLivCadastro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuLivCadastroActionPerformed(evt);
