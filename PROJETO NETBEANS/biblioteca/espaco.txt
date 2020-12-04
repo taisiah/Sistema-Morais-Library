@@ -7,3 +7,12 @@ true
 sala de leitura 02
 6
 true
+sala de estudo 05
+6
+true
+sala 1
+10
+true
+teste teste 2
+20
+true

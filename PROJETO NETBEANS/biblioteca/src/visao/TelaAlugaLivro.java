@@ -14,6 +14,10 @@ public class TelaAlugaLivro extends javax.swing.JInternalFrame {
 
     public TelaAlugaLivro() {
         initComponents();
+        GerenciadorUsuarios gr = GerenciadorUsuarios.getInstance();
+        Usuario usuario = gr.getUsuarioLogado();
+        tfEmailFavorecido.setText(usuario.getEmail());
+        
     }
 
     
@@ -39,7 +43,6 @@ public class TelaAlugaLivro extends javax.swing.JInternalFrame {
         tfEdicao = new javax.swing.JTextField();
         tfQtDisponivel = new javax.swing.JTextField();
         tfEmailFavorecido = new javax.swing.JTextField();
-        btBuscarFav = new javax.swing.JButton();
         lbFavorecido1 = new javax.swing.JLabel();
         lbFavorecido2 = new javax.swing.JLabel();
         tfDataAluguel = new javax.swing.JFormattedTextField();
@@ -118,16 +121,10 @@ public class TelaAlugaLivro extends javax.swing.JInternalFrame {
 
         tfQtDisponivel.setEditable(false);
 
+        tfEmailFavorecido.setEditable(false);
         tfEmailFavorecido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfEmailFavorecidoActionPerformed(evt);
-            }
-        });
-
-        btBuscarFav.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/search-12-16_1.png"))); // NOI18N
-        btBuscarFav.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btBuscarFavActionPerformed(evt);
             }
         });
 
@@ -163,13 +160,13 @@ public class TelaAlugaLivro extends javax.swing.JInternalFrame {
                             .addComponent(lbFavorecido2))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tfTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tfAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tfEmailFavorecido, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btBuscarFav, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btBuscarLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(tfTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tfAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btBuscarLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(tfEmailFavorecido)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
@@ -208,9 +205,7 @@ public class TelaAlugaLivro extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(6, 6, 6)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(tfEmailFavorecido, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btBuscarFav, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(tfEmailFavorecido, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(lbFavorecido2)
                         .addGap(3, 3, 3)
@@ -350,26 +345,9 @@ public class TelaAlugaLivro extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tfEmailFavorecidoActionPerformed
 
-    private void btBuscarFavActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBuscarFavActionPerformed
-        // TODO add your handling code here:
-        String emailFav = tfEmailFavorecido.getText();
-        GerenciadorUsuarios gerenciadorUsu = GerenciadorUsuarios.getInstance();
-        Usuario favorecido = gerenciadorUsu.buscarUsuario(emailFav);
-
-        if (favorecido == null){
-            JOptionPane.showMessageDialog(null,"Usuário não encontrado!");
-
-        } else{
-            tfEmailFavorecido.setText(favorecido.getEmail());
-
-        }
-
-    }//GEN-LAST:event_btBuscarFavActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btAlugar;
-    private javax.swing.JButton btBuscarFav;
     private javax.swing.JButton btBuscarLivro;
     private javax.swing.JButton btLimpar;
     private javax.swing.JPanel jPanel1;

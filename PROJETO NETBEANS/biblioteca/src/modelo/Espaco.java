@@ -9,7 +9,7 @@ public class Espaco {
     private String descEspaco;
     private String capacidade;
     private boolean disponivel;
-
+    
     
     //construtores
     

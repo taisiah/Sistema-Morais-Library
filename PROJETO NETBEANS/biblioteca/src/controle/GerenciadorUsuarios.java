@@ -26,7 +26,8 @@ public class GerenciadorUsuarios {
     private ArrayList<Professor> listaProfessores;
     private ArrayList<Funcionario> listaFuncionarios;
     private ArrayList<UserExterno> listaUserExternos;
-    private String tipoUsuario ;
+    private String tipoUsuario;
+    private Usuario usuarioLogado;
 
     private GerenciadorUsuarios() {
         this.listaAlunos = new ArrayList<Aluno>();
@@ -34,9 +35,8 @@ public class GerenciadorUsuarios {
         this.listaFuncionarios = new ArrayList<Funcionario>();
         this.listaUserExternos = new ArrayList<UserExterno>();
         this.tipoUsuario = "" ;
-        //abrir arquivo
-        //ler todos os dados do arquivo e adicionar os objetos nos arraylists
-        //fechar arquivo
+        this.usuarioLogado = null ;
+      
     }
 
     public static GerenciadorUsuarios getInstance() {
@@ -47,7 +47,7 @@ public class GerenciadorUsuarios {
     }
 
     public boolean addUsuario(Usuario u) {
-        //abrir arquivo usuarios.txt
+        
         if (u instanceof Aluno) {
             for (int i = 0; i < listaAlunos.size(); i++) {
                 if (listaAlunos.get(i).getEmail().equals(u.getEmail())) {
@@ -77,9 +77,7 @@ public class GerenciadorUsuarios {
                 System.out.println(ex.getMessage());
             }
 
-            //escrever no arquivo usuarios.txt
-            //Aluno curso matricula senha nome endereco email telefone nascimento cpf
-            //fecha arquivo
+            
             return true;
         } else if (u instanceof Professor) {
             for (int i = 0; i < listaProfessores.size(); i++) {
@@ -361,6 +359,7 @@ public class GerenciadorUsuarios {
         for (int i = 0; i < listaAlunos.size(); i++) {
             if (listaAlunos.get(i).getEmail().equals(login) && listaAlunos.get(i).getSenha().equals(senha)) {
                 this.tipoUsuario = "Aluno";
+                this.usuarioLogado = listaAlunos.get(i);
                 return listaAlunos.get(i);
             }
         }
@@ -368,6 +367,7 @@ public class GerenciadorUsuarios {
         for (int i = 0; i < listaProfessores.size(); i++) {
             if (listaProfessores.get(i).getEmail().equals(login) && listaProfessores.get(i).getSenha().equals(senha)) {
                 this.tipoUsuario = "Professor";
+                this.usuarioLogado = listaProfessores.get(i);
                 return listaProfessores.get(i);
             }
         }
@@ -375,6 +375,7 @@ public class GerenciadorUsuarios {
         for (int i = 0; i < listaFuncionarios.size(); i++) {
             if (listaFuncionarios.get(i).getEmail().equals(login) && listaFuncionarios.get(i).getSenha().equals(senha)) {
                 this.tipoUsuario = "Funcionario";
+                this.usuarioLogado = listaFuncionarios.get(i);
                 return listaFuncionarios.get(i);
             }
         }
@@ -382,6 +383,7 @@ public class GerenciadorUsuarios {
         for (int i = 0; i < listaUserExternos.size(); i++) {
             if (listaUserExternos.get(i).getEmail().equals(login) && listaUserExternos.get(i).getSenha().equals(senha)) {
                 this.tipoUsuario = "Externo";
+                this.usuarioLogado = listaUserExternos.get(i);
                 return listaUserExternos.get(i);
             }
         }
@@ -391,6 +393,9 @@ public class GerenciadorUsuarios {
 
     public String getTipoUsuario(){
         return this.tipoUsuario;
+    }
+    public Usuario getUsuarioLogado(){
+        return this.usuarioLogado;
     }
     
     public void importInicio() {

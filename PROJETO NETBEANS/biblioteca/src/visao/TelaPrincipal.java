@@ -327,6 +327,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void menuEspReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuEspReservaActionPerformed
         // TODO add your handling code here:
+        TelaReservaEspaco tlReservaEspaco = new TelaReservaEspaco();
+        painelPrincipal.add(tlReservaEspaco);
+        tlReservaEspaco.setVisible(true);
     }//GEN-LAST:event_menuEspReservaActionPerformed
 
     private void menuSobreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuSobreActionPerformed

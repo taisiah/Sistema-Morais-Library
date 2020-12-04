@@ -1,6 +1,7 @@
 
 package visao;
 
+import controle.GerenciadorReservaEspaco;
 import controle.GerenciadorUsuarios;
 import javax.swing.JOptionPane;
 import modelo.Funcionario;
@@ -206,6 +207,8 @@ public class Telalogin extends javax.swing.JFrame {
         Funcionario u_inicial = new Funcionario("bibliotecario","123", "Taisia", "rua teste","taisia@taisia.com", "111111111","03/11/1989","11111111111");
         grUsuario.addUsuario(u_inicial);
         grUsuario.importInicio();
+        GerenciadorReservaEspaco gre = GerenciadorReservaEspaco.getInstance();
+        gre.importarReservasEspacosInicio();
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
