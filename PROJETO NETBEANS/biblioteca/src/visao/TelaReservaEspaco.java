@@ -360,7 +360,7 @@ public class TelaReservaEspaco extends javax.swing.JInternalFrame {
         Usuario usuariologado = gr.getUsuarioLogado();
         GerenciadorEspacos ge = GerenciadorEspacos.getInstance();
         Espaco espaco = ge.buscarEspaco(espacodesc);
-        
+        if(espaco == null) {System.out.println("Espaço null");return;}
         GerenciadorReservaEspaco gre = GerenciadorReservaEspaco.getInstance();
         
         boolean reservado = gre.AdicionarReserva(usuariologado, espaco, data, hora, descricao);

@@ -24,6 +24,9 @@ public class TelaReservaLivro extends javax.swing.JInternalFrame {
      */
     public TelaReservaLivro() {
         initComponents();
+        GerenciadorUsuarios gr = GerenciadorUsuarios.getInstance();
+        Usuario usuario = gr.getUsuarioLogado();
+        tfEmailFavorecido.setText(usuario.getEmail());
     }
 
     /**
@@ -133,6 +136,7 @@ public class TelaReservaLivro extends javax.swing.JInternalFrame {
 
         tfQtDisponivel.setEditable(false);
 
+        tfEmailFavorecido.setEditable(false);
         tfEmailFavorecido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfEmailFavorecidoActionPerformed(evt);

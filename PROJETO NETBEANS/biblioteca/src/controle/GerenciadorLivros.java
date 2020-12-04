@@ -181,7 +181,7 @@ public class GerenciadorLivros {
         String msg = "";
         int novaQtR = 0;
         int novaQtE = 0; 
-                               
+        msg = "Publicação não encontrada!";                   
         for (int i = 0; i < this.listaLivros.size(); i++){
             
             if (this.listaLivros.get(i).getTitulo().equals(titLivro)){
@@ -199,9 +199,7 @@ public class GerenciadorLivros {
                 }else {
                     msg = "Publicação indisponível para reserva!";
                 }   
-            }else {
-                msg = "Publicação não encontrada!";
-            }        
+            }      
         }
         
         if (!listaLivros.isEmpty()){  
@@ -245,7 +243,7 @@ public class GerenciadorLivros {
         String msg = "";
         int novaQtA;
         int novaQtE;
-                               
+        msg = "Publicação não encontrada!";           
         for (int i = 0; i < this.listaLivros.size(); i++){
             
             if (this.listaLivros.get(i).getTitulo().equals(titLivro)){
@@ -263,9 +261,7 @@ public class GerenciadorLivros {
                 }else {
                     msg = "Publicação indisponível para locação!";
                 }   
-            }else {
-                msg = "Publicação não encontrada!";
-            }        
+            }       
         }
         
         if (!listaLivros.isEmpty()){  

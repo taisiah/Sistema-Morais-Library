@@ -24,6 +24,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             menuEvtImportar.setEnabled(false);
             menuEspCadastro.setEnabled(false);
             jMenu5.setEnabled(false);
+            menuLivCadastro.setEnabled(false);
             
         }
         else if (tipoUser.equals("Professor")){
