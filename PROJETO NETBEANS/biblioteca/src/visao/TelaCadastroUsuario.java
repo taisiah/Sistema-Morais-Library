@@ -12,9 +12,10 @@ import modelo.Funcionario;
 import modelo.Professor;
 import modelo.UserExterno;
 import modelo.Usuario;
+
 /**
  *
-
+ *
  */
 public class TelaCadastroUsuario extends javax.swing.JInternalFrame {
 
@@ -24,7 +25,7 @@ public class TelaCadastroUsuario extends javax.swing.JInternalFrame {
     public TelaCadastroUsuario() {
         initComponents();
         jCtipoUsu.setSelectedItem("");
-        
+
     }
 
     /**
@@ -60,8 +61,9 @@ public class TelaCadastroUsuario extends javax.swing.JInternalFrame {
         tfUsuStatus = new javax.swing.JRadioButton();
         jPBotoes = new javax.swing.JPanel();
         btExcluirUsu = new javax.swing.JButton();
-        btLimparUsu = new javax.swing.JButton();
+        btAtualizarUsu = new javax.swing.JButton();
         btSalvarUsu = new javax.swing.JButton();
+        btLimparUso = new javax.swing.JButton();
         jPdadosEspec = new javax.swing.JPanel();
         lbCursoUsu = new javax.swing.JLabel();
         lbCargoUsu = new javax.swing.JLabel();
@@ -296,13 +298,13 @@ public class TelaCadastroUsuario extends javax.swing.JInternalFrame {
             }
         });
 
-        btLimparUsu.setBackground(new java.awt.Color(255, 153, 0));
-        btLimparUsu.setForeground(new java.awt.Color(255, 255, 255));
-        btLimparUsu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/refresh-24_1.png"))); // NOI18N
-        btLimparUsu.setText("Limpar");
-        btLimparUsu.addActionListener(new java.awt.event.ActionListener() {
+        btAtualizarUsu.setBackground(new java.awt.Color(255, 153, 0));
+        btAtualizarUsu.setForeground(new java.awt.Color(255, 255, 255));
+        btAtualizarUsu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/refresh-24_1.png"))); // NOI18N
+        btAtualizarUsu.setText("Atualizar");
+        btAtualizarUsu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btLimparUsuActionPerformed(evt);
+                btAtualizarUsuActionPerformed(evt);
             }
         });
 
@@ -316,6 +318,16 @@ public class TelaCadastroUsuario extends javax.swing.JInternalFrame {
             }
         });
 
+        btLimparUso.setBackground(new java.awt.Color(0, 153, 255));
+        btLimparUso.setForeground(new java.awt.Color(255, 255, 255));
+        btLimparUso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/limpar-24.png"))); // NOI18N
+        btLimparUso.setText("Limpar");
+        btLimparUso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btLimparUsoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPBotoesLayout = new javax.swing.GroupLayout(jPBotoes);
         jPBotoes.setLayout(jPBotoesLayout);
         jPBotoesLayout.setHorizontalGroup(
@@ -323,11 +335,13 @@ public class TelaCadastroUsuario extends javax.swing.JInternalFrame {
             .addGroup(jPBotoesLayout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addComponent(btSalvarUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
-                .addComponent(btLimparUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addComponent(btLimparUso, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(btAtualizarUsu)
+                .addGap(35, 35, 35)
                 .addComponent(btExcluirUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addGap(20, 20, 20))
         );
         jPBotoesLayout.setVerticalGroup(
             jPBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -335,8 +349,9 @@ public class TelaCadastroUsuario extends javax.swing.JInternalFrame {
                 .addGap(26, 26, 26)
                 .addGroup(jPBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btSalvarUsu)
-                    .addComponent(btLimparUsu)
-                    .addComponent(btExcluirUsu))
+                    .addComponent(btAtualizarUsu)
+                    .addComponent(btExcluirUsu)
+                    .addComponent(btLimparUso))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
@@ -452,12 +467,13 @@ public class TelaCadastroUsuario extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(jPdadosEspec, javax.swing.GroupLayout.PREFERRED_SIZE, 555, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(71, 71, 71)
-                        .addComponent(jPBotoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(jPBotoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addGap(33, 33, 33)
+                            .addComponent(jPdadosEspec, javax.swing.GroupLayout.PREFERRED_SIZE, 555, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -485,20 +501,19 @@ public class TelaCadastroUsuario extends javax.swing.JInternalFrame {
         String email = tfEmailUsu.getText();
         GerenciadorUsuarios gerenciadorUsu = GerenciadorUsuarios.getInstance();
         Usuario user = gerenciadorUsu.buscarUsuario(email);
-        if (user ==(null)){
-            JOptionPane.showMessageDialog(null,"Não encontrado!");
+        if (user == (null)) {
+            JOptionPane.showMessageDialog(null, "Não encontrado!");
 
-        }
-        else{
+        } else {
             String tipodeusuario = jCtipoUsu.getSelectedItem().toString();
-            if(user instanceof Aluno){
-                Aluno aluno = (Aluno)user;
+            if (user instanceof Aluno) {
+                Aluno aluno = (Aluno) user;
                 this.tfCursoUsu.setEnabled(true);
                 this.tfMatriculaUsu.setEnabled(true);
                 String nome = aluno.getNome();
                 String cpf = aluno.getCpf();
                 String telefone = aluno.getTelefone();
-                String endereco =aluno.getEndereco();
+                String endereco = aluno.getEndereco();
                 String senha = aluno.getSenha();
                 String nascimento = aluno.getNascimento();
                 String curso = aluno.getCurso();
@@ -517,14 +532,13 @@ public class TelaCadastroUsuario extends javax.swing.JInternalFrame {
                 tfCargoUsu.setEnabled(false);
                 tfpagamentoUsu.setEnabled(false);
 
-            }
-            else if ( user instanceof Professor){
-                Professor professor = (Professor)user;
+            } else if (user instanceof Professor) {
+                Professor professor = (Professor) user;
                 this.tfdepartamentoUsu.setEnabled(true);
                 String nome = professor.getNome();
                 String cpf = professor.getCpf();
                 String telefone = professor.getTelefone();
-                String endereco =professor.getEndereco();
+                String endereco = professor.getEndereco();
                 String senha = professor.getSenha();
                 String nascimento = professor.getNascimento();
                 String departamento = professor.getDepartamento();
@@ -542,14 +556,13 @@ public class TelaCadastroUsuario extends javax.swing.JInternalFrame {
                 tfCursoUsu.setEnabled(false);
                 tfMatriculaUsu.setEnabled(false);
 
-            }
-            else if (user instanceof Funcionario){
-                Funcionario funcionario = (Funcionario)user;
+            } else if (user instanceof Funcionario) {
+                Funcionario funcionario = (Funcionario) user;
                 this.tfCargoUsu.setEnabled(true);
                 String nome = funcionario.getNome();
                 String cpf = funcionario.getCpf();
                 String telefone = funcionario.getTelefone();
-                String endereco =funcionario.getEndereco();
+                String endereco = funcionario.getEndereco();
                 String senha = funcionario.getSenha();
                 String nascimento = funcionario.getNascimento();
                 String cargo = funcionario.getCargo();
@@ -567,14 +580,13 @@ public class TelaCadastroUsuario extends javax.swing.JInternalFrame {
                 tfCursoUsu.setEnabled(false);
                 tfMatriculaUsu.setEnabled(false);
 
-            }
-            else if (user instanceof UserExterno){
+            } else if (user instanceof UserExterno) {
                 UserExterno externo = (UserExterno) user;
                 this.tfpagamentoUsu.setEnabled(true);
                 String nome = externo.getNome();
                 String cpf = externo.getCpf();
                 String telefone = externo.getTelefone();
-                String endereco =externo.getEndereco();
+                String endereco = externo.getEndereco();
                 String senha = externo.getSenha();
                 String nascimento = externo.getNascimento();
                 String pagamento = externo.getMensalidade();
@@ -591,7 +603,6 @@ public class TelaCadastroUsuario extends javax.swing.JInternalFrame {
                 tfCargoUsu.setEnabled(false);
                 tfCursoUsu.setEnabled(false);
                 tfMatriculaUsu.setEnabled(false);
-            
 
             }
         }
@@ -601,29 +612,26 @@ public class TelaCadastroUsuario extends javax.swing.JInternalFrame {
     private void jCtipoUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCtipoUsuActionPerformed
         // TODO add your handling code here:
         String tipodeusuario = jCtipoUsu.getSelectedItem().toString();
-        if(tipodeusuario.equals ("Aluno")){
+        if (tipodeusuario.equals("Aluno")) {
             this.tfdepartamentoUsu.setEnabled(false);
             this.tfCargoUsu.setEnabled(false);
             this.tfpagamentoUsu.setEnabled(false);
             this.tfCursoUsu.setEnabled(true);
             this.tfMatriculaUsu.setEnabled(true);
-        }
-        else if (tipodeusuario.equals ("Professor")){
+        } else if (tipodeusuario.equals("Professor")) {
             this.tfdepartamentoUsu.setEnabled(true);
             this.tfCargoUsu.setEnabled(false);
             this.tfpagamentoUsu.setEnabled(false);
             this.tfCursoUsu.setEnabled(false);
             this.tfMatriculaUsu.setEnabled(false);
 
-        }
-        else if(tipodeusuario.equals ("Funcionário")){
+        } else if (tipodeusuario.equals("Funcionário")) {
             this.tfdepartamentoUsu.setEnabled(false);
             this.tfCargoUsu.setEnabled(true);
             this.tfpagamentoUsu.setEnabled(false);
             this.tfCursoUsu.setEnabled(false);
             this.tfMatriculaUsu.setEnabled(false);
-        }
-        else if (tipodeusuario.equals ("Externo")){
+        } else if (tipodeusuario.equals("Externo")) {
             this.tfdepartamentoUsu.setEnabled(false);
             this.tfCargoUsu.setEnabled(false);
             this.tfpagamentoUsu.setEnabled(true);
@@ -654,12 +662,11 @@ public class TelaCadastroUsuario extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         String email = tfEmailUsu.getText();
         GerenciadorUsuarios gerenciadorUsu = GerenciadorUsuarios.getInstance();
-        boolean usuarioRemover= gerenciadorUsu.removerUsuario(email);
-        if ( usuarioRemover==false){
-            JOptionPane.showMessageDialog(null,"Não encontrado!");
-        }
-        else{
-            JOptionPane.showMessageDialog(null,"Usuário removido com sucesso!");
+        boolean usuarioRemover = gerenciadorUsu.removerUsuario(email);
+        if (usuarioRemover == false) {
+            JOptionPane.showMessageDialog(null, "Não encontrado!");
+        } else {
+            JOptionPane.showMessageDialog(null, "Usuário removido com sucesso!");
 
         }
         tfEmailUsu.setText("");
@@ -678,8 +685,112 @@ public class TelaCadastroUsuario extends javax.swing.JInternalFrame {
         tfUsuStatus.setSelected(false);
     }//GEN-LAST:event_btExcluirUsuActionPerformed
 
-    private void btLimparUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLimparUsuActionPerformed
+    private void btAtualizarUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAtualizarUsuActionPerformed
         // TODO add your handling code here:
+        String email = tfEmailUsu.getText();
+        GerenciadorUsuarios gerenciadorUsu = GerenciadorUsuarios.getInstance();
+        boolean usuarioRemover = gerenciadorUsu.removerUsuario(email);
+        if (usuarioRemover == false) {
+            JOptionPane.showMessageDialog(null, "Usuário não encontrado!");
+        } else {
+            String nome = tfNomeUsu.getText();
+            if (nome.length() == 0) {
+                JOptionPane.showMessageDialog(null, "Esqueceu de digitar o nome");
+                return;
+            }
+            if (email.length() == 0) {
+                JOptionPane.showMessageDialog(null, "Email em branco");
+                return;
+            }
+            String cpf = tfCPFUsu.getText();
+            if (cpf.length() == 0) {
+                JOptionPane.showMessageDialog(null, "cpf em branco");
+                return;
+            }
+            String fone = tfFoneUsu.getText();
+            if (fone.length() == 0) {
+                JOptionPane.showMessageDialog(null, "telefone em branco");
+                return;
+            }
+            String endereco = tfEndUsu.getText();
+            if (endereco.length() == 0) {
+                JOptionPane.showMessageDialog(null, "Endereço vazio");
+                return;
+            }
+
+            String senha = tfSenhaUsu.getText();
+            if (senha.length() == 0) {
+                JOptionPane.showMessageDialog(null, "Campo senha vazio");
+                return;
+            }
+
+            String nascimento = tfDataNascUsu.getText();
+            if (nascimento.length() == 0) {
+                JOptionPane.showMessageDialog(null, "Campo data de nascimento vazio");
+                return;
+            }
+            String tipodeusuario = jCtipoUsu.getSelectedItem().toString();
+            if (tipodeusuario.equals("Aluno")) {
+                String curso = tfCursoUsu.getText();
+                if (curso.length() == 0) {
+                    JOptionPane.showMessageDialog(null, "Campo curso vazio");
+                    return;
+                }
+                String matricula = tfMatriculaUsu.getText();
+                if (matricula.length() == 0) {
+                    JOptionPane.showMessageDialog(null, "Campo matrícula vazio");
+                    return;
+                }
+                Aluno aluno1 = new Aluno(curso, matricula, senha, nome, endereco, email, fone, nascimento, cpf);
+                if (gerenciadorUsu.addUsuario(aluno1)) {
+                    JOptionPane.showMessageDialog(null, "Usuário " + nome + " adicionado com sucesso!");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Usuário já cadastrado com esse email e com esse perfil. Não foi possível editar");
+                }
+
+            } else if (tipodeusuario.equals("Professor")) {
+                String departamento = tfdepartamentoUsu.getText();
+                if (departamento.length() == 0) {
+                    JOptionPane.showMessageDialog(null, "Campo departamento vazio");
+                    return;
+                }
+
+                Professor prof1 = new Professor(departamento, senha, nome, endereco, email, fone, nascimento, cpf);
+                if (gerenciadorUsu.addUsuario(prof1)) {
+                    JOptionPane.showMessageDialog(null, "Usuário " + nome + " adicionado com sucesso!");
+
+                } else {
+                    JOptionPane.showMessageDialog(null, "Usuário já cadastrado com esse email e com esse perfil. Não foi possível editar");
+
+                }
+            } else if (tipodeusuario.equals("Funcionário")) {
+                String cargo = tfCargoUsu.getText();
+                if (cargo.length() == 0) {
+                    JOptionPane.showMessageDialog(null, "Campo cargo vazio");
+                    return;
+                }
+                Funcionario func1 = new Funcionario(cargo, senha, nome, endereco, email, fone, nascimento, cpf);
+                if (gerenciadorUsu.addUsuario(func1)) {
+                    JOptionPane.showMessageDialog(null, "Usuário " + nome + " adicionado com sucesso!");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Usuário já cadastrado com esse email e com esse perfil. Não foi possível editar");
+
+                }
+            } else if (tipodeusuario.equals("Externo")) {
+                String pagamento = tfpagamentoUsu.getText();
+                if (pagamento.length() == 0) {
+                    JOptionPane.showMessageDialog(null, "Campo pagamento vazio");
+                    return;
+                }
+                UserExterno externo1 = new UserExterno(senha, nome, endereco, email, fone, nascimento, cpf, pagamento);
+                if (gerenciadorUsu.addUsuario(externo1)) {
+                    JOptionPane.showMessageDialog(null, "Usuário " + nome + " adicionado com sucesso!");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Usuário já cadastrado com esse email e com esse perfil. Não foi possível editar");
+                }
+            }
+        }
+
         tfEmailUsu.setText("");
         tfNomeUsu.setText("");
         tfFoneUsu.setText("");
@@ -694,118 +805,112 @@ public class TelaCadastroUsuario extends javax.swing.JInternalFrame {
         tfCargoUsu.setText("");
         jCtipoUsu.setSelectedItem("");
         tfUsuStatus.setSelected(false);
-    }//GEN-LAST:event_btLimparUsuActionPerformed
+    }//GEN-LAST:event_btAtualizarUsuActionPerformed
 
     private void btSalvarUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarUsuActionPerformed
         // TODO add your handling code here:
         String nome = tfNomeUsu.getText();
-        if(nome.length() == 0) {
-            JOptionPane.showMessageDialog(null,"Esqueceu de digitar o nome");
+        if (nome.length() == 0) {
+            JOptionPane.showMessageDialog(null, "Esqueceu de digitar o nome");
             return;
         }
         String email = tfEmailUsu.getText();
-        if (email.length()==0){
+        if (email.length() == 0) {
             JOptionPane.showMessageDialog(null, "Email em branco");
             return;
         }
         String cpf = tfCPFUsu.getText();
-        if (cpf.length()==0){
-            JOptionPane.showMessageDialog(null,"cpf em branco");
+        if (cpf.length() == 0) {
+            JOptionPane.showMessageDialog(null, "cpf em branco");
             return;
         }
         String fone = tfFoneUsu.getText();
-        if(fone.length()==0){
-            JOptionPane.showMessageDialog(null,"telefone em branco");
+        if (fone.length() == 0) {
+            JOptionPane.showMessageDialog(null, "telefone em branco");
             return;
         }
         String endereco = tfEndUsu.getText();
-        if(endereco.length()==0){
-            JOptionPane.showMessageDialog(null,"Endereço vazio");
+        if (endereco.length() == 0) {
+            JOptionPane.showMessageDialog(null, "Endereço vazio");
             return;
         }
 
         String senha = tfSenhaUsu.getText();
-        if (senha.length()==0){
-            JOptionPane.showMessageDialog(null,"Campo senha vazio");
+        if (senha.length() == 0) {
+            JOptionPane.showMessageDialog(null, "Campo senha vazio");
             return;
         }
 
         String nascimento = tfDataNascUsu.getText();
-        if (nascimento.length()==0){
-            JOptionPane.showMessageDialog(null,"Campo data de nascimento vazio");
+        if (nascimento.length() == 0) {
+            JOptionPane.showMessageDialog(null, "Campo data de nascimento vazio");
             return;
         }
         String tipodeusuario = jCtipoUsu.getSelectedItem().toString();
-        if(tipodeusuario.equals ("Aluno")){
+        if (tipodeusuario.equals("Aluno")) {
             String curso = tfCursoUsu.getText();
-            if (curso.length()==0){
-                JOptionPane.showMessageDialog(null,"Campo curso vazio");
+            if (curso.length() == 0) {
+                JOptionPane.showMessageDialog(null, "Campo curso vazio");
                 return;
             }
             String matricula = tfMatriculaUsu.getText();
-            if (matricula.length()==0){
-                JOptionPane.showMessageDialog(null,"Campo matrícula vazio");
+            if (matricula.length() == 0) {
+                JOptionPane.showMessageDialog(null, "Campo matrícula vazio");
                 return;
             }
-            Aluno aluno1 = new Aluno (curso,matricula,senha,nome,endereco,email,fone,nascimento,cpf);
+            Aluno aluno1 = new Aluno(curso, matricula, senha, nome, endereco, email, fone, nascimento, cpf);
             GerenciadorUsuarios gerenciadorUsu = GerenciadorUsuarios.getInstance();
-            if(gerenciadorUsu.addUsuario(aluno1)){
-                JOptionPane.showMessageDialog(null,"Usuário " + nome + " adicionado com sucesso!");
-            }
-            else{
-                JOptionPane.showMessageDialog(null,"Aluno já cadastrado com esse email");
+            if (gerenciadorUsu.addUsuario(aluno1)) {
+                JOptionPane.showMessageDialog(null, "Usuário " + nome + " adicionado com sucesso!");
+            } else {
+                JOptionPane.showMessageDialog(null, "Aluno já cadastrado com esse email");
             }
 
-        }
-        else if (tipodeusuario.equals ("Professor")){
+        } else if (tipodeusuario.equals("Professor")) {
             String departamento = tfdepartamentoUsu.getText();
-            if (departamento.length()==0){
-                JOptionPane.showMessageDialog(null,"Campo departamento vazio");
+            if (departamento.length() == 0) {
+                JOptionPane.showMessageDialog(null, "Campo departamento vazio");
                 return;
             }
-            
-            Professor prof1 = new Professor (departamento,senha,nome,endereco,email,fone,nascimento,cpf);
+
+            Professor prof1 = new Professor(departamento, senha, nome, endereco, email, fone, nascimento, cpf);
             GerenciadorUsuarios gerenciadorUsu = GerenciadorUsuarios.getInstance();
-            if (gerenciadorUsu.addUsuario(prof1)){
-                JOptionPane.showMessageDialog(null,"Usuário " + nome + " adicionado com sucesso!");
+            if (gerenciadorUsu.addUsuario(prof1)) {
+                JOptionPane.showMessageDialog(null, "Usuário " + nome + " adicionado com sucesso!");
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Professor já cadastrado com esse email");
 
             }
-            else{
-                JOptionPane.showMessageDialog(null,"Professor já cadastrado com esse email");
-
-            }
-        }
-        else if (tipodeusuario.equals ("Funcionário")){
+        } else if (tipodeusuario.equals("Funcionário")) {
             String cargo = tfCargoUsu.getText();
-            if (cargo.length()==0){
-                JOptionPane.showMessageDialog(null,"Campo cargo vazio");
+            if (cargo.length() == 0) {
+                JOptionPane.showMessageDialog(null, "Campo cargo vazio");
                 return;
             }
-            Funcionario func1 = new Funcionario (cargo,senha,nome,endereco,email,fone,nascimento,cpf);
+            Funcionario func1 = new Funcionario(cargo, senha, nome, endereco, email, fone, nascimento, cpf);
             GerenciadorUsuarios gerenciadorUsu = GerenciadorUsuarios.getInstance();
-            if (gerenciadorUsu.addUsuario(func1)){
-                JOptionPane.showMessageDialog(null,"Usuário " + nome + " adicionado com sucesso!");
-            }
-            else{
-                JOptionPane.showMessageDialog(null,"Funcionário já cadastrado com esse email");
+            if (gerenciadorUsu.addUsuario(func1)) {
+                JOptionPane.showMessageDialog(null, "Usuário " + nome + " adicionado com sucesso!");
+            } else {
+                JOptionPane.showMessageDialog(null, "Funcionário já cadastrado com esse email");
 
             }
-        }
-        else if (tipodeusuario.equals ("Externo")){
+        } else if (tipodeusuario.equals("Externo")) {
             String pagamento = tfpagamentoUsu.getText();
-            if (pagamento.length()==0){
-                JOptionPane.showMessageDialog(null,"Campo pagamento vazio");
+            if (pagamento.length() == 0) {
+                JOptionPane.showMessageDialog(null, "Campo pagamento vazio");
                 return;
             }
-            UserExterno externo1 = new UserExterno (senha,nome,endereco,email,fone,nascimento,cpf,pagamento);
+            UserExterno externo1 = new UserExterno(senha, nome, endereco, email, fone, nascimento, cpf, pagamento);
             GerenciadorUsuarios gerenciadorUsu = GerenciadorUsuarios.getInstance();
-            if (gerenciadorUsu.addUsuario(externo1)){
-                JOptionPane.showMessageDialog(null,"Usuário " + nome + " adicionado com sucesso!");
-            }
-            else{
-                JOptionPane.showMessageDialog(null,"Usuário já cadastrado com esse email");
+            if (gerenciadorUsu.addUsuario(externo1)) {
+                JOptionPane.showMessageDialog(null, "Usuário " + nome + " adicionado com sucesso!");
+            } else {
+                JOptionPane.showMessageDialog(null, "Usuário já cadastrado com esse email");
             }
         }
+        
 
         tfEmailUsu.setText("");
         tfNomeUsu.setText("");
@@ -843,11 +948,31 @@ public class TelaCadastroUsuario extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tfpagamentoUsuActionPerformed
 
+    private void btLimparUsoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLimparUsoActionPerformed
+        // TODO add your handling code here:
+        tfEmailUsu.setText("");
+        tfNomeUsu.setText("");
+        tfFoneUsu.setText("");
+        tfSenhaUsu.setText("");
+        tfCPFUsu.setText("");
+        tfDataNascUsu.setText("");
+        tfEndUsu.setText("");
+        tfCursoUsu.setText("");
+        tfMatriculaUsu.setText("");
+        tfdepartamentoUsu.setText("");
+        tfpagamentoUsu.setText("");
+        tfCargoUsu.setText("");
+        jCtipoUsu.setSelectedItem("");
+        tfUsuStatus.setSelected(false);
+
+    }//GEN-LAST:event_btLimparUsoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btAtualizarUsu;
     private javax.swing.JButton btBuscarUsu;
     private javax.swing.JButton btExcluirUsu;
-    private javax.swing.JButton btLimparUsu;
+    private javax.swing.JButton btLimparUso;
     private javax.swing.JButton btSalvarUsu;
     private javax.swing.JComboBox<String> jCtipoUsu;
     private javax.swing.JPanel jPBotoes;
