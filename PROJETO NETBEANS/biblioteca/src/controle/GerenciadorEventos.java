@@ -14,7 +14,6 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import modelo.Espaco;
 import modelo.Evento;
 
 public class GerenciadorEventos {
@@ -186,7 +185,7 @@ public class GerenciadorEventos {
             FileReader acessaArq = new FileReader("evento.txt");
             BufferedReader leiaArq = new BufferedReader(acessaArq);
             String linha = leiaArq.readLine();
-            FileWriter relatorioEvt = new FileWriter("relatorio.txt");
+            FileWriter relatorioEvt = new FileWriter("rel_eventos.txt");
             PrintWriter relatorio = new PrintWriter(relatorioEvt);
                       
             relatorio.println("---------------------  MORAIS LIBRARY  --------------------");
@@ -220,7 +219,8 @@ public class GerenciadorEventos {
             return "Não existem eventos cadastrados!";
                     
         }
-        return "Relatório gerado com sucesso!";
+        return "Arquivo de relatório gerado com sucesso!\n"
+              +"» rel_eventos.txt";
        
     }
     

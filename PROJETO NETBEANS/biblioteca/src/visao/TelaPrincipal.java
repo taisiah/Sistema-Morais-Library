@@ -2,6 +2,7 @@
 package visao;
 
 import controle.GerenciadorEventos;
+import controle.GerenciadorFichas;
 import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -29,6 +30,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         menuLivFicha = new javax.swing.JMenuItem();
         menuSolicitarFicha = new javax.swing.JMenuItem();
         menuReservaLivro = new javax.swing.JMenuItem();
+        menuAlugarLivro = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         menuEvtCadastro = new javax.swing.JMenuItem();
         menuEvtImportar = new javax.swing.JMenuItem();
@@ -37,12 +39,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
         menuEspReserva = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
         menuRelAgenda = new javax.swing.JMenuItem();
-        menuSobre = new javax.swing.JMenu();
+        menuFichasCadastradas = new javax.swing.JMenuItem();
+        Ajuda = new javax.swing.JMenu();
+        menuSobre = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Morais Library - Principal");
         setExtendedState(6);
-        setPreferredSize(new java.awt.Dimension(800, 600));
 
         javax.swing.GroupLayout painelPrincipalLayout = new javax.swing.GroupLayout(painelPrincipal);
         painelPrincipal.setLayout(painelPrincipalLayout);
@@ -113,6 +116,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jMenu4.add(menuReservaLivro);
 
+        menuAlugarLivro.setText("Alugar Livro");
+        menuAlugarLivro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuAlugarLivroActionPerformed(evt);
+            }
+        });
+        jMenu4.add(menuAlugarLivro);
+
         jMenuBar1.add(jMenu4);
 
         jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/today-16.png"))); // NOI18N
@@ -148,6 +159,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenu3.add(menuEspCadastro);
 
         menuEspReserva.setText("Reserva Espaço");
+        menuEspReserva.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuEspReservaActionPerformed(evt);
+            }
+        });
         jMenu3.add(menuEspReserva);
 
         jMenuBar1.add(jMenu3);
@@ -163,11 +179,28 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jMenu5.add(menuRelAgenda);
 
+        menuFichasCadastradas.setText("Fichas Cadastradas");
+        menuFichasCadastradas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuFichasCadastradasActionPerformed(evt);
+            }
+        });
+        jMenu5.add(menuFichasCadastradas);
+
         jMenuBar1.add(jMenu5);
 
-        menuSobre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/info-5-16.png"))); // NOI18N
+        Ajuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/info-5-16.png"))); // NOI18N
+        Ajuda.setText("Ajuda");
+
         menuSobre.setText("Sobre");
-        jMenuBar1.add(menuSobre);
+        menuSobre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuSobreActionPerformed(evt);
+            }
+        });
+        Ajuda.add(menuSobre);
+
+        jMenuBar1.add(Ajuda);
 
         setJMenuBar(jMenuBar1);
 
@@ -226,8 +259,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         painelPrincipal.add(tlCadEventos);
         tlCadEventos.setVisible(true);
         
-        
-        
     }//GEN-LAST:event_menuEvtCadastroActionPerformed
 
     private void menuLivCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuLivCadastroActionPerformed
@@ -274,6 +305,37 @@ public class TelaPrincipal extends javax.swing.JFrame {
        }
     }//GEN-LAST:event_menuUsuImportarActionPerformed
 
+    private void menuAlugarLivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuAlugarLivroActionPerformed
+        // TODO add your handling code here:
+        TelaAlugaLivro tlAlgLivro = new TelaAlugaLivro();
+        painelPrincipal.add(tlAlgLivro);
+        tlAlgLivro.setVisible(true);
+    }//GEN-LAST:event_menuAlugarLivroActionPerformed
+
+    private void menuFichasCadastradasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuFichasCadastradasActionPerformed
+        // TODO add your handling code here:
+        GerenciadorFichas gerenciadorFch = GerenciadorFichas.getInstance();
+        try {
+            JOptionPane.showMessageDialog(null, gerenciadorFch.relatorioFichas());
+
+        } catch (IOException ex) {
+            Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+    }//GEN-LAST:event_menuFichasCadastradasActionPerformed
+
+    private void menuEspReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuEspReservaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menuEspReservaActionPerformed
+
+    private void menuSobreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuSobreActionPerformed
+        // TODO add your handling code here:
+        TelaSobre tlSobre = new TelaSobre();
+        painelPrincipal.add(tlSobre);
+        tlSobre.setVisible(true);
+    }//GEN-LAST:event_menuSobreActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -312,21 +374,24 @@ public class TelaPrincipal extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu Ajuda;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem menuAlugarLivro;
     private javax.swing.JMenuItem menuEspCadastro;
     private javax.swing.JMenuItem menuEspReserva;
     private javax.swing.JMenuItem menuEvtCadastro;
     private javax.swing.JMenuItem menuEvtImportar;
+    private javax.swing.JMenuItem menuFichasCadastradas;
     private javax.swing.JMenuItem menuLivCadastro;
     private javax.swing.JMenuItem menuLivFicha;
     private javax.swing.JMenuItem menuRelAgenda;
     private javax.swing.JMenuItem menuReservaLivro;
-    private javax.swing.JMenu menuSobre;
+    private javax.swing.JMenuItem menuSobre;
     private javax.swing.JMenuItem menuSolicitarFicha;
     private javax.swing.JMenuItem menuUsuCadastro;
     private javax.swing.JMenuItem menuUsuImportar;

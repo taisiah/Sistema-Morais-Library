@@ -1,18 +1,16 @@
 package visao;
 
 import com.sun.xml.internal.ws.util.StringUtils;
-import controle.GerenciadorLivros;
+import controle.GerenciadorFichas;
 import javax.swing.JOptionPane;
-import modelo.Livro;
+import modelo.Ficha;
 
 
 public class TelaFicha extends javax.swing.JInternalFrame {
-
     
     public TelaFicha() {
         initComponents();
     }
-
  
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -59,7 +57,7 @@ public class TelaFicha extends javax.swing.JInternalFrame {
         lbAutorFicha.setText("AUTOR");
 
         lbIsbn.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        lbIsbn.setText("ISBN");
+        lbIsbn.setText("Orientador:");
 
         txDadosLivro.setEditable(false);
         txDadosLivro.setColumns(20);
@@ -171,25 +169,27 @@ public class TelaFicha extends javax.swing.JInternalFrame {
     private void btBuscarLivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBuscarLivroActionPerformed
         // TODO add your handling code here:
         String titulo = tfTitulo.getText();
-        GerenciadorLivros gerenciadorLiv = GerenciadorLivros.getInstance();
-        Livro liv = gerenciadorLiv.buscarLivro(titulo);      
 
-        if (liv == null){
-            JOptionPane.showMessageDialog(null,"Livro não encontrado!");
-            
+        GerenciadorFichas gerenciadorFch = GerenciadorFichas.getInstance();
+        Ficha fch = gerenciadorFch.buscarFicha(titulo);
+
+        if (fch == null){
+            JOptionPane.showMessageDialog(null,"Ficha não encontrada!");
+
         } else{
-            
-            tfTitulo.setText(liv.getTitulo());
-            lbAutorFicha.setText(liv.getAutor());
-            String[] nomes = liv.getAutor().split(",");
+
+            tfTitulo.setText(fch.getTitulo());
+            lbAutorFicha.setText(fch.getAutor());
+            String[] nomes = fch.getAutor().split(",");
             String nomeNormal = nomes[1]+" "+ StringUtils.capitalize(nomes[0].toLowerCase());
-            txDadosLivro.setText(liv.getTitulo()+ " - " + nomeNormal + " - " + liv.getCidade()
-                    + "/" + liv.getUf()+ " - " + liv.getEditora()+"."+liv.getAno());
-            
-            lbNumIsbn.setText(liv.getIsbn());
-            lbDadosAssuntos.setText(liv.getCategoria()+", "+liv.getTematica()); 
+            txDadosLivro.setText(fch.getTitulo()+ " - " + nomeNormal + " - " + fch.getCidade()
+                + "/" + fch.getUf()+ " - " + fch.getUniversidade()+"."+fch.getAno());
+
+            lbNumIsbn.setText(fch.getOrientador());
+            lbDadosAssuntos.setText(fch.getAssunto1()+" - "+fch.getAssunto2()+" - "+fch.getAssunto3()
+                +" I.Título" + " II."+fch.getUniversidade()+" - "+fch.getCidade()+" "+fch.getUf());
         }
-        
+
     }//GEN-LAST:event_btBuscarLivroActionPerformed
 
 
