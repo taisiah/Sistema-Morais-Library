@@ -200,15 +200,13 @@ public class GerenciadorUsuarios {
 
     public boolean removerUsuario(String email) {
         Usuario u = buscarUsuario(email);
-
+        boolean removeu = false;
         if (u instanceof Professor) {
             File file = new File("usu_professores.txt");
             for (int i = 0; i < listaProfessores.size(); i++) {
                 if (listaProfessores.get(i).getEmail().equals(email)) {
                     listaProfessores.remove(i);
-                    file.delete();
-                    System.out.println(listaProfessores);
-                    return true;
+                    removeu = true;
                 }
             }
             if (!listaProfessores.isEmpty()) {
@@ -239,7 +237,7 @@ public class GerenciadorUsuarios {
             for (int i = 0; i < listaAlunos.size(); i++) {
                 if (listaAlunos.get(i).getEmail().equals(email)) {
                     listaAlunos.remove(i);
-                    return true;
+                    removeu = true;
                 }
             }
             if (!listaAlunos.isEmpty()) {
@@ -271,7 +269,7 @@ public class GerenciadorUsuarios {
             for (int i = 0; i < listaFuncionarios.size(); i++) {
                 if (listaFuncionarios.get(i).getEmail().equals(email)) {
                     listaFuncionarios.remove(i);
-                    return true;
+                    removeu = true;               
                 }
             }
             if (!listaFuncionarios.isEmpty()) {
@@ -302,7 +300,7 @@ public class GerenciadorUsuarios {
             for (int i = 0; i < listaUserExternos.size(); i++) {
                 if (listaUserExternos.get(i).getEmail().equals(email)) {
                     listaUserExternos.remove(i);
-                    return true;
+                    removeu = true;                
                 }
             }
             if (!listaUserExternos.isEmpty()) {
@@ -327,7 +325,7 @@ public class GerenciadorUsuarios {
                 }
             }
         }
-        return false;
+        return removeu;
 
     }
 
