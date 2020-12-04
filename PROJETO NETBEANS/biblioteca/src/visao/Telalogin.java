@@ -204,8 +204,8 @@ public class Telalogin extends javax.swing.JFrame {
         }
         //</editor-fold>
         GerenciadorUsuarios grUsuario = GerenciadorUsuarios.getInstance() ;
-        Funcionario u_inicial = new Funcionario("bibliotecario","123", "Taisia", "rua teste","taisia@taisia.com", "111111111","03/11/1989","11111111111");
-        grUsuario.addUsuario(u_inicial);
+        //Funcionario u_inicial = new Funcionario("bibliotecario","123", "Taisia", "rua teste","taisia@taisia.com", "111111111","03/11/1989","11111111111");
+        //grUsuario.addUsuario(u_inicial);
         grUsuario.importInicio();
         GerenciadorReservaEspaco gre = GerenciadorReservaEspaco.getInstance();
         gre.importarReservasEspacosInicio();

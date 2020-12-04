@@ -25,7 +25,8 @@ public class TelaCadastroUsuario extends javax.swing.JInternalFrame {
     public TelaCadastroUsuario() {
         initComponents();
         jCtipoUsu.setSelectedItem("");
-
+        btAtualizarUsu.setEnabled(false);
+        btExcluirUsu.setEnabled(false);
     }
 
     /**
@@ -50,7 +51,6 @@ public class TelaCadastroUsuario extends javax.swing.JInternalFrame {
         lbFoneUsu = new javax.swing.JLabel();
         lbEmailUsu = new javax.swing.JLabel();
         lbCPFUsu = new javax.swing.JLabel();
-        lbStatusUsu = new javax.swing.JLabel();
         lbTipoUsu = new javax.swing.JLabel();
         jCtipoUsu = new javax.swing.JComboBox<>();
         tfEmailUsu = new javax.swing.JTextField();
@@ -58,7 +58,6 @@ public class TelaCadastroUsuario extends javax.swing.JInternalFrame {
         tfDataNascUsu = new javax.swing.JFormattedTextField();
         tfFoneUsu = new javax.swing.JFormattedTextField();
         tfSenhaUsu = new javax.swing.JPasswordField();
-        tfUsuStatus = new javax.swing.JRadioButton();
         jPBotoes = new javax.swing.JPanel();
         btExcluirUsu = new javax.swing.JButton();
         btAtualizarUsu = new javax.swing.JButton();
@@ -118,9 +117,6 @@ public class TelaCadastroUsuario extends javax.swing.JInternalFrame {
         lbCPFUsu.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         lbCPFUsu.setText("CPF:");
 
-        lbStatusUsu.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        lbStatusUsu.setText("Status:");
-
         lbTipoUsu.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         lbTipoUsu.setText("Tipo:");
 
@@ -170,8 +166,6 @@ public class TelaCadastroUsuario extends javax.swing.JInternalFrame {
             }
         });
 
-        tfUsuStatus.setText("ATIVO");
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -215,14 +209,10 @@ public class TelaCadastroUsuario extends javax.swing.JInternalFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btBuscarUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(tfNomeUsu, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                                 .addGap(1, 1, 1)
                                 .addComponent(tfSenhaUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lbStatusUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(tfUsuStatus)
-                                .addGap(77, 77, 77)))))
+                                .addGap(134, 134, 134)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -258,9 +248,7 @@ public class TelaCadastroUsuario extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbSenhaoUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbStatusUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfSenhaUsu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfUsuStatus))
+                    .addComponent(tfSenhaUsu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(37, Short.MAX_VALUE))
         );
 
@@ -505,6 +493,8 @@ public class TelaCadastroUsuario extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Não encontrado!");
 
         } else {
+            btAtualizarUsu.setEnabled(true);
+            btExcluirUsu.setEnabled(true);
             String tipodeusuario = jCtipoUsu.getSelectedItem().toString();
             if (user instanceof Aluno) {
                 Aluno aluno = (Aluno) user;
@@ -526,7 +516,6 @@ public class TelaCadastroUsuario extends javax.swing.JInternalFrame {
                 tfCursoUsu.setText(curso);
                 tfMatriculaUsu.setText(matricula);
                 tfEndUsu.setText(endereco);
-                tfUsuStatus.setSelected(true);
                 jCtipoUsu.setSelectedItem("Aluno");
                 tfdepartamentoUsu.setEnabled(false);
                 tfCargoUsu.setEnabled(false);
@@ -550,7 +539,6 @@ public class TelaCadastroUsuario extends javax.swing.JInternalFrame {
                 tfdepartamentoUsu.setText(departamento);
                 tfEndUsu.setText(endereco);
                 jCtipoUsu.setSelectedItem("Professor");
-                tfUsuStatus.setSelected(true);
                 tfCargoUsu.setEnabled(false);
                 tfpagamentoUsu.setEnabled(false);
                 tfCursoUsu.setEnabled(false);
@@ -573,8 +561,7 @@ public class TelaCadastroUsuario extends javax.swing.JInternalFrame {
                 tfDataNascUsu.setText(nascimento);
                 tfCargoUsu.setText(cargo);
                 tfEndUsu.setText(endereco);
-                jCtipoUsu.setSelectedItem("Funcionario");
-                tfUsuStatus.setSelected(true);
+                jCtipoUsu.setSelectedItem("Funcionário");
                 tfdepartamentoUsu.setEnabled(false);
                 tfpagamentoUsu.setEnabled(false);
                 tfCursoUsu.setEnabled(false);
@@ -598,7 +585,6 @@ public class TelaCadastroUsuario extends javax.swing.JInternalFrame {
                 tfpagamentoUsu.setText(pagamento);
                 tfEndUsu.setText(endereco);
                 jCtipoUsu.setSelectedItem("Externo");
-                tfUsuStatus.setSelected(true);
                 tfdepartamentoUsu.setEnabled(false);
                 tfCargoUsu.setEnabled(false);
                 tfCursoUsu.setEnabled(false);
@@ -660,6 +646,8 @@ public class TelaCadastroUsuario extends javax.swing.JInternalFrame {
 
     private void btExcluirUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btExcluirUsuActionPerformed
         // TODO add your handling code here:
+        btExcluirUsu.setEnabled(false);
+        btAtualizarUsu.setEnabled(false);
         String email = tfEmailUsu.getText();
         GerenciadorUsuarios gerenciadorUsu = GerenciadorUsuarios.getInstance();
         boolean usuarioRemover = gerenciadorUsu.removerUsuario(email);
@@ -682,11 +670,12 @@ public class TelaCadastroUsuario extends javax.swing.JInternalFrame {
         tfpagamentoUsu.setText("");
         tfCargoUsu.setText("");
         jCtipoUsu.setSelectedItem("");
-        tfUsuStatus.setSelected(false);
     }//GEN-LAST:event_btExcluirUsuActionPerformed
 
     private void btAtualizarUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAtualizarUsuActionPerformed
         // TODO add your handling code here:
+        btAtualizarUsu.setEnabled(false);
+        btExcluirUsu.setEnabled(false);
         String email = tfEmailUsu.getText();
         GerenciadorUsuarios gerenciadorUsu = GerenciadorUsuarios.getInstance();
         boolean usuarioRemover = gerenciadorUsu.removerUsuario(email);
@@ -743,7 +732,7 @@ public class TelaCadastroUsuario extends javax.swing.JInternalFrame {
                 }
                 Aluno aluno1 = new Aluno(curso, matricula, senha, nome, endereco, email, fone, nascimento, cpf);
                 if (gerenciadorUsu.addUsuario(aluno1)) {
-                    JOptionPane.showMessageDialog(null, "Usuário " + nome + " adicionado com sucesso!");
+                    JOptionPane.showMessageDialog(null, "Usuário " + nome + " atualizado com sucesso!");
                 } else {
                     JOptionPane.showMessageDialog(null, "Usuário já cadastrado com esse email e com esse perfil. Não foi possível editar");
                 }
@@ -757,7 +746,7 @@ public class TelaCadastroUsuario extends javax.swing.JInternalFrame {
 
                 Professor prof1 = new Professor(departamento, senha, nome, endereco, email, fone, nascimento, cpf);
                 if (gerenciadorUsu.addUsuario(prof1)) {
-                    JOptionPane.showMessageDialog(null, "Usuário " + nome + " adicionado com sucesso!");
+                    JOptionPane.showMessageDialog(null, "Usuário " + nome + " atualizado com sucesso!");
 
                 } else {
                     JOptionPane.showMessageDialog(null, "Usuário já cadastrado com esse email e com esse perfil. Não foi possível editar");
@@ -771,7 +760,7 @@ public class TelaCadastroUsuario extends javax.swing.JInternalFrame {
                 }
                 Funcionario func1 = new Funcionario(cargo, senha, nome, endereco, email, fone, nascimento, cpf);
                 if (gerenciadorUsu.addUsuario(func1)) {
-                    JOptionPane.showMessageDialog(null, "Usuário " + nome + " adicionado com sucesso!");
+                    JOptionPane.showMessageDialog(null, "Usuário " + nome + " atualizado com sucesso!");
                 } else {
                     JOptionPane.showMessageDialog(null, "Usuário já cadastrado com esse email e com esse perfil. Não foi possível editar");
 
@@ -784,7 +773,7 @@ public class TelaCadastroUsuario extends javax.swing.JInternalFrame {
                 }
                 UserExterno externo1 = new UserExterno(senha, nome, endereco, email, fone, nascimento, cpf, pagamento);
                 if (gerenciadorUsu.addUsuario(externo1)) {
-                    JOptionPane.showMessageDialog(null, "Usuário " + nome + " adicionado com sucesso!");
+                    JOptionPane.showMessageDialog(null, "Usuário " + nome + " atualizado com sucesso!");
                 } else {
                     JOptionPane.showMessageDialog(null, "Usuário já cadastrado com esse email e com esse perfil. Não foi possível editar");
                 }
@@ -804,7 +793,6 @@ public class TelaCadastroUsuario extends javax.swing.JInternalFrame {
         tfpagamentoUsu.setText("");
         tfCargoUsu.setText("");
         jCtipoUsu.setSelectedItem("");
-        tfUsuStatus.setSelected(false);
     }//GEN-LAST:event_btAtualizarUsuActionPerformed
 
     private void btSalvarUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarUsuActionPerformed
@@ -925,7 +913,6 @@ public class TelaCadastroUsuario extends javax.swing.JInternalFrame {
         tfpagamentoUsu.setText("");
         tfCargoUsu.setText("");
         jCtipoUsu.setSelectedItem("");
-        tfUsuStatus.setSelected(false);
     }//GEN-LAST:event_btSalvarUsuActionPerformed
 
     private void tfCursoUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfCursoUsuActionPerformed
@@ -963,8 +950,8 @@ public class TelaCadastroUsuario extends javax.swing.JInternalFrame {
         tfpagamentoUsu.setText("");
         tfCargoUsu.setText("");
         jCtipoUsu.setSelectedItem("");
-        tfUsuStatus.setSelected(false);
-
+        btAtualizarUsu.setEnabled(false);
+        btExcluirUsu.setEnabled(false);
     }//GEN-LAST:event_btLimparUsoActionPerformed
 
 
@@ -991,7 +978,6 @@ public class TelaCadastroUsuario extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lbNomeUsu;
     private javax.swing.JLabel lbPagamentoUsu;
     private javax.swing.JLabel lbSenhaoUsu;
-    private javax.swing.JLabel lbStatusUsu;
     private javax.swing.JLabel lbTipoUsu;
     private javax.swing.JLabel lbTituloCadastroUsu;
     private javax.swing.JTextField tfCPFUsu;
@@ -1004,7 +990,6 @@ public class TelaCadastroUsuario extends javax.swing.JInternalFrame {
     private javax.swing.JTextField tfMatriculaUsu;
     private javax.swing.JTextField tfNomeUsu;
     private javax.swing.JPasswordField tfSenhaUsu;
-    private javax.swing.JRadioButton tfUsuStatus;
     private javax.swing.JTextField tfdepartamentoUsu;
     private javax.swing.JTextField tfpagamentoUsu;
     // End of variables declaration//GEN-END:variables

@@ -17,7 +17,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         initComponents();
         GerenciadorUsuarios gr = GerenciadorUsuarios.getInstance();
         String tipoUser = gr.getTipoUsuario();
-        System.out.println(tipoUser);
         if (tipoUser.equals("Aluno")){
             menuUsuCadastro.setEnabled(false);
             menuUsuImportar.setEnabled(false);
